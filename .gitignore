@@ -6,6 +6,9 @@
 *.key
 credentials*.json
 
+# Claude Code — configurações locais
+.claude/
+
 # Sistema
 .DS_Store
 node_modules/

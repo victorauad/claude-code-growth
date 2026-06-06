@@ -1,8 +1,0 @@
-# Esta pasta é onde suas skills REAIS vão morar.
-#
-# Cada skill é uma subpasta com um arquivo SKILL.md dentro:
-#   .claude/skills/relatorio-pipeline/SKILL.md
-#   .claude/skills/relatorio-ttv/SKILL.md
-#
-# Veja o exemplo pronto em: 05-templates/skill-exemplo/SKILL.md
-# Copie ele pra cá quando quiser ativar sua primeira skill.
