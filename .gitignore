@@ -6,8 +6,8 @@
 *.key
 credentials*.json
 
-# Claude Code — configurações locais
-.claude/
+# Claude Code — só ignora configurações pessoais, não as skills do projeto
+.claude/settings.local.json
 
 # Sistema
 .DS_Store
