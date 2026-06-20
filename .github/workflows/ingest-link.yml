@@ -2,12 +2,12 @@ name: Ingest Link
 
 on:
   issues:
-    types: [opened, labeled]
+    types: [labeled]
 
 jobs:
   ingest:
-    # Só roda se a issue tiver a label "add-link"
-    if: contains(github.event.issue.labels.*.name, 'add-link')
+    # Só roda quando a label "add-link" é aplicada (evita duplo trigger com opened)
+    if: github.event.label.name == 'add-link'
     runs-on: ubuntu-latest
 
     permissions:
@@ -41,12 +41,17 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: python scripts/ingest.py
 
+      - name: Rebuild site
+        run: python scripts/build-site.py
+
       - name: Commit new file
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add 07-inbox/
-          git diff --staged --quiet || git commit -m "feat: ingest link from issue #${{ github.event.issue.number }}"
+          git add 07-inbox/ docs/
+          git diff --staged --quiet && echo "Nada para commitar" && exit 0
+          git commit -m "feat: ingest link from issue #${{ github.event.issue.number }}"
+          git pull --rebase origin main
           git push
 
       - name: Close issue with comment
