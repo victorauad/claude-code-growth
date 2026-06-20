@@ -26,5 +26,5 @@ Estou aprendendo Claude Code e IA aplicada ao trabalho. Prefiro uma explicação
 
 ## Projetos ativos
 <!-- Atualize esta seção conforme seus projetos mudam -->
-- `claude-code-growth` — base de conhecimento e skills de boas práticas do Claude Code.
+- `co-coach` (victorauad/claude-code-growth) — base de conhecimento, skills e feed de boas práticas do Claude Code.
 - `iracing_analysis` — análise de dados de corrida a partir de arquivos .csv e .ibt enviados pelo usuário.

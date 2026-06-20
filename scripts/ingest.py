@@ -2,6 +2,7 @@
 """
 Processa um link enviado via GitHub Issue e salva um resumo em 07-inbox/.
 Lê a URL da variável de ambiente INPUT_URL.
+As funções summarize() e save_to_inbox() são importáveis por outros scripts.
 """
 
 import os
@@ -11,19 +12,11 @@ import json
 import datetime
 import unicodedata
 import requests
+from pathlib import Path
 from bs4 import BeautifulSoup
 import anthropic
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
-INPUT_URL = os.environ.get("INPUT_URL", "").strip()
-
-if not INPUT_URL:
-    print("Erro: variável INPUT_URL não definida ou vazia.")
-    sys.exit(1)
-
-if not ANTHROPIC_API_KEY:
-    print("Erro: variável ANTHROPIC_API_KEY não definida.")
-    sys.exit(1)
 
 
 def slugify(text: str) -> str:
@@ -118,20 +111,22 @@ IMPORTANTE: Retorne APENAS o JSON puro, começando com {{ e terminando com }}. S
         raise
 
 
-def save_to_inbox(url: str, data: dict) -> str:
+def save_to_inbox(url: str, data: dict, extra_frontmatter: dict | None = None) -> str:
     today = datetime.date.today().strftime("%Y-%m-%d")
     slug = slugify(data["titulo"])
     filename = f"{today}-{slug}.md"
     filepath = os.path.join("07-inbox", filename)
+    extra_frontmatter = extra_frontmatter or {}
 
     bullets_md = "\n".join(f"- {b}" for b in data["bullets"])
 
+    extra_lines = "".join(f"{k}: {v}\n" for k, v in extra_frontmatter.items())
     content = f"""---
 titulo: {data['titulo']}
 tema: {data['tema']}
 url: {url}
 data: {today}
----
+{extra_lines}---
 
 # {data['titulo']}
 
@@ -159,22 +154,32 @@ data: {today}
 
 
 def main():
-    print(f"Processando: {INPUT_URL}")
+    input_url = os.environ.get("INPUT_URL", "").strip()
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
 
-    if is_youtube(INPUT_URL):
+    if not input_url:
+        print("Erro: variável INPUT_URL não definida ou vazia.")
+        sys.exit(1)
+    if not api_key:
+        print("Erro: variável ANTHROPIC_API_KEY não definida.")
+        sys.exit(1)
+
+    print(f"Processando: {input_url}")
+
+    if is_youtube(input_url):
         print("Detectado: YouTube. Buscando transcrição...")
-        content = fetch_youtube_transcript(INPUT_URL)
+        content = fetch_youtube_transcript(input_url)
         if not content:
             print("Transcrição indisponível. Usando URL como referência.")
-            content = f"Vídeo do YouTube: {INPUT_URL}"
+            content = f"Vídeo do YouTube: {input_url}"
     else:
         print("Detectado: artigo/página. Extraindo texto...")
-        content = fetch_article_text(INPUT_URL)
+        content = fetch_article_text(input_url)
 
     print("Gerando resumo via API Claude...")
-    data = summarize(INPUT_URL, content)
+    data = summarize(input_url, content)
 
-    filename = save_to_inbox(INPUT_URL, data)
+    filename = save_to_inbox(input_url, data)
     print(f"Concluído: {filename}")
 
 

@@ -10,6 +10,10 @@ credentials*.json
 .claude/*
 !.claude/settings.json
 
+# Python
+__pycache__/
+*.pyc
+
 # Sistema
 .DS_Store
 node_modules/

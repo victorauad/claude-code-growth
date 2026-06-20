@@ -1,0 +1,52 @@
+name: Ingest GitHub Stars
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # toda segunda 09h UTC
+  workflow_dispatch:
+    inputs:
+      max_repos:
+        description: 'Máximo de repos estrelados a processar'
+        default: '20'
+        required: false
+
+jobs:
+  ingest-stars:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install anthropic requests beautifulsoup4 youtube-transcript-api
+
+      - name: Run ingest-github-stars script
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_USER: victorauad
+          MAX_REPOS: ${{ github.event.inputs.max_repos || '20' }}
+        run: python scripts/ingest-github-stars.py
+
+      - name: Rebuild site
+        run: python scripts/build-site.py
+
+      - name: Commit new files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add 07-inbox/ docs/
+          git diff --staged --quiet && echo "Nenhum repo novo para commitar" && exit 0
+          git commit -m "feat: ingest github starred repos"
+          git pull --rebase origin main
+          git push

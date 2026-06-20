@@ -1,4 +1,4 @@
-# Status do Projeto — claude-code-growth
+# Status do Projeto — co-coach
 
 > Atualizado em: 20/06/2026
 

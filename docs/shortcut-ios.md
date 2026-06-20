@@ -18,7 +18,7 @@ Este Shortcut aparece no menu "Compartilhar" de qualquer app (Safari, YouTube, N
    - Tipo: URL
 
 3. Adicione a ação **"Obter conteúdos de URL"** e configure:
-   - **URL:** `https://api.github.com/repos/victorauad/claude-code-growth/issues`
+   - **URL:** `https://api.github.com/repos/victorauad/co-coach/issues`
    - **Método:** POST
    - **Cabeçalhos:**
      - `Authorization` → `Bearer SEU_TOKEN_AQUI`
@@ -50,9 +50,9 @@ Este Shortcut aparece no menu "Compartilhar" de qualquer app (Safari, YouTube, N
 
 ## Verificando se funcionou
 
-- Acesse github.com/victorauad/claude-code-growth → aba **Issues** → você verá a issue criada (e fechada automaticamente após o processamento).
+- Acesse github.com/victorauad/co-coach → aba **Issues** → você verá a issue criada (e fechada automaticamente após o processamento).
 - Acesse o feed mobile para ver o card novo.
 
 ## Criando o label "add-link" no repo (uma vez só)
 
-Acesse github.com/victorauad/claude-code-growth → Issues → Labels → New label → Nome: `add-link` → Cor: qualquer → Create label.
+Acesse github.com/victorauad/co-coach → Issues → Labels → New label → Nome: `add-link` → Cor: qualquer → Create label.
