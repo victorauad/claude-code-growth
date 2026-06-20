@@ -153,6 +153,25 @@ Data: [data de hoje]
 
 ---
 
+### Passo 6 — Consultar Knowledge Base para ferramentas de setup
+
+Após o relatório de auditoria:
+
+1. Use `WebFetch` para buscar `https://victorauad.github.io/claude-code-growth/knowledge-base.json`
+   - Se não tiver acesso a WebFetch, use `Bash(curl -s https://victorauad.github.io/claude-code-growth/knowledge-base.json)`
+2. Filtre itens com `tema` igual a `ferramentas` ou `setup`
+3. Selecione até 5 itens mais relevantes para o contexto do projeto auditado
+4. Adicione ao final do relatório:
+
+```
+### Ferramentas e recursos da KB que podem ajudar
+- **[titulo]** — [por que é útil para o setup deste projeto] → [url]
+```
+
+> Se a KB estiver inacessível, omita esta seção sem mencionar o erro.
+
+---
+
 ## Regras de comportamento
 
 - Sempre pergunte o ambiente antes de auditar — o relatório sem esse dado é incompleto.

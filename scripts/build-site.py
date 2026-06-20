@@ -91,12 +91,18 @@ def load_cards() -> list[dict]:
                 tema = meta.get("tema", default_tema or "outros")
                 url = meta.get("url", "#")
                 data = meta.get("data", "")
+                fonte = meta.get("fonte", "")
+                github_repo = meta.get("github_repo", "")
+                github_stars = meta.get("github_stars", "")
             else:
                 # Arquivos sem frontmatter: extrai título do H1, bullets da lista, resumo do primeiro parágrafo
                 titulo = extract_title(body, md_file.stem.replace("-", " ").title())
                 tema = default_tema or "outros"
                 url = "#"
                 data = ""
+                fonte = ""
+                github_repo = ""
+                github_stars = ""
                 bullets_section = extract_section(body, "Resumo")
                 if bullets_section:
                     bullets = [l.lstrip("- ").strip() for l in bullets_section.splitlines() if l.strip().startswith("-")]
@@ -116,6 +122,9 @@ def load_cards() -> list[dict]:
                 "importancia": importancia,
                 "filename": md_file.name,
                 "pasta": content_dir.name,
+                "fonte": fonte,
+                "github_repo": github_repo,
+                "github_stars": github_stars,
             })
     return cards
 
@@ -367,7 +376,16 @@ def main():
     # robots.txt para não indexar no Google
     (DOCS_DIR / "robots.txt").write_text("User-agent: *\nDisallow: /\n")
 
+    # Gera knowledge-base.json para consumo pelas skills
+    kb_fields = ["titulo", "tema", "url", "data", "bullets", "importancia", "fonte", "github_repo", "github_stars"]
+    kb_entries = [{k: c[k] for k in kb_fields} for c in cards]
+    (DOCS_DIR / "knowledge-base.json").write_text(
+        json.dumps(kb_entries, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
     print(f"Site gerado em docs/ ({len(cards)} cards)")
+    print(f"Knowledge base exportada: docs/knowledge-base.json ({len(kb_entries)} entradas)")
 
 
 if __name__ == "__main__":
