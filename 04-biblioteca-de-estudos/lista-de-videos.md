@@ -10,19 +10,19 @@ Lista de conteúdos **em vídeo**, catalogados por tema, pra você assistir no i
 
 ## Tema 1 — Setup e primeiros passos (comece aqui)
 
-- [ ] **Claude Code for Beginners Tutorial [Full Course]** — curso completo pra iniciantes, do scaffolding ao workflow. https://www.youtube.com/watch?v=gh2_PhgZGsM
+- [x] **Claude Code for Beginners Tutorial [Full Course]** — curso completo pra iniciantes, do scaffolding ao workflow. https://www.youtube.com/watch?v=gh2_PhgZGsM ✅ indexado em 07-inbox
 - [ ] **Claude Code Tutorial — Complete Guide & Best Practices (playlist)** — playlist baseada na doc oficial. https://www.youtube.com/playlist?list=PL-PjnjwzvkkxUHXxuohyiAuyvHXh08SFE
 
 ## Tema 2 — Best practices direto da Anthropic (prioridade alta)
 
-- [ ] **Claude Code best practices | Code w/ Claude** — apresentado por Cal Rueb (Anthropic) no evento Code w/ Claude. É a fonte primária. https://www.youtube.com/watch?v=gv0WHhKelSE
-- [ ] **Claude Code Live: Origin story, live demos & best practices** — com Boris Cherny (Head of Claude Code), Cat Wu (PM) e Cal Rueb. Demos em codebases reais. https://www.anthropic.com/webinars/claude-code-live
-- [ ] **How Anthropic Engineers ACTUALLY Prompt Claude Code** — destrincha os hábitos de prompt dos próprios engenheiros. https://www.youtube.com/watch?v=qOvc9IUKEIc
-- [ ] **How Anthropic Employees ACTUALLY Use Claude Code** — foco em uso por gente não-técnica (relevante pro seu perfil). https://www.youtube.com/watch?v=pRfIWmddRsE
+- [x] **Claude Code best practices | Code w/ Claude** — apresentado por Cal Rueb (Anthropic) no evento Code w/ Claude. É a fonte primária. https://www.youtube.com/watch?v=gv0WHhKelSE ✅ indexado em 07-inbox
+- [x] **Claude Code Live: Origin story, live demos & best practices** — com Boris Cherny (Head of Claude Code), Cat Wu (PM) e Cal Rueb. Demos em codebases reais. https://www.anthropic.com/webinars/claude-code-live ✅ indexado em 07-inbox
+- [x] **How Anthropic Engineers ACTUALLY Prompt Claude Code** — destrincha os hábitos de prompt dos próprios engenheiros. https://www.youtube.com/watch?v=qOvc9IUKEIc ✅ indexado em 07-inbox
+- [x] **How Anthropic Employees ACTUALLY Use Claude Code** — foco em uso por gente não-técnica (relevante pro seu perfil). https://www.youtube.com/watch?v=pRfIWmddRsE ✅ indexado em 07-inbox
 
 ## Tema 3 — Metodologia: prompts, skills, agentes, workflows
 
-- [ ] **Anthropic Just Revealed The Best Claude Code Setup** — setup pra codebases grandes, com ênfase em planejamento. https://www.youtube.com/watch?v=lGalJmyI78w
+- [x] **Anthropic Just Revealed The Best Claude Code Setup** — setup pra codebases grandes, com ênfase em planejamento. https://www.youtube.com/watch?v=lGalJmyI78w ✅ indexado em 07-inbox
 - [ ] Curso oficial (não é vídeo, mas vale): **Introduction to Agent Skills** (Anthropic). https://anthropic.skilljar.com/introduction-to-agent-skills
 
 ## Tema 4 — Agentes e o estado da arte (AI Engineer Summit)
