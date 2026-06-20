@@ -1,0 +1,70 @@
+name: Ingest Link
+
+on:
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  ingest:
+    # Só roda se a issue tiver a label "add-link"
+    if: contains(github.event.issue.labels.*.name, 'add-link')
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      issues: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install anthropic requests beautifulsoup4 youtube-transcript-api
+
+      - name: Extract URL from issue body
+        id: extract
+        run: |
+          BODY="${{ github.event.issue.body }}"
+          URL=$(echo "$BODY" | grep -oE 'https?://[^ ]+' | head -1)
+          echo "url=$URL" >> $GITHUB_OUTPUT
+
+      - name: Run ingest script
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          INPUT_URL: ${{ steps.extract.outputs.url }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: python scripts/ingest.py
+
+      - name: Commit new file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add 07-inbox/
+          git diff --staged --quiet || git commit -m "feat: ingest link from issue #${{ github.event.issue.number }}"
+          git push
+
+      - name: Close issue with comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const files = fs.readdirSync('07-inbox').filter(f => f.endsWith('.md'));
+            const latest = files.sort().reverse()[0];
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `✅ Conteúdo processado e salvo em \`07-inbox/${latest}\``
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            });

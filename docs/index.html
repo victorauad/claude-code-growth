@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code Growth — Feed</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Claude Code Growth</h1>
+  <p class="subtitle">1 conteúdos indexados · Atualizado em 20/06/2026</p>
+</header>
+
+<div class="context-box">
+  <label for="context-input">O que estou fazendo agora:</label>
+  <input id="context-input" type="text" placeholder="Ex: estruturando meu CLAUDE.md, pipeline de BigQuery, criando agentes..." />
+  <p class="context-hint">Digite para ver os conteúdos mais relevantes primeiro.</p>
+</div>
+
+<div class="filtros">
+  <button class="filtro-btn active" data-tema="todos">todos</button>
+  <button class="filtro-btn" data-tema="metodologia" style="border-color:#2196F3">metodologia</button>
+</div>
+
+<main id="feed">
+
+<article class="card" data-tema="metodologia" data-titulo="claude code best practices — cal rueb (anthropic)" data-importancia="para um head de growth sem background técnico, essas práticas são o que separa "conseguir fazer uma coisa" de "fazer de forma consistente e escalável" — o claude se comporta de forma previsível quando o contexto está bem definido.">
+  <div class="card-header">
+    <span class="tag" style="background:#2196F3">metodologia</span>
+    <span class="data">2026-06-20</span>
+  </div>
+  <h2><a href="https://www.youtube.com/watch?v=gv0WHhKelSE" target="_blank" rel="noopener">Claude Code best practices — Cal Rueb (Anthropic)</a></h2>
+  <ul><li>Use CLAUDE.md para dar contexto persistente ao Claude sem repetir instruções a cada sessão.</li><li>Divida tarefas grandes em subtarefas menores usando o modo de planejamento antes de executar.</li><li>Skills permitem ensinar o Claude uma vez e reutilizar o comportamento em múltiplos projetos.</li></ul>
+  <div class="importancia">
+    <strong>Por que importa:</strong> Para um Head de Growth sem background técnico, essas práticas são o que separa "conseguir fazer uma coisa" de "fazer de forma consistente e escalável" — o Claude se comporta de forma previsível quando o contexto está bem definido.
+  </div>
+</article>
+</main>
+
+<footer>
+  <p>Alimentado por <a href="https://github.com/victorauad/claude-code-growth">claude-code-growth</a></p>
+</footer>
+
+<script>
+const cards = [{"titulo": "Claude Code best practices — Cal Rueb (Anthropic)", "tema": "metodologia", "url": "https://www.youtube.com/watch?v=gv0WHhKelSE", "data": "2026-06-20", "bullets": ["Use CLAUDE.md para dar contexto persistente ao Claude sem repetir instruções a cada sessão.", "Divida tarefas grandes em subtarefas menores usando o modo de planejamento antes de executar.", "Skills permitem ensinar o Claude uma vez e reutilizar o comportamento em múltiplos projetos."], "importancia": "Para um Head de Growth sem background técnico, essas práticas são o que separa \"conseguir fazer uma coisa\" de \"fazer de forma consistente e escalável\" — o Claude se comporta de forma previsível quando o contexto está bem definido.", "filename": "2026-06-20-exemplo-boas-praticas-claude-code.md"}];
+let temaAtivo = 'todos';
+
+function score(card, query) {
+  if (!query) return 0;
+  const q = query.toLowerCase();
+  const campos = [card.titulo, card.tema, card.importancia, ...card.bullets].join(' ').toLowerCase();
+  return (campos.match(new RegExp(q.split(' ').filter(Boolean).join('|'), 'g')) || []).length;
+}
+
+function render() {
+  const query = document.getElementById('context-input').value;
+  const articles = document.querySelectorAll('.card');
+
+  let visiveis = Array.from(articles).filter(el => {
+    const tema = el.dataset.tema;
+    return temaAtivo === 'todos' || tema === temaAtivo;
+  });
+
+  const ocultos = Array.from(articles).filter(el => !visiveis.includes(el));
+  ocultos.forEach(el => el.style.display = 'none');
+
+  if (query.trim()) {
+    visiveis.sort((a, b) => {
+      const cardA = cards.find(c => c.titulo.toLowerCase() === a.dataset.titulo);
+      const cardB = cards.find(c => c.titulo.toLowerCase() === b.dataset.titulo);
+      return score(cardB, query) - score(cardA, query);
+    });
+  }
+
+  const feed = document.getElementById('feed');
+  visiveis.forEach(el => {
+    el.style.display = '';
+    feed.appendChild(el);
+  });
+}
+
+document.getElementById('context-input').addEventListener('input', render);
+
+document.querySelectorAll('.filtro-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    temaAtivo = btn.dataset.tema;
+    render();
+  });
+});
+</script>
+</body>
+</html>
