@@ -15,7 +15,7 @@ DOCS_DIR.mkdir(exist_ok=True)
 
 # Pastas incluídas no feed e o tema padrão de cada uma
 CONTENT_DIRS = [
-    (Path("07-inbox"),               None),           # tema vem do frontmatter
+    (Path("kb"),                      None),           # tema vem do frontmatter
     (Path("06-ferramentas-e-repos"), "ferramentas"),
     (Path("03-metodologias"),        "metodologia"),
     (Path("02-fluxos-de-trabalho"),  "workflow"),
@@ -82,7 +82,7 @@ def load_cards() -> list[dict]:
             text = md_file.read_text(encoding="utf-8")
             meta, body = parse_frontmatter(text)
 
-            # Arquivos com frontmatter (07-inbox): usa campos diretamente
+            # Arquivos com frontmatter (kb): usa campos diretamente
             if meta:
                 bullets_raw = extract_section(body, "Resumo")
                 bullets = [line.lstrip("- ").strip() for line in bullets_raw.splitlines() if line.strip().startswith("-")]
@@ -365,7 +365,7 @@ footer a { color: var(--accent); }
 
 def main():
     cards = load_cards()
-    print(f"Encontrados {len(cards)} cards em 07-inbox/")
+    print(f"Encontrados {len(cards)} cards em kb/")
 
     html = build_html(cards)
     css = build_css()

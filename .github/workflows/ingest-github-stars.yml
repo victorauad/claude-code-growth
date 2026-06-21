@@ -45,7 +45,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add 07-inbox/ docs/
+          git add kb/ docs/
           git diff --staged --quiet && echo "Nenhum repo novo para commitar" && exit 0
           git commit -m "feat: ingest github starred repos"
           git pull --rebase origin main

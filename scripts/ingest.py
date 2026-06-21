@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Processa um link enviado via GitHub Issue e salva um resumo em 07-inbox/.
+Processa um link enviado via GitHub Issue e salva um resumo em kb/.
 Lê a URL da variável de ambiente INPUT_URL.
 As funções summarize() e save_to_inbox() são importáveis por outros scripts.
 """
@@ -115,7 +115,7 @@ def save_to_inbox(url: str, data: dict, extra_frontmatter: dict | None = None) -
     today = datetime.date.today().strftime("%Y-%m-%d")
     slug = slugify(data["titulo"])
     filename = f"{today}-{slug}.md"
-    filepath = os.path.join("07-inbox", filename)
+    filepath = os.path.join("kb", filename)
     extra_frontmatter = extra_frontmatter or {}
 
     bullets_md = "\n".join(f"- {b}" for b in data["bullets"])

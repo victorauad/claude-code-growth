@@ -27,7 +27,7 @@ Usar Claude Code como ferramenta de trabalho — não virar engenheiro de softwa
 
 ## Arquitetura em 3 camadas
 
-1. **Knowledge base viva** — conteúdo indexado automaticamente em `07-inbox/` via: (a) link enviado por GitHub Issue (iOS Shortcut), (b) repos do GitHub estrelados (workflow semanal). Cada arquivo `.md` tem frontmatter YAML com titulo, tema, bullets, url, importancia.
+1. **Knowledge base viva** — conteúdo indexado automaticamente em `kb/` via: (a) link enviado por GitHub Issue (iOS Shortcut), (b) repos do GitHub estrelados (workflow semanal). Cada arquivo `.md` tem frontmatter YAML com titulo, tema, bullets, url, importancia.
 
 2. **Feed mobile** — site estático em GitHub Pages (`https://victorauad.github.io/claude-code-growth`) gerado por `scripts/build-site.py`. Cards com filtro por tema e campo de contexto "o que estou fazendo agora".
 
@@ -36,10 +36,10 @@ Usar Claude Code como ferramenta de trabalho — não virar engenheiro de softwa
 ## Estrutura real do repositório
 ```
 claude-code-growth/
-├── 07-inbox/                    — conteúdo indexado (30+ arquivos .md com frontmatter)
+├── kb/                          — knowledge base indexada (30+ arquivos .md com frontmatter)
 ├── scripts/
 │   ├── build-site.py            — gera docs/index.html + knowledge-base.json
-│   ├── ingest.py                — fetch + sumarização via Claude Haiku → 07-inbox/
+│   ├── ingest.py                — fetch + sumarização via Claude Haiku → kb/
 │   └── ingest-github-stars.py  — busca repos estrelados e indexa READMEs
 ├── skills/
 │   ├── coach-claude-code/SKILL.md
@@ -55,5 +55,16 @@ claude-code-growth/
 └── .claude/settings.json
 ```
 
-## Feature em andamento
-Conectar skills à knowledge base: `build-site.py` gera `docs/knowledge-base.json` público, e as skills `coach-claude-code` e `setup-review` consultam esse JSON via WebFetch/curl para trazer recomendações contextualizadas da KB ao final de cada avaliação.
+## Como usar a knowledge base
+
+Os arquivos em `kb/` são artigos, vídeos e repos indexados por tema (frontmatter `tema:`).
+Quando receber uma tarefa relacionada a Claude Code, ferramentas, metodologia ou setup,
+busque contexto relevante antes de responder:
+
+```bash
+grep -r "tema: <assunto>" kb/
+```
+
+Temas disponíveis: `agentes`, `ferramentas`, `mcp`, `metodologia`, `prompts`, `setup`, `workflow`.
+
+As skills `coach-claude-code` e `setup-review` consultam `https://victorauad.github.io/claude-code-growth/knowledge-base.json` via WebFetch para trazer recomendações contextualizadas da KB ao final de cada avaliação.

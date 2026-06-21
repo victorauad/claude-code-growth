@@ -6,10 +6,10 @@ on:
     - cron: "0 8 * * 1"
   # Permite rodar manualmente pela aba Actions do GitHub
   workflow_dispatch:
-  # Roda também após qualquer push em 07-inbox/
+  # Roda também após qualquer push em kb/
   push:
     paths:
-      - "07-inbox/**"
+      - "kb/**"
 
 jobs:
   build:

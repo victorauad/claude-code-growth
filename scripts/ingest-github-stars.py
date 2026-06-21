@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Busca os repositórios estrelados do usuário do GitHub e indexa os novos em 07-inbox/.
+Busca os repositórios estrelados do usuário do GitHub e indexa os novos em kb/.
 Usa GH_PAT para autenticação e ANTHROPIC_API_KEY para sumarização.
 """
 
@@ -42,7 +42,7 @@ def get_starred_repos(user: str, max_repos: int) -> list[dict]:
 
 def already_indexed(owner: str, repo: str) -> bool:
     slug = f"{owner}-{repo}".lower()
-    return bool(list(Path("07-inbox").glob(f"*-{slug}.md")))
+    return bool(list(Path("kb").glob(f"*-{slug}.md")))
 
 
 def fetch_readme(owner: str, repo: str) -> str:
@@ -99,7 +99,7 @@ def main():
             slug = f"{owner}-{name}".lower()
             today = datetime.date.today().strftime("%Y-%m-%d")
             filename = f"{today}-{slug}.md"
-            filepath = Path("07-inbox") / filename
+            filepath = Path("kb") / filename
             extra = {
                 "fonte": "github-stars",
                 "github_stars": stars,

@@ -48,7 +48,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add 07-inbox/ docs/
+          git add kb/ docs/
           git diff --staged --quiet && echo "Nada para commitar" && exit 0
           git commit -m "feat: ingest link from issue #${{ github.event.issue.number }}"
           git pull --rebase origin main
@@ -59,13 +59,13 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const files = fs.readdirSync('07-inbox').filter(f => f.endsWith('.md'));
+            const files = fs.readdirSync('kb').filter(f => f.endsWith('.md'));
             const latest = files.sort().reverse()[0];
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `✅ Conteúdo processado e salvo em \`07-inbox/${latest}\``
+              body: `✅ Conteúdo processado e salvo em \`kb/${latest}\``
             });
             await github.rest.issues.update({
               owner: context.repo.owner,
