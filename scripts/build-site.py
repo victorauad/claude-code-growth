@@ -129,6 +129,17 @@ def load_cards() -> list[dict]:
     return cards
 
 
+def load_proficiency() -> dict:
+    """Lê docs/proficiency.json; retorna {} se não existir."""
+    p = DOCS_DIR / "proficiency.json"
+    if p.exists():
+        try:
+            return json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+    return {}
+
+
 TEMA_CORES = {
     "setup": "#4CAF50",
     "metodologia": "#2196F3",
@@ -141,15 +152,25 @@ TEMA_CORES = {
 }
 
 
+STATUS_BADGE = {
+    "novo":   ("🆕", "#555555"),
+    "visto":  ("👁", "#2196F3"),
+    "domina": ("✓",  "#4CAF50"),
+}
+
+
 def card_html(card: dict) -> str:
     bullets_html = "".join(f"<li>{b}</li>" for b in card["bullets"])
     cor = TEMA_CORES.get(card["tema"], "#757575")
     data_str = f'<span class="data">{card["data"]}</span>' if card["data"] else f'<span class="data pasta">{card["pasta"]}</span>'
+    status = card.get("status_proficiency", "novo")
+    badge_icon, badge_color = STATUS_BADGE.get(status, ("🆕", "#555555"))
+    badge_html = f'<span class="badge-status" style="background:{badge_color}" title="{status}">{badge_icon}</span>'
     return f"""
 <article class="card" data-tema="{card['tema']}" data-titulo="{card['titulo'].lower()}" data-importancia="{card['importancia'].lower()}">
   <div class="card-header">
     <span class="tag" style="background:{cor}">{card['tema']}</span>
-    {data_str}
+    <div class="card-header-right">{data_str}{badge_html}</div>
   </div>
   <h2><a href="{card['url']}" target="_blank" rel="noopener">{card['titulo']}</a></h2>
   <ul>{bullets_html}</ul>
@@ -159,7 +180,47 @@ def card_html(card: dict) -> str:
 </article>"""
 
 
-def build_html(cards: list[dict]) -> str:
+def proficiency_panel_html(prof: dict) -> str:
+    temas_data = prof.get("temas", {})
+    if not temas_data:
+        return ""
+    linhas = []
+    for tema, dados in sorted(temas_data.items(), key=lambda x: -x[1].get("score", 0)):
+        score = dados.get("score", 0)
+        blocos = "█" * (score // 10) + "░" * (10 - score // 10)
+        exposicao = dados.get("exposicao", 0)
+        qa = dados.get("quiz_acertos", 0)
+        qt = dados.get("quiz_total", 0)
+        quiz_str = f"quiz: {qa}/{qt}" if qt > 0 else "sem quiz"
+        cor = TEMA_CORES.get(tema, "#757575")
+        fill_pct = score
+        linhas.append(
+            f'<div class="prof-barra">'
+            f'<span class="prof-nome" style="color:{cor}">{tema}</span>'
+            f'<div class="prof-track"><div class="prof-fill" style="width:{fill_pct}%;background:{cor}"></div></div>'
+            f'<span class="prof-pct">{score}%</span>'
+            f'<span class="prof-detalhe">visto {exposicao}x · {quiz_str}</span>'
+            f'</div>'
+        )
+    ultima = prof.get("ultima_atualizacao", "")
+    updated_str = f'<span class="prof-updated">Atualizado em {ultima}</span>' if ultima else ""
+    return f"""<section class="proficiency-panel">
+  <h2>Progresso por Tema <button class="prof-toggle" onclick="toggleProf()">▼</button></h2>
+  {updated_str}
+  <div id="prof-content">{''.join(linhas)}</div>
+  <p class="prof-hint">Use <code>/proficiency-check</code> no Claude Code para fazer um quiz e atualizar os scores.</p>
+</section>"""
+
+
+def build_html(cards: list[dict], prof: dict = None) -> str:
+    if prof is None:
+        prof = {}
+    # Injeta status de proficiência em cada card
+    cards_prof = prof.get("cards", {})
+    for c in cards:
+        status = cards_prof.get(c["filename"], {}).get("status", "novo")
+        c["status_proficiency"] = status
+
     cards_html = "\n".join(card_html(c) for c in cards)
     temas = sorted(set(c["tema"] for c in cards))
     tema_buttons = "".join(
@@ -170,6 +231,7 @@ def build_html(cards: list[dict]) -> str:
     updated = datetime.date.today().strftime("%d/%m/%Y")
 
     cards_json = json.dumps(cards, ensure_ascii=False)
+    panel_html = proficiency_panel_html(prof)
 
     return f"""<!DOCTYPE html>
 <html lang="pt-BR">
@@ -184,6 +246,8 @@ def build_html(cards: list[dict]) -> str:
   <h1>Claude Code Growth</h1>
   <p class="subtitle">{total} conteúdos indexados · Atualizado em {updated}</p>
 </header>
+
+{panel_html}
 
 <div class="context-box">
   <label for="context-input">O que estou fazendo agora:</label>
@@ -240,6 +304,12 @@ function render() {{
     el.style.display = '';
     feed.appendChild(el);
   }});
+}}
+
+function toggleProf() {{
+  const el = document.getElementById('prof-content');
+  const btn = document.querySelector('.prof-toggle');
+  if (el) {{ el.style.display = el.style.display === 'none' ? '' : 'none'; btn.textContent = el.style.display === 'none' ? '▶' : '▼'; }}
 }}
 
 document.getElementById('context-input').addEventListener('input', render);
@@ -360,6 +430,47 @@ header h1 { font-size: 1.4rem; }
 
 footer { color: var(--muted); font-size: 0.78rem; padding: 2rem 0 1rem; text-align: center; }
 footer a { color: var(--accent); }
+
+.proficiency-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.proficiency-panel h2 { font-size: 0.95rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+.prof-toggle { background: transparent; border: 1px solid var(--border); border-radius: 4px; color: var(--muted); cursor: pointer; font-size: 0.7rem; padding: 0.1rem 0.4rem; }
+.prof-updated { display: block; font-size: 0.72rem; color: var(--muted); margin-bottom: 0.5rem; }
+
+.prof-barra {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.82rem;
+}
+
+.prof-nome { width: 90px; font-weight: 600; flex-shrink: 0; }
+.prof-track { flex: 1; background: var(--border); border-radius: 4px; height: 8px; overflow: hidden; }
+.prof-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+.prof-pct { width: 36px; text-align: right; flex-shrink: 0; color: var(--text); font-weight: 600; }
+.prof-detalhe { color: var(--muted); font-size: 0.74rem; flex-shrink: 0; }
+.prof-hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; }
+.prof-hint code { background: var(--border); border-radius: 3px; padding: 0.1rem 0.3rem; font-size: 0.72rem; }
+
+.card-header-right { display: flex; align-items: center; gap: 0.5rem; }
+
+.badge-status {
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  flex-shrink: 0;
+}
 """
 
 
@@ -367,7 +478,8 @@ def main():
     cards = load_cards()
     print(f"Encontrados {len(cards)} cards em kb/")
 
-    html = build_html(cards)
+    prof = load_proficiency()
+    html = build_html(cards, prof)
     css = build_css()
 
     (DOCS_DIR / "index.html").write_text(html, encoding="utf-8")

@@ -650,6 +650,19 @@
     "github_stars": ""
   },
   {
+    "titulo": "Swas",
+    "tema": "metodologia",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Ver conteúdo completo no repo"
+    ],
+    "importancia": "",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
     "titulo": "Fluxo: POCs rápidas de AI-coding",
     "tema": "workflow",
     "url": "#",

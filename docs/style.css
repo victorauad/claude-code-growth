@@ -100,3 +100,44 @@ header h1 { font-size: 1.4rem; }
 
 footer { color: var(--muted); font-size: 0.78rem; padding: 2rem 0 1rem; text-align: center; }
 footer a { color: var(--accent); }
+
+.proficiency-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.proficiency-panel h2 { font-size: 0.95rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+.prof-toggle { background: transparent; border: 1px solid var(--border); border-radius: 4px; color: var(--muted); cursor: pointer; font-size: 0.7rem; padding: 0.1rem 0.4rem; }
+.prof-updated { display: block; font-size: 0.72rem; color: var(--muted); margin-bottom: 0.5rem; }
+
+.prof-barra {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.82rem;
+}
+
+.prof-nome { width: 90px; font-weight: 600; flex-shrink: 0; }
+.prof-track { flex: 1; background: var(--border); border-radius: 4px; height: 8px; overflow: hidden; }
+.prof-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+.prof-pct { width: 36px; text-align: right; flex-shrink: 0; color: var(--text); font-weight: 600; }
+.prof-detalhe { color: var(--muted); font-size: 0.74rem; flex-shrink: 0; }
+.prof-hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; }
+.prof-hint code { background: var(--border); border-radius: 3px; padding: 0.1rem 0.3rem; font-size: 0.72rem; }
+
+.card-header-right { display: flex; align-items: center; gap: 0.5rem; }
+
+.badge-status {
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  flex-shrink: 0;
+}
