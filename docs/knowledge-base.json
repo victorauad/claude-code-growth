@@ -1,5 +1,155 @@
 [
   {
+    "titulo": "Repomix — comprime o projeto inteiro para o Claude ler de uma vez",
+    "tema": "ferramentas",
+    "url": "https://github.com/yamadashy/repomix",
+    "data": "2026-06-22",
+    "bullets": [
+      "Transforma todos os arquivos do projeto em um único texto otimizado para IA, eliminando a necessidade de copiar arquivos um por um",
+      "Reduz tokens mantendo o contexto relevante — ideal para pedidos de refatoração, revisão de arquitetura e onboarding",
+      "Uso imediato sem instalação: `npx repomix` na raiz do projeto gera `repomix-output.txt`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": "20900"
+  },
+  {
+    "titulo": "Onyx — chat com IA privado e auto-hospedado para documentos sensíveis",
+    "tema": "ferramentas",
+    "url": "https://github.com/onyx-dot-app/onyx",
+    "data": "2026-06-22",
+    "bullets": [
+      "Plataforma de chat com IA auto-hospedada que conecta com 40+ fontes (Google Drive, Slack, Notion, Confluence, GitHub)",
+      "Tudo fica dentro da sua infraestrutura — indicado para empresas com dados sensíveis",
+      "Instalação via Docker: `git clone` + `docker compose up` na pasta `onyx/deployment/docker_compose`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": "17300"
+  },
+  {
+    "titulo": "Obsidian Skills — integração entre o vault do Obsidian e o Claude Code",
+    "tema": "ferramentas",
+    "url": "https://github.com/kepano/obsidian-skills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Skills que conectam o Claude Code com o Obsidian — o Claude entende estrutura do vault (pastas, links entre notas, tags, templates)",
+      "Permite que o Claude navegue e manipule seu sistema de conhecimento pessoal como um assistente que conhece suas notas",
+      "Instalação: `git clone` + copiar skills para `.claude/skills/`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "NotebookLM Skill — transforma coleções de fontes em resumos, flashcards e mapas mentais",
+    "tema": "ferramentas",
+    "url": "https://github.com/PleasePrompto/notebooklm-skill",
+    "data": "2026-06-22",
+    "bullets": [
+      "Skill que replica o estilo do NotebookLM (Google): processa coleções de fontes e gera resumos comparativos, flashcards e mapas mentais",
+      "Ideal para absorver grandes volumes de informação rapidamente sem ler cada fonte manualmente",
+      "Instalação: `git clone https://github.com/PleasePrompto/notebooklm-skill.git` + copiar a skill para `.claude/skills/`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Marketing Skills — 23 fluxos prontos para SEO, copywriting, email e anúncios",
+    "tema": "ferramentas",
+    "url": "https://github.com/coreyhaines31/marketingskills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Suite com 23 skills de marketing para Claude Code: SEO, copywriting, Google Ads, Meta Ads, email marketing, redes sociais e análise de concorrentes",
+      "Cada skill é calibrada para uma tarefa específica, entregando resultados no formato certo sem reescrever prompts",
+      "Instalação: `git clone` + copiar os arquivos SKILL.md para `.claude/skills/`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Flowise — construtor visual de agentes de IA para prototipagem rápida",
+    "tema": "ferramentas",
+    "url": "https://github.com/FlowiseAI/Flowise",
+    "data": "2026-06-22",
+    "bullets": [
+      "Construtor visual de agentes e chatbots com arrastar e soltar — mais simples que o Dify, focado em prototipagem rápida",
+      "Conecta modelos de linguagem (Claude, GPT) com bases de conhecimento e APIs de forma visual",
+      "Instalação: `npm install -g flowise` + `npx flowise start`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": "30000"
+  },
+  {
+    "titulo": "Everything Claude Code — 136 skills, 30 agentes e 60 slash commands prontos",
+    "tema": "ferramentas",
+    "url": "https://github.com/affaan-m/everything-claude-code",
+    "data": "2026-06-22",
+    "bullets": [
+      "Coleção com 30 agentes especializados, 136 skills e 60 slash commands para uso profissional no Claude Code",
+      "Cobre áreas como segurança, testes automatizados, documentação, code review e muito mais",
+      "Instalação: clonar o repo e copiar os arquivos de regras para a linguagem que você usa"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": "128000"
+  },
+  {
+    "titulo": "Dify — plataforma visual para criar aplicações de IA sem código",
+    "tema": "ferramentas",
+    "url": "https://github.com/langgenius/dify",
+    "data": "2026-06-22",
+    "bullets": [
+      "Plataforma visual para construir fluxos de IA arrastando blocos — sem escrever código",
+      "Conecta com fontes de dados (PDFs, bancos, APIs) e publica como aplicação pronta",
+      "Instalação via Docker: `git clone` + `docker compose up` na pasta `dify/docker`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": "130000"
+  },
+  {
+    "titulo": "Claude Skills Oficial — templates da Anthropic para PDFs, Excel e PowerPoint",
+    "tema": "ferramentas",
+    "url": "https://github.com/anthropics/skills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Repositório oficial da Anthropic com templates de skills para processar PDFs, planilhas Excel, apresentações PowerPoint e documentos Word",
+      "É a forma \"correta\" e testada pela Anthropic de instruir o Claude a lidar com esses formatos",
+      "Instalação: `git clone https://github.com/anthropics/skills.git` + copiar as skills desejadas para `.claude/skills/`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Awesome Claude Skills — marketplace comunitário com skills para SEO, segurança e design",
+    "tema": "ferramentas",
+    "url": "https://github.com/travisvn/awesome-claude-skills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Marketplace comunitário com centenas de skills para Claude Code em áreas como SEO, marketing, segurança, design, finanças e jurídico",
+      "Em vez de escrever prompts longos toda vez, uma skill encapsula o conhecimento especializado",
+      "Instalação: `git clone` + copiar os arquivos SKILL.md desejados para `.claude/skills/`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": "22000"
+  },
+  {
     "titulo": "yt-dlp: Downloader de Áudio/Vídeo Open Source com 172k Estrelas",
     "tema": "ferramentas",
     "url": "https://github.com/yt-dlp/yt-dlp",
