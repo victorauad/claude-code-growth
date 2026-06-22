@@ -3,6 +3,9 @@
 *.xlsx
 *.xls
 .env
+# Briefings e materiais de cliente — nunca versionar (repo público)
+07-outros/
+Briefing*.md
 *.key
 credentials*.json
 

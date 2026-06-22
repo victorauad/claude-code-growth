@@ -1,5 +1,5 @@
 #!/bin/bash
-# Instala as skills do claude-code-growth em outro projeto.
+# Instala as skills do co-coach em outro projeto.
 # Uso: bash install-skills.sh /caminho/do/projeto
 # Exemplo: bash install-skills.sh ~/meu-projeto-hubspot
 
@@ -42,6 +42,6 @@ echo "Pronto. Skills disponíveis no projeto '$TARGET_PROJECT':"
 ls "$TARGET_SKILLS"
 echo ""
 echo "Para atualizar no futuro:"
-echo "  1. git pull neste repo (claude-code-growth)"
+echo "  1. git pull neste repo (co-coach)"
 echo "  2. Delete as skills que quer atualizar em $TARGET_SKILLS"
 echo "  3. Rode este script novamente"

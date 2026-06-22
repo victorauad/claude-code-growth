@@ -2,20 +2,20 @@
   "ultima_atualizacao": "2026-06-21",
   "temas": {
     "agentes": {
-      "score": 0,
+      "score": 60,
       "exposicao": 0,
-      "quiz_acertos": 0,
-      "quiz_total": 0,
-      "ultima_revisao": null,
-      "cards_vistos": []
+      "quiz_acertos": 3,
+      "quiz_total": 3,
+      "ultima_revisao": "2026-06-21",
+      "cards_vistos": ["2026-06-20-santifer-career-ops.md", "2026-06-20-anthropics-claude-code.md", "2026-06-20-affaan-m-ecc.md"]
     },
     "ferramentas": {
-      "score": 0,
+      "score": 40,
       "exposicao": 0,
-      "quiz_acertos": 0,
-      "quiz_total": 0,
-      "ultima_revisao": null,
-      "cards_vistos": []
+      "quiz_acertos": 2,
+      "quiz_total": 3,
+      "ultima_revisao": "2026-06-21",
+      "cards_vistos": ["2026-06-20-thedotmack-claude-mem.md"]
     },
     "mcp": {
       "score": 0,
@@ -67,8 +67,8 @@
     }
   },
   "cards": {
-    "2026-06-20-affaan-m-ecc.md": {"status": "novo", "visto_em": null, "quiz_acertou": null},
-    "2026-06-20-anthropics-claude-code.md": {"status": "novo", "visto_em": null, "quiz_acertou": null},
+    "2026-06-20-affaan-m-ecc.md": {"status": "domina", "visto_em": "2026-06-21", "quiz_acertou": true},
+    "2026-06-20-anthropics-claude-code.md": {"status": "domina", "visto_em": "2026-06-21", "quiz_acertou": true},
     "2026-06-20-asgeirtj-system_prompts_leaks.md": {"status": "novo", "visto_em": null, "quiz_acertou": null},
     "2026-06-20-calesthio-openmontage.md": {"status": "novo", "visto_em": null, "quiz_acertou": null},
     "2026-06-20-chopratejas-headroom.md": {"status": "novo", "visto_em": null, "quiz_acertou": null},
@@ -90,9 +90,9 @@
     "2026-06-20-melhores-praticas-para-claude-code-gestao-de-contexto-e-veri.md": {"status": "novo", "visto_em": null, "quiz_acertou": null},
     "2026-06-20-mui-material-ui.md": {"status": "novo", "visto_em": null, "quiz_acertou": null},
     "2026-06-20-nexu-io-open-design.md": {"status": "novo", "visto_em": null, "quiz_acertou": null},
-    "2026-06-20-santifer-career-ops.md": {"status": "novo", "visto_em": null, "quiz_acertou": null},
+    "2026-06-20-santifer-career-ops.md": {"status": "domina", "visto_em": "2026-06-21", "quiz_acertou": true},
     "2026-06-20-setup-ideal-de-claude-code-para-codebases-grandes.md": {"status": "novo", "visto_em": null, "quiz_acertou": null},
-    "2026-06-20-thedotmack-claude-mem.md": {"status": "novo", "visto_em": null, "quiz_acertou": null},
+    "2026-06-20-thedotmack-claude-mem.md": {"status": "visto", "visto_em": "2026-06-21", "quiz_acertou": false},
     "2026-06-20-voltagent-awesome-openclaw-skills.md": {"status": "novo", "visto_em": null, "quiz_acertou": null},
     "2026-06-20-yt-dlp-yt-dlp.md": {"status": "novo", "visto_em": null, "quiz_acertou": null}
   }

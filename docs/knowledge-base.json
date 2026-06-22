@@ -650,14 +650,31 @@
     "github_stars": ""
   },
   {
-    "titulo": "Swas",
+    "titulo": "GUIA DE ESTUDO: A TESE \"SERVICE-AS-A-SOFTWARE\" E A ECONOMIA DOS AGENTES",
     "tema": "metodologia",
     "url": "#",
     "data": "",
     "bullets": [
-      "Ver conteúdo completo no repo"
+      "Inteligência:** É o trabalho complexo baseado em regras e focado em procedimentos [6-8]. Exemplos incluem traduzir requisitos em código de software, analisar contratos padrão (NDAs), processar folha de pagamento ou converter notas clínicas em códigos de faturamento médico [6-11].",
+      "Julgamento:** É o domínio puramente humano da experiência, intuição, bom gosto e tomada de decisão de alto risco [6-8]. Exemplos incluem decidir qual funcionalidade de um produto construir, assumir dívidas técnicas de programação ou avaliar o \"fit\" cultural de um candidato durante uma entrevista de emprego [6-8, 11, 12].",
+      "Copilotos:** Vendem ferramentas de produtividade e atuam como assistentes [14-17]. O cliente continua sendo o profissional humano, que usa a ferramenta para ser mais eficiente, retendo a posse do trabalho e assumindo a responsabilidade pelo resultado final [14-16]."
     ],
-    "importancia": "",
+    "importancia": "Nos últimos 20 anos, a transição para a nuvem criou o modelo de Software-as-a-Service (SaaS), uma oportunidade de US$ 350 bilhões onde as empresas de software se tornaram provedoras de serviços em nuv",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "SERVICE-AS-A-SOFTWARE PARA AGÊNCIAS DE CREATORS",
+    "tema": "metodologia",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Antes: analista passa 3h coletando dados e montando deck",
+      "Depois: dados entram via API/planilha → Claude gera narrativa → humano revisa e envia",
+      "Proponha a 1 cliente atual: pagar por resultado (ex: R$ X por creator entregue dentro do KPI)"
+    ],
+    "importancia": "---",
     "fonte": "",
     "github_repo": "",
     "github_stars": ""

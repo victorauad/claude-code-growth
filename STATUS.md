@@ -20,7 +20,7 @@ Um sistema com quatro funções integradas:
 
 | Item | Detalhe |
 |------|---------|
-| Feed mobile no ar | victorauad.github.io/claude-code-growth — 30 cards, filtro por tema, campo de contexto |
+| Feed mobile no ar | victorauad.github.io/co-coach — 30 cards, filtro por tema, campo de contexto |
 | Indexação de 7 pastas | `07-inbox`, `06-ferramentas`, `03-metodologias`, `02-fluxos`, `04-biblioteca`, `01-setup`, `05-templates` |
 | Pipeline de ingestão | `scripts/ingest.py` — fetch de URL, transcrição YT, sumarização via Claude Haiku, salva em `07-inbox/` |
 | Build do site | `scripts/build-site.py` — gera `docs/index.html` a partir dos markdowns |

@@ -29,22 +29,22 @@ Usar Claude Code como ferramenta de trabalho — não virar engenheiro de softwa
 
 1. **Knowledge base viva** — conteúdo indexado automaticamente em `kb/` via: (a) link enviado por GitHub Issue (iOS Shortcut), (b) repos do GitHub estrelados (workflow semanal). Cada arquivo `.md` tem frontmatter YAML com titulo, tema, bullets, url, importancia.
 
-2. **Feed mobile** — site estático em GitHub Pages (`https://victorauad.github.io/claude-code-growth`) gerado por `scripts/build-site.py`. Cards com filtro por tema e campo de contexto "o que estou fazendo agora".
+2. **Feed mobile** — site estático em GitHub Pages (`https://victorauad.github.io/co-coach`) gerado por `scripts/build-site.py`. Cards com filtro por tema e campo de contexto "o que estou fazendo agora".
 
-3. **Skills instaláveis** — arquivos `SKILL.md` em `skills/`, copiados para `.claude/skills/` de outros repos via GitHub Action `install-skills-remote.yml`. Skills atuais: `coach-claude-code`, `setup-review`, `bigquery-workflow`.
+3. **Skills instaláveis** — arquivos `SKILL.md` em `skills/`, copiados para `.claude/skills/` de outros repos via GitHub Action `install-skills-remote.yml`. Skills atuais: `co-coach-review`, `co-coach-setup`, `co-coach-bigquery`.
 
 ## Estrutura real do repositório
 ```
-claude-code-growth/
+co-coach/
 ├── kb/                          — knowledge base indexada (30+ arquivos .md com frontmatter)
 ├── scripts/
 │   ├── build-site.py            — gera docs/index.html + knowledge-base.json
 │   ├── ingest.py                — fetch + sumarização via Claude Haiku → kb/
 │   └── ingest-github-stars.py  — busca repos estrelados e indexa READMEs
 ├── skills/
-│   ├── coach-claude-code/SKILL.md
-│   ├── setup-review/SKILL.md
-│   └── bigquery-workflow/SKILL.md
+│   ├── co-coach-review/SKILL.md
+│   ├── co-coach-setup/SKILL.md
+│   └── co-coach-bigquery/SKILL.md
 ├── docs/                        — gerado automaticamente (GitHub Pages)
 ├── .github/workflows/
 │   ├── ingest-link.yml          — dispara ao Issue receber label "add-link"
@@ -67,4 +67,4 @@ grep -r "tema: <assunto>" kb/
 
 Temas disponíveis: `agentes`, `ferramentas`, `mcp`, `metodologia`, `prompts`, `setup`, `workflow`.
 
-As skills `coach-claude-code` e `setup-review` consultam `https://victorauad.github.io/claude-code-growth/knowledge-base.json` via WebFetch para trazer recomendações contextualizadas da KB ao final de cada avaliação.
+As skills `co-coach-review` e `co-coach-setup` consultam `https://victorauad.github.io/co-coach/knowledge-base.json` via WebFetch para trazer recomendações contextualizadas da KB ao final de cada avaliação.

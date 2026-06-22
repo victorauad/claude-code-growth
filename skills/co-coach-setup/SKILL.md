@@ -1,6 +1,6 @@
 ---
-name: setup-review
-description: Audita a configuração completa do Claude Code no projeto atual — CLAUDE.md, settings.json, skills instaladas, memória global e hooks. Adapta o relatório para CLI, VS Code ou Claude Code Web. Use quando eu pedir "/setup-review", "revise meu setup", "o que falta configurar" ou "como está meu ambiente".
+name: co-coach-setup
+description: Audita a configuração completa do Claude Code no projeto atual — CLAUDE.md, settings.json, skills instaladas, memória global e hooks. Adapta o relatório para CLI, VS Code ou Claude Code Web. Use quando eu pedir "/co-coach-setup", "revise meu setup", "o que falta configurar" ou "como está meu ambiente".
 ---
 
 # Setup Review — Auditoria de Configuração do Claude Code
@@ -45,7 +45,7 @@ O relatório e os itens verificados mudam dependendo da resposta.
 | Item | Como verificar | Status esperado |
 |------|---------------|----------------|
 | SessionStart hook | `.claude/settings.json` → chave `hooks.SessionStart` | Configurado para criar `~/.claude/CLAUDE.md` no início da sessão |
-| Template de memória | `05-templates/memory-template.md` (se for o repo claude-code-growth) ou equivalente | Existe e está atualizado |
+| Template de memória | `05-templates/memory-template.md` (se for o repo co-coach) ou equivalente | Existe e está atualizado |
 
 **Explicação para o usuário (se perguntado):** Na web, cada sessão começa do zero — não há `~/.claude/` persistente. O SessionStart hook resolve isso: ele roda um comando shell no início de cada sessão e pode copiar o template de memória para `~/.claude/CLAUDE.md`, simulando a memória global.
 
@@ -157,8 +157,8 @@ Data: [data de hoje]
 
 Após o relatório de auditoria:
 
-1. Use `WebFetch` para buscar `https://victorauad.github.io/claude-code-growth/knowledge-base.json`
-   - Se não tiver acesso a WebFetch, use `Bash(curl -s https://victorauad.github.io/claude-code-growth/knowledge-base.json)`
+1. Use `WebFetch` para buscar `https://victorauad.github.io/co-coach/knowledge-base.json`
+   - Se não tiver acesso a WebFetch, use `Bash(curl -s https://victorauad.github.io/co-coach/knowledge-base.json)`
 2. Filtre itens com `tema` igual a `ferramentas` ou `setup`
 3. Selecione até 5 itens mais relevantes para o contexto do projeto auditado
 4. Adicione ao final do relatório:

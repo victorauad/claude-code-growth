@@ -1,6 +1,6 @@
 ---
-name: proficiency-check
-description: Faz um quiz rápido por tema baseado na knowledge base, mede exposição via claude-mem, atualiza o score em docs/proficiency.json e exibe o painel de progresso. Use quando pedir "/proficiency-check", "como está meu progresso", "quero ser testado", "quiz de conhecimento" ou "quanto eu sei sobre X".
+name: co-coach-quiz
+description: Faz um quiz rápido por tema baseado na knowledge base, mede exposição via claude-mem, atualiza o score em docs/proficiency.json e exibe o painel de progresso. Use quando pedir "/co-coach-quiz", "como está meu progresso", "quero ser testado", "quiz de conhecimento" ou "quanto eu sei sobre X".
 ---
 
 # Proficiency Check — Mensuração de Conhecimento da KB
@@ -106,7 +106,7 @@ ferramentas  █████░░░░░  48%  ↑ +18 pts (quiz: 3/5)
 Execute:
 
 ```bash
-cd /Users/victorauad/Projetos/claude-code-growth && python3 scripts/build-site.py
+cd /Users/victorauad/Projetos/co-coach && python3 scripts/build-site.py
 ```
 
 Se rodar com sucesso, informe: "Site atualizado — os badges dos cards e o painel de progresso foram regenerados."

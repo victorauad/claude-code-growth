@@ -265,7 +265,7 @@ def build_html(cards: list[dict], prof: dict = None) -> str:
 </main>
 
 <footer>
-  <p>Alimentado por <a href="https://github.com/victorauad/claude-code-growth">claude-code-growth</a></p>
+  <p>Alimentado por <a href="https://github.com/victorauad/co-coach">co-coach</a></p>
 </footer>
 
 <script>

@@ -17,7 +17,7 @@ Guia de estudo e referência para usar **Claude Code** no trabalho de Growth/Mar
 ## Estrutura
 
 ```
-claude-code-growth/
+co-coach/
 ├── README.md
 ├── 00-comece-aqui/
 │   ├── LEIA-PRIMEIRO.md

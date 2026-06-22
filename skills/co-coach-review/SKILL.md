@@ -1,6 +1,6 @@
 ---
-name: coach-claude-code
-description: Avalia a qualidade do contexto do projeto atual (CLAUDE.md, skills, settings) com score 0–10 e sugestões concretas. Também consulta a knowledge base do co-coach e traz recursos relevantes para o projeto. Use quando pedir "/coach", "avalie meu contexto", "como está meu CLAUDE.md" ou "o que está faltando no meu setup".
+name: co-coach-review
+description: Avalia a qualidade do contexto do projeto atual (CLAUDE.md, skills, settings) com score 0–10 e sugestões concretas. Também consulta a knowledge base do co-coach e traz recursos relevantes para o projeto. Use quando pedir "/co-coach-review", "avalie meu contexto", "como está meu CLAUDE.md" ou "o que está faltando no meu setup".
 ---
 
 # Coach de Claude Code
@@ -69,8 +69,8 @@ Formato obrigatório da resposta:
 
 Após gerar o relatório de score, faça:
 
-1. Use `WebFetch` para buscar `https://victorauad.github.io/claude-code-growth/knowledge-base.json`
-   - Se não tiver acesso a WebFetch, use `Bash(curl -s https://victorauad.github.io/claude-code-growth/knowledge-base.json)`
+1. Use `WebFetch` para buscar `https://victorauad.github.io/co-coach/knowledge-base.json`
+   - Se não tiver acesso a WebFetch, use `Bash(curl -s https://victorauad.github.io/co-coach/knowledge-base.json)`
 2. Com base no CLAUDE.md lido e no tipo de projeto, filtre os itens da KB que são mais relevantes.
    - Critério: correspondência de palavras-chave entre o tema/stack do projeto e os campos `titulo`, `bullets`, `importancia` dos itens da KB.
 3. Selecione até 5 itens mais relevantes.

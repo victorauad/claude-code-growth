@@ -20,7 +20,7 @@ jobs:
   install:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout claude-code-growth
+      - name: Checkout co-coach
         uses: actions/checkout@v4
 
       - name: Instalar skills no repo alvo via API GitHub
@@ -73,7 +73,7 @@ jobs:
               -H "Authorization: Bearer $GH_PAT" \
               -H "Accept: application/vnd.github+json" \
               "https://api.github.com/repos/$TARGET_REPO/contents/$target_path" \
-              -d "{\"message\": \"skill: instalar $skill_name via claude-code-growth\", \"content\": \"$encoded_content\"$sha_param}")
+              -d "{\"message\": \"skill: instalar $skill_name via co-coach\", \"content\": \"$encoded_content\"$sha_param}")
 
             if [ "$http_status" = "200" ] || [ "$http_status" = "201" ]; then
               echo "  ✅ $skill_name instalada em $TARGET_REPO"

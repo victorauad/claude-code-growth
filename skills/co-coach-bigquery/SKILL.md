@@ -1,5 +1,5 @@
 ---
-name: bigquery-workflow
+name: co-coach-bigquery
 description: Ajuda a montar queries BigQuery Standard SQL para perguntas de negócio. Use quando eu pedir "query no BigQuery", "analisa essa tabela", "me dá os números de [métrica]" ou qualquer análise de dados com BigQuery.
 ---
 
