@@ -150,6 +150,149 @@
     "github_stars": "22000"
   },
   {
+    "titulo": "\"Your Attention Is the Bottleneck, Not Your Agents — Zack Proser, WorkOS\"",
+    "tema": "agentes",
+    "url": "https://www.youtube.com/watch?v=so9l_MwS2yg",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: agentes"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Why More Context Makes Your Agent Dumber and What to Do About It — Nupur Sharma, Qodo\"",
+    "tema": "agentes",
+    "url": "https://www.youtube.com/watch?v=EcqMYoIV57A",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: agentes"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"The AI Skill I Rely On Daily — Priscila Andre de Oliveira, Sentry\"",
+    "tema": "skills",
+    "url": "https://www.youtube.com/watch?v=li0SaBt9RDM",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: skills"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Stop babysitting your agents — Brandon Waselnuk, Unblocked\"",
+    "tema": "agentes",
+    "url": "https://www.youtube.com/watch?v=BiG2ssibKGc",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: agentes"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Skill issue: Lessons from skilling up coding agents to use Langfuse — Marc Klingen, Clickhouse\"",
+    "tema": "skills",
+    "url": "https://www.youtube.com/watch?v=vNCY9kXXyDQ",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: skills"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"How I deleted 95% of my agent skills and got better results — Nick Nisi, WorkOS\"",
+    "tema": "skills",
+    "url": "https://www.youtube.com/watch?v=vy7o1g2iHY8",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: skills"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Full Walkthrough: Writing & Using Skills — Nick Nisi e Zack Proser, WorkOS\"",
+    "tema": "skills",
+    "url": "https://www.youtube.com/watch?v=pFsfax19yOM",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: skills"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"From MCP to Scale: Pipelines That Build Themselves — Rafael Levi, Bright Data\"",
+    "tema": "mcp",
+    "url": "https://www.youtube.com/watch?v=zTZ0qunQXnM",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: mcp"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Combine Skills and MCP to Close the Context Gap — Pedro Rodrigues, Supabase\"",
+    "tema": "skills",
+    "url": "https://www.youtube.com/watch?v=JT3OzDKrucU",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: skills"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Building Interactive UIs in VS Code with MCP Apps — Marlene Mhangami & Liam Hampton, GitHub\"",
+    "tema": "mcp",
+    "url": "https://www.youtube.com/watch?v=_xIwFcnHqp4",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: mcp"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Benchmarking semantic code retrieval on Claude Code — Kuba Rogut, Turbopuffer\"",
+    "tema": "ferramentas",
+    "url": "https://www.youtube.com/watch?v=zKk7sDMGDEQ",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: ferramentas"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
     "titulo": "yt-dlp: Downloader de Áudio/Vídeo Open Source com 172k Estrelas",
     "tema": "ferramentas",
     "url": "https://github.com/yt-dlp/yt-dlp",
