@@ -150,6 +150,58 @@
     "github_stars": "22000"
   },
   {
+    "titulo": "\"Extend Claude with Skills — Claude Code Docs\"",
+    "tema": "skills",
+    "url": "https://code.claude.com/docs/en/skills",
+    "data": "2026-06-23",
+    "bullets": [
+      "Skills estendem o que o Claude consegue fazer. Crie um arquivo SKILL.md com instruções, e o Claude adiciona ao seu toolkit. O Claude usa skills quando relevante, ou você pode invocar diretamente com /"
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Common Workflows — Claude Code Docs\"",
+    "tema": "workflow",
+    "url": "https://code.claude.com/docs/en/common-workflows",
+    "data": "2026-06-23",
+    "bullets": [
+      "Receitas para tarefas cotidianas de desenvolvimento: explorar codebases, corrigir bugs, refatorar, testar, criar PRs e mais."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Agent Skills — Visão Geral (Anthropic Docs)\"",
+    "tema": "skills",
+    "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+    "data": "2026-06-23",
+    "bullets": [
+      "Agent Skills são capacidades modulares que estendem a funcionalidade do Claude. Cada Skill empacota instruções, metadados e recursos opcionais (scripts, templates) que o Claude usa automaticamente qua"
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Skill Authoring Best Practices — Anthropic Docs\"",
+    "tema": "skills",
+    "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices",
+    "data": "2026-06-23",
+    "bullets": [
+      "O contexto é um bem compartilhado. Sua Skill divide a janela de contexto com o system prompt, histórico da conversa, metadata de outras Skills e a requisição atual."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
     "titulo": "\"Your Attention Is the Bottleneck, Not Your Agents — Zack Proser, WorkOS\"",
     "tema": "agentes",
     "url": "https://www.youtube.com/watch?v=so9l_MwS2yg",
