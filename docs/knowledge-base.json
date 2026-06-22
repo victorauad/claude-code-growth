@@ -150,6 +150,175 @@
     "github_stars": "22000"
   },
   {
+    "titulo": "\"O que são Skills no Claude\"",
+    "tema": "skills",
+    "url": "https://support.claude.com/en/articles/12512176-what-are-skills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Skills são pastas com instruções, scripts e recursos que o Claude carrega dinamicamente para melhorar o desempenho em tarefas específicas. Funcionam por \"progressive disclosure\" — o Claude identifica "
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Tool Use com Claude — Visão Geral\"",
+    "tema": "agentes",
+    "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use/overview",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tool use permite que o Claude chame funções que você define ou que a Anthropic fornece. O Claude decide quando chamar uma ferramenta com base no pedido do usuário e na descrição da ferramenta."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Curso: Model Context Protocol — Advanced Topics (Skilljar)\"",
+    "tema": "mcp",
+    "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics",
+    "data": "2026-06-22",
+    "bullets": [
+      "Curso avançado sobre recursos sofisticados e padrões de implementação para desenvolvimento de MCP em produção."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Curso: Introduction to Subagents (Skilljar)\"",
+    "tema": "agentes",
+    "url": "https://anthropic.skilljar.com/introduction-to-subagents",
+    "data": "2026-06-22",
+    "bullets": [
+      "Curso gratuito sobre como usar e criar sub-agentes no Claude Code para gerenciar contexto, delegar tarefas e construir workflows especializados."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Curso: Introduction to Model Context Protocol (Skilljar)\"",
+    "tema": "mcp",
+    "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol",
+    "data": "2026-06-22",
+    "bullets": [
+      "Curso prático sobre construção de servidores e clientes MCP usando Python SDK, focando nos três primitivos principais: ferramentas, recursos e prompts."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Curso: Introduction to Agent Skills (Skilljar)\"",
+    "tema": "skills",
+    "url": "https://anthropic.skilljar.com/introduction-to-agent-skills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Curso gratuito da Anthropic no Skilljar sobre como construir, configurar e compartilhar Skills no Claude Code."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Curso: Claude Code in Action (Skilljar)\"",
+    "tema": "setup",
+    "url": "https://anthropic.skilljar.com/claude-code-in-action",
+    "data": "2026-06-22",
+    "bullets": [
+      "Treinamento abrangente sobre integrar o Claude Code no fluxo de trabalho de desenvolvimento de software."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"MCP Servers Remotos — Anthropic\"",
+    "tema": "mcp",
+    "url": "https://docs.anthropic.com/en/docs/agents-and-tools/remote-mcp-servers",
+    "data": "2026-06-22",
+    "bullets": [
+      "Servidores MCP remotos permitem que desenvolvedores se conectem via Anthropic MCP connector API a serviços externos sem precisar rodar servidores localmente."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Prompt Engineering — Visão Geral (Anthropic)\"",
+    "tema": "prompts",
+    "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+    "data": "2026-06-22",
+    "bullets": [
+      "Guia oficial da Anthropic para engenharia de prompts com Claude."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Roadmap do Model Context Protocol (MCP)\"",
+    "tema": "mcp",
+    "url": "https://modelcontextprotocol.io/development/roadmap",
+    "data": "2026-06-22",
+    "bullets": [
+      "Prioridades estratégicas do MCP para o ecossistema (atualizado março/2026)."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Introdução ao Model Context Protocol (MCP)\"",
+    "tema": "mcp",
+    "url": "https://modelcontextprotocol.io/introduction",
+    "data": "2026-06-22",
+    "bullets": [
+      "MCP é um padrão aberto para conectar aplicações de IA a sistemas externos. É como um \"USB-C para IA\" — fornece uma forma padronizada de conectar aplicações de IA a fontes de dados, ferramentas e workf"
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Integrações de IDE do Claude Code (VS Code e outros)\"",
+    "tema": "setup",
+    "url": "https://docs.anthropic.com/en/docs/claude-code/ide-integrations",
+    "data": "2026-06-22",
+    "bullets": [
+      "A extensão do VS Code é a forma recomendada de usar Claude Code no editor. Oferece painel gráfico nativo, diff side-by-side, @-mentions com número de linha, histórico de conversas e múltiplas abas."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Como Criar Custom Skills no Claude\"",
+    "tema": "skills",
+    "url": "https://support.claude.com/en/articles/12512198-creating-custom-skills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Custom skills permitem adicionar conhecimento especializado e workflows específicos da organização ao Claude. Disponíveis nos planos Free, Pro, Max, Team e Enterprise (requer execução de código ativad"
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
     "titulo": "\"Extend Claude with Skills — Claude Code Docs\"",
     "tema": "skills",
     "url": "https://code.claude.com/docs/en/skills",
@@ -169,6 +338,19 @@
     "data": "2026-06-23",
     "bullets": [
       "Receitas para tarefas cotidianas de desenvolvimento: explorar codebases, corrigir bugs, refatorar, testar, criar PRs e mais."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Boas Práticas de Prompt para Claude 4 (e modelos atuais)\"",
+    "tema": "prompts",
+    "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices",
+    "data": "2026-06-22",
+    "bullets": [
+      "Guia oficial da Anthropic para Claude Fable 5, Opus 4.8, Opus 4.6, Sonnet 4.6 e Haiku 4.5."
     ],
     "importancia": "",
     "fonte": "anthropic-docs",
