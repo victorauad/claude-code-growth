@@ -1,4 +1,10 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(gh run watch *)",
+      "Bash(yt-dlp --flat-playlist *)"
+    ]
+  },
   "hooks": {
     "SessionStart": [
       {
