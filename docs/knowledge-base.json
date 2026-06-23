@@ -150,6 +150,58 @@
     "github_stars": "22000"
   },
   {
+    "titulo": "\"Common Workflows — Claude Code Docs\"",
+    "tema": "workflow",
+    "url": "https://code.claude.com/docs/en/common-workflows",
+    "data": "2026-06-23",
+    "bullets": [
+      "Visão geral rápida:"
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Extend Claude with Skills — Claude Code Docs\"",
+    "tema": "skills",
+    "url": "https://code.claude.com/docs/en/skills",
+    "data": "2026-06-23",
+    "bullets": [
+      "Skills estendem o que Claude pode fazer. Crie um arquivo SKILL.md com instruções, e Claude adiciona-o ao seu toolkit. Claude usa skills quando relevante, ou você pode invocar uma diretamente com /nome"
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Agent Skills — Visão Geral (Anthropic Docs)\"",
+    "tema": "skills",
+    "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+    "data": "2026-06-23",
+    "bullets": [
+      "Skills são recursos reutilizáveis baseados em sistema de arquivos que fornecem ao Claude expertise específica de domínio: workflows, contexto e melhores práticas que transformam agentes generalistas e"
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Agent Skills — Melhores Práticas de Autoria (Anthropic Docs)\"",
+    "tema": "skills",
+    "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices",
+    "data": "2026-06-23",
+    "bullets": [
+      "A janela de contexto é um bem público. Sua Skill compete por espaço com o prompt do sistema, histórico de conversa, metadados de outras Skills e a solicitação real."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
     "titulo": "\"Your Attention Is the Bottleneck, Not Your Agents — Zack Proser, WorkOS\"",
     "tema": "agentes",
     "url": "https://www.youtube.com/watch?v=so9l_MwS2yg",
