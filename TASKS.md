@@ -10,6 +10,8 @@
 - [ ] **iOS Shortcut** — confirmar que o Shortcut está configurado no iPhone e testar o fluxo completo: URL compartilhada → Issue criada com label `add-link` → card no feed em ≤3 min
 - [ ] **`docs/proficiency.json`** — criar o arquivo com schema de scores por tema e garantir que a skill `co-coach-quiz` escreve e lê nele corretamente
 - [ ] **Estatísticas no feed mobile** — adicionar rodapé ao `docs/index.html` gerado por `scripts/build-site.py` com: data do último rebuild e contagem de cards por tema
+- [ ] **`docs/sistema.html`** — decidir se o arquivo deve ser versionado no repo ou integrado ao `scripts/build-site.py` (atualmente está em `docs/` que o CI sobrescreve a cada rebuild)
+- [ ] **`config/sync-targets.yml`** — registrar novos repos que precisem receber auto-sync de skills
 
 ---
 
