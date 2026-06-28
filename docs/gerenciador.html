@@ -431,11 +431,23 @@
       return r.json();
     }
 
+    function b64decode(b64) {
+      const bytes = Uint8Array.from(atob(b64.replace(/\n/g, '')), c => c.charCodeAt(0));
+      return new TextDecoder('utf-8').decode(bytes);
+    }
+
+    function b64encode(str) {
+      const bytes = new TextEncoder().encode(str);
+      let bin = '';
+      bytes.forEach(b => bin += String.fromCharCode(b));
+      return btoa(bin);
+    }
+
     async function ghPut(repo, path, content, sha, message) {
       const r = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
         method: 'PUT',
         headers: { ...ghHeaders(), 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message, content: btoa(unescape(encodeURIComponent(content))), sha }),
+        body: JSON.stringify({ message, content: b64encode(content), sha }),
       });
       if (!r.ok) { const e = await r.json(); throw new Error(e.message || r.status); }
       return r.json();
@@ -552,7 +564,7 @@
 
       try {
         const file = await ghGet(REPO, 'config/sync-targets.yml');
-        const content = decodeURIComponent(escape(atob(file.content)));
+        const content = b64decode(file.content);
         document.getElementById('sync-targets-content').value = content;
         const repos = content.split('\n').filter(l => l.trim().startsWith('- '));
         document.getElementById('stat-repos').textContent = repos.length;
@@ -570,7 +582,7 @@
       try {
         const file = await ghGet(REPO, `skills/${name}/SKILL.md`);
         currentSkillSha = file.sha;
-        document.getElementById('skill-editor-content').value = decodeURIComponent(escape(atob(file.content)));
+        document.getElementById('skill-editor-content').value = b64decode(file.content);
       } catch (e) {
         document.getElementById('skill-editor-content').value = '# Erro ao carregar skill\n\n' + e.message;
       }
@@ -661,14 +673,14 @@
       document.getElementById('kanban-project-filter').classList.add('hidden');
       try {
         const syncFile = await ghGet(REPO, 'config/sync-targets.yml');
-        const syncYml = decodeURIComponent(escape(atob(syncFile.content)));
+        const syncYml = b64decode(syncFile.content);
         const repos = parseSyncRepos(syncYml);
 
         kanbanData = await Promise.all(repos.map(async repo => {
           const project = repo.split('/').pop();
           try {
             const file = await ghGet(repo, 'TASKS.md');
-            const content = decodeURIComponent(escape(atob(file.content)));
+            const content = b64decode(file.content);
             return { project, repo, columns: parseTasksMd(content) };
           } catch (e) {
             return { project, repo, error: e.message };
