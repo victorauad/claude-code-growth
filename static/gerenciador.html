@@ -35,6 +35,23 @@
 </head>
 <body class="bg-slate-50 min-h-screen">
 
+  <!-- Modal PAT setup -->
+  <div id="pat-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8">
+      <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-lg mb-4">cc</div>
+      <h2 class="text-lg font-bold text-slate-800 mb-1">Configurar acesso ao GitHub</h2>
+      <p class="text-sm text-slate-500 mb-5">O gerenciador usa a GitHub API para ler e salvar arquivos diretamente no repositório. Configure uma vez — fica salvo no browser.</p>
+      <div class="space-y-4">
+        <div>
+          <label class="text-xs font-semibold text-slate-600 block mb-1">Personal Access Token (PAT)</label>
+          <input id="pat-input" type="password" placeholder="ghp_..." class="w-full text-sm border border-slate-200 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-300 font-mono">
+          <p class="text-xs text-slate-400 mt-1.5">Crie em <strong>GitHub → Settings → Developer settings → Personal access tokens → Fine-grained</strong>. Permissões necessárias: <code class="bg-slate-100 px-1 rounded">Contents: Read & Write</code> nos repos co-coach, iracing_analysis, alamtoco e SMPL.</p>
+        </div>
+        <button onclick="savePAT()" class="w-full bg-blue-600 text-white text-sm font-medium py-2.5 rounded-lg hover:bg-blue-700 transition">Salvar e continuar</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Toast -->
   <div id="toast" class="toast bg-slate-800 text-white text-sm px-4 py-3 rounded-xl shadow-xl max-w-xs">
     <span id="toast-msg"></span>
@@ -96,6 +113,11 @@
               <span>⚙️</span> Configurações
             </button>
           </li>
+          <li>
+            <button onclick="showSection('kanban'); loadKanban()" class="nav-link w-full text-left px-4 py-2.5 text-sm text-slate-700 flex items-center gap-2.5" id="nav-kanban">
+              <span>🗂️</span> Kanban
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
@@ -134,15 +156,14 @@
           </div>
         </div>
 
-        <!-- Server alert -->
+        <!-- PAT alert -->
         <div id="server-alert" class="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-6 hidden">
           <div class="flex items-start gap-3">
             <span class="text-2xl">⚠️</span>
             <div>
-              <h3 class="font-semibold text-amber-800">Servidor local não detectado</h3>
-              <p class="text-sm text-amber-700 mt-1">Para editar skills e configurações localmente, você precisa iniciar o servidor. Abra o terminal e execute:</p>
-              <code class="block mt-2 bg-amber-100 px-3 py-2 rounded-lg text-sm text-amber-900 font-mono">python scripts/server.py</code>
-              <p class="text-xs text-amber-600 mt-2">A leitura da Knowledge Base (GitHub Pages) funciona mesmo sem o servidor.</p>
+              <h3 class="font-semibold text-amber-800">Token GitHub não configurado</h3>
+              <p class="text-sm text-amber-700 mt-1">Configure seu Personal Access Token para usar o gerenciador sem servidor local.</p>
+              <button onclick="document.getElementById('pat-modal').classList.remove('hidden')" class="mt-2 text-sm bg-amber-600 text-white px-4 py-1.5 rounded-lg hover:bg-amber-700 transition">Configurar agora</button>
             </div>
           </div>
         </div>
@@ -164,7 +185,7 @@
             <p class="text-sm text-slate-500 mt-1">Visualize e edite as skills instaladas no co-coach.</p>
           </div>
           <div class="flex items-center gap-2">
-            <span class="text-xs text-slate-400">requer servidor local</span>
+            <span class="text-xs text-slate-400">via GitHub API</span>
           </div>
         </div>
 
@@ -337,16 +358,37 @@
         </div>
       </div>
 
+      <!-- ===== KANBAN ===== -->
+      <div id="section-kanban" class="section">
+        <div class="mb-6 flex items-center justify-between">
+          <div>
+            <h2 class="text-xl font-bold text-slate-800">Kanban de Projetos</h2>
+            <p class="text-sm text-slate-500 mt-1">Tasks de todos os projetos ativos, lidas do GitHub em tempo real.</p>
+          </div>
+          <button onclick="loadKanban()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-1.5 rounded-lg transition">↺ Recarregar</button>
+        </div>
+
+        <!-- Filtro por projeto -->
+        <div id="kanban-project-filter" class="flex gap-2 flex-wrap mb-6 hidden">
+          <button onclick="filterKanban('')" class="kanban-proj-btn text-xs px-3 py-1.5 rounded-lg bg-blue-600 text-white font-medium" data-proj="">Todos</button>
+        </div>
+
+        <!-- Colunas -->
+        <div id="kanban-board" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class="text-sm text-slate-400 col-span-4 py-8 text-center">Clique em "Kanban" para carregar os projetos.</div>
+        </div>
+      </div>
+
     </main>
   </div>
 
   <script>
-    const SERVER = 'http://localhost:8765';
+    const REPO   = 'victorauad/co-coach';
     const KB_URL = 'https://victorauad.github.io/co-coach/knowledge-base.json';
 
     let kbData = [];
     let currentSkill = null;
-    let serverOk = false;
+    let currentSkillSha = null;
 
     // ── Navegação ──────────────────────────────────────
     function showSection(name) {
@@ -364,22 +406,54 @@
       setTimeout(() => el.classList.remove('show'), duration);
     }
 
-    // ── Verificar servidor ────────────────────────────
-    async function checkServer() {
-      try {
-        const r = await fetch(SERVER + '/ping', { signal: AbortSignal.timeout(1500) });
-        if (r.ok) {
-          serverOk = true;
-          document.getElementById('status-dot').className = 'status-dot status-ok';
-          document.getElementById('status-label').textContent = 'Servidor local ativo';
-          loadLocalData();
-          return;
-        }
-      } catch {}
-      serverOk = false;
-      document.getElementById('status-dot').className = 'status-dot status-warn';
-      document.getElementById('status-label').textContent = 'Sem servidor local';
-      document.getElementById('server-alert').classList.remove('hidden');
+    // ── PAT setup ────────────────────────────────────
+    function getPAT() { return localStorage.getItem('gh_pat') || ''; }
+
+    function savePAT() {
+      const pat = document.getElementById('pat-input').value.trim();
+      if (!pat) { alert('Cole o token antes de salvar.'); return; }
+      localStorage.setItem('gh_pat', pat);
+      document.getElementById('pat-modal').classList.add('hidden');
+      init();
+    }
+
+    function ghHeaders() {
+      return {
+        'Authorization': 'Bearer ' + getPAT(),
+        'Accept': 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+      };
+    }
+
+    async function ghGet(repo, path) {
+      const r = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, { headers: ghHeaders() });
+      if (!r.ok) throw new Error(`GitHub API ${r.status}: ${repo}/${path}`);
+      return r.json();
+    }
+
+    async function ghPut(repo, path, content, sha, message) {
+      const r = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+        method: 'PUT',
+        headers: { ...ghHeaders(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message, content: btoa(unescape(encodeURIComponent(content))), sha }),
+      });
+      if (!r.ok) { const e = await r.json(); throw new Error(e.message || r.status); }
+      return r.json();
+    }
+
+    // ── Status PAT ────────────────────────────────────
+    function checkPAT() {
+      const pat = getPAT();
+      if (!pat) {
+        document.getElementById('status-dot').className = 'status-dot status-warn';
+        document.getElementById('status-label').textContent = 'Token não configurado';
+        document.getElementById('pat-modal').classList.remove('hidden');
+        return false;
+      }
+      document.getElementById('status-dot').className = 'status-dot status-ok';
+      document.getElementById('status-label').textContent = 'GitHub API ativa';
+      document.getElementById('server-alert').classList.add('hidden');
+      return true;
     }
 
     // ── Carregar KB (GitHub Pages) ────────────────────
@@ -462,12 +536,11 @@
       renderKBCards(filtered);
     }
 
-    // ── Skills (requer servidor) ──────────────────────
+    // ── Skills via GitHub API ─────────────────────────
     async function loadLocalData() {
-      // Skills
       try {
-        const r = await fetch(SERVER + '/skills');
-        const skills = await r.json();
+        const items = await ghGet(REPO, 'skills');
+        const skills = items.filter(i => i.type === 'dir').map(i => i.name).sort();
         document.getElementById('stat-skills').textContent = skills.length;
         document.getElementById('skills-list').innerHTML = skills.map(s => `
           <div class="px-4 py-3 cursor-pointer hover:bg-slate-50 text-sm text-slate-700 flex items-center gap-2" onclick="loadSkill('${s}')">
@@ -475,64 +548,55 @@
             <span class="truncate">${s}</span>
           </div>
         `).join('') || '<div class="p-4 text-sm text-slate-400">Nenhuma skill encontrada</div>';
-      } catch {}
+      } catch (e) { console.warn('skills:', e); }
 
-      // Sync targets
       try {
-        const r = await fetch(SERVER + '/file?path=config/sync-targets.yml');
-        const data = await r.json();
-        document.getElementById('sync-targets-content').value = data.content;
-        const lines = data.content.split('\n').filter(l => l.trim() && !l.startsWith('#'));
-        document.getElementById('stat-repos').textContent = lines.length;
-      } catch {}
+        const file = await ghGet(REPO, 'config/sync-targets.yml');
+        const content = decodeURIComponent(escape(atob(file.content)));
+        document.getElementById('sync-targets-content').value = content;
+        const repos = content.split('\n').filter(l => l.trim().startsWith('- '));
+        document.getElementById('stat-repos').textContent = repos.length;
+      } catch (e) { console.warn('sync-targets:', e); }
     }
 
     async function loadSkill(name) {
-      if (!serverOk) { toast('⚠️ Servidor local não está rodando'); return; }
       currentSkill = name;
+      currentSkillSha = null;
       document.getElementById('skill-editor-title').textContent = name + '/SKILL.md';
       document.getElementById('btn-save-skill').classList.remove('hidden');
       document.getElementById('skill-editor-placeholder').classList.add('hidden');
       document.getElementById('skill-editor-content').classList.remove('hidden');
       document.getElementById('skill-editor-content').value = 'Carregando...';
       try {
-        const r = await fetch(`${SERVER}/file?path=skills/${name}/SKILL.md`);
-        const data = await r.json();
-        document.getElementById('skill-editor-content').value = data.content;
-      } catch {
-        document.getElementById('skill-editor-content').value = '# Erro ao carregar skill\n\nVerifique se o servidor está rodando.';
+        const file = await ghGet(REPO, `skills/${name}/SKILL.md`);
+        currentSkillSha = file.sha;
+        document.getElementById('skill-editor-content').value = decodeURIComponent(escape(atob(file.content)));
+      } catch (e) {
+        document.getElementById('skill-editor-content').value = '# Erro ao carregar skill\n\n' + e.message;
       }
     }
 
     async function saveSkill() {
-      if (!serverOk || !currentSkill) { toast('⚠️ Servidor local não está rodando'); return; }
+      if (!currentSkill || !currentSkillSha) { toast('⚠️ Carregue uma skill primeiro'); return; }
       const content = document.getElementById('skill-editor-content').value;
       try {
-        await fetch(`${SERVER}/file`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ path: `skills/${currentSkill}/SKILL.md`, content })
-        });
-        toast('✅ Skill salva com sucesso');
-      } catch { toast('❌ Erro ao salvar — verifique o servidor'); }
+        const res = await ghPut(REPO, `skills/${currentSkill}/SKILL.md`, content, currentSkillSha, `feat: atualizar skill ${currentSkill} via gerenciador`);
+        currentSkillSha = res.content.sha;
+        toast('✅ Skill salva e commitada no GitHub');
+      } catch (e) { toast('❌ Erro ao salvar: ' + e.message); }
     }
 
     async function saveSyncTargets() {
-      if (!serverOk) { toast('⚠️ Servidor local não está rodando'); return; }
       const content = document.getElementById('sync-targets-content').value;
       try {
-        await fetch(`${SERVER}/file`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ path: 'config/sync-targets.yml', content })
-        });
-        toast('✅ sync-targets.yml salvo');
-      } catch { toast('❌ Erro ao salvar'); }
+        const file = await ghGet(REPO, 'config/sync-targets.yml');
+        await ghPut(REPO, 'config/sync-targets.yml', content, file.sha, 'chore: atualizar sync-targets via gerenciador');
+        toast('✅ sync-targets.yml salvo no GitHub');
+      } catch (e) { toast('❌ Erro ao salvar: ' + e.message); }
     }
 
     function saveConfig() {
-      if (!serverOk) { toast('⚠️ Servidor local não está rodando'); return; }
-      toast('💡 Edite scripts/ingest.py diretamente — as variáveis estão no topo do arquivo');
+      toast('💡 Edite scripts/ingest.py via aba Skills — procure por "ingest"');
     }
 
     function addLink() {
@@ -548,9 +612,154 @@
       document.getElementById('cfg-imp-display').textContent = this.value;
     });
 
+    // ── Kanban ───────────────────────────────────
+    let kanbanData = [];
+
+    const COLS = [
+      { key: "a_fazer",      label: "A fazer",       color: "bg-slate-100 text-slate-600",   dot: "bg-slate-400" },
+      { key: "em_progresso", label: "Em progresso",  color: "bg-blue-100 text-blue-700",     dot: "bg-blue-500" },
+      { key: "bloqueado",    label: "Bloqueado",      color: "bg-red-100 text-red-700",       dot: "bg-red-500" },
+      { key: "feito",        label: "Feito",          color: "bg-green-100 text-green-700",   dot: "bg-green-500" },
+    ];
+
+    const PROJ_COLORS = [
+      "bg-violet-100 text-violet-700", "bg-amber-100 text-amber-700",
+      "bg-cyan-100 text-cyan-700", "bg-pink-100 text-pink-700",
+    ];
+
+    function parseSyncRepos(yml) {
+      return yml.split('\n')
+        .map(l => l.trim())
+        .filter(l => l.startsWith('- '))
+        .map(l => l.slice(2).trim());
+    }
+
+    function parseTasksMd(content) {
+      const cols = { a_fazer: [], em_progresso: [], bloqueado: [], feito: [] };
+      let section = '';
+      for (const line of content.split('\n')) {
+        const s = line.trim();
+        if (s.startsWith('#')) { section = s.replace(/^#+\s*/, ''); continue; }
+        if (/^- \[x\]/i.test(s)) {
+          cols.feito.push({ text: s.replace(/^- \[x\]\s*/i, ''), section });
+        } else if (/^- \[-\]/.test(s)) {
+          continue;
+        } else if (/^- \[ \]\s+\[WIP\]/i.test(s)) {
+          cols.em_progresso.push({ text: s.replace(/^- \[ \]\s+\[WIP\]\s*/i, ''), section });
+        } else if (/^- \[ \]\s+\[BLOQ\]/i.test(s)) {
+          cols.bloqueado.push({ text: s.replace(/^- \[ \]\s+\[BLOQ\]\s*/i, ''), section });
+        } else if (/^- \[ \]/.test(s)) {
+          cols.a_fazer.push({ text: s.replace(/^- \[ \]\s*/, ''), section });
+        }
+      }
+      return cols;
+    }
+
+    async function loadKanban() {
+      document.getElementById('kanban-board').innerHTML =
+        '<div class="text-sm text-slate-400 col-span-4 py-8 text-center">Carregando tasks do GitHub...</div>';
+      document.getElementById('kanban-project-filter').classList.add('hidden');
+      try {
+        const syncFile = await ghGet(REPO, 'config/sync-targets.yml');
+        const syncYml = decodeURIComponent(escape(atob(syncFile.content)));
+        const repos = parseSyncRepos(syncYml);
+
+        kanbanData = await Promise.all(repos.map(async repo => {
+          const project = repo.split('/').pop();
+          try {
+            const file = await ghGet(repo, 'TASKS.md');
+            const content = decodeURIComponent(escape(atob(file.content)));
+            return { project, repo, columns: parseTasksMd(content) };
+          } catch (e) {
+            return { project, repo, error: e.message };
+          }
+        }));
+
+        renderKanban(kanbanData);
+        renderKanbanFilter(kanbanData);
+      } catch (e) {
+        document.getElementById('kanban-board').innerHTML =
+          '<div class="col-span-4 text-sm text-red-400 text-center py-8">Erro ao carregar kanban: ' + e.message + '</div>';
+      }
+    }
+
+    function renderKanban(data, projFilter = '') {
+      const filtered = projFilter ? data.filter(p => p.project === projFilter) : data;
+      const colTasks = { a_fazer: [], em_progresso: [], bloqueado: [], feito: [] };
+      filtered.forEach((proj, idx) => {
+        if (proj.error) return;
+        const colorClass = PROJ_COLORS[idx % PROJ_COLORS.length];
+        Object.keys(colTasks).forEach(col => {
+          (proj.columns[col] || []).forEach(task => {
+            colTasks[col].push({ ...task, project: proj.project, colorClass });
+          });
+        });
+      });
+
+      document.getElementById('kanban-board').innerHTML = COLS.map(col => `
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="w-2 h-2 rounded-full ${col.dot} shrink-0"></span>
+            <span class="text-xs font-semibold text-slate-600 uppercase tracking-wider">${col.label}</span>
+            <span class="ml-auto text-xs text-slate-400">${colTasks[col.key].length}</span>
+          </div>
+          ${colTasks[col.key].length === 0
+            ? '<div class="text-xs text-slate-300 text-center py-4 border border-dashed border-slate-200 rounded-xl">vazio</div>'
+            : colTasks[col.key].map(task => `
+              <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm hover:shadow-md transition-shadow">
+                <p class="text-xs text-slate-700 leading-snug mb-2">${escHtml(task.text)}</p>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="tag ${task.colorClass}">${escHtml(task.project)}</span>
+                  ${task.section ? '<span class="text-xs text-slate-400 truncate max-w-[120px]" title="' + escHtml(task.section) + '">' + escHtml(task.section) + '</span>' : ''}
+                </div>
+              </div>
+            `).join('')}
+        </div>
+      `).join('');
+    }
+
+    function renderKanbanFilter(data) {
+      const filter = document.getElementById('kanban-project-filter');
+      filter.classList.remove('hidden');
+      const existing = [...filter.querySelectorAll('[data-proj]')].map(b => b.dataset.proj);
+      data.forEach((proj, idx) => {
+        if (existing.includes(proj.project)) return;
+        const colorClass = PROJ_COLORS[idx % PROJ_COLORS.length];
+        const btn = document.createElement('button');
+        btn.className = 'kanban-proj-btn text-xs px-3 py-1.5 rounded-lg ' + colorClass + ' font-medium';
+        btn.dataset.proj = proj.project;
+        btn.textContent = proj.project;
+        btn.onclick = () => filterKanban(proj.project);
+        filter.appendChild(btn);
+      });
+    }
+
+    function filterKanban(proj) {
+      document.querySelectorAll('.kanban-proj-btn').forEach(b => {
+        const active = b.dataset.proj === proj;
+        b.classList.toggle('ring-2', active);
+        b.classList.toggle('ring-offset-1', active);
+        b.classList.toggle('ring-slate-400', active);
+      });
+      renderKanban(kanbanData, proj);
+    }
+
+    function escHtml(str) {
+      return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
     // ── Init ──────────────────────────────────────────
-    checkServer();
-    loadKB();
+    function init() {
+      if (!checkPAT()) return;
+      loadLocalData();
+      loadKB();
+    }
+
+    // Link "Configurar token" no header
+    document.getElementById('status-label').style.cursor = 'pointer';
+    document.getElementById('status-label').onclick = () => document.getElementById('pat-modal').classList.remove('hidden');
+
+    init();
   </script>
 </body>
 </html>

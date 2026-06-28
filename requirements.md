@@ -12,6 +12,7 @@ O co-coach é um sistema pessoal de aprendizado e produtividade para Victor, Hea
 1. Capturar conteúdo relevante sobre Claude Code, IA e ferramentas com o mínimo de fricção
 2. Tornar esse conteúdo acessível no celular, filtrado por tema e contexto
 3. Distribuir habilidades (skills) especializadas para todos os projetos ativos automaticamente
+4. Dar visibilidade para o Victor de todos os projetos ativos ao mesmo tempo numa visão de Kanban usando a @TASKS.md de cada projeto
 
 ---
 
@@ -37,6 +38,7 @@ O co-coach é um sistema pessoal de aprendizado e produtividade para Victor, Hea
 
 - **Como** Victor, **quero** editar skills, ver os cards da KB e configurar sync pelo browser **para que** eu não precise editar arquivos de texto manualmente
 - **Como** Victor, **quero** visualizar o sistema como um diagrama **para que** eu consiga explicar como funciona para outra pessoa
+- **Como** Victor, **quero** poder visualizar todos os meus projetos ativos que tem o co-coach instalado em um lugar só, numa visã de Kan-ban, por meio do arquivo tasks.md de cada projeto.
 
 ---
 

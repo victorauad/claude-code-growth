@@ -9,14 +9,95 @@ Uso:
 Acesse o gerenciador em: docs/gerenciador.html (abra no browser)
 """
 
+import base64
 import json
 import os
+import re
+import urllib.request
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
 
 PORT = 8765
 ROOT = Path(__file__).parent.parent  # raiz do repo co-coach
+
+
+def _sync_repos():
+    """Lê config/sync-targets.yml e retorna lista de 'owner/repo'."""
+    path = ROOT / "config" / "sync-targets.yml"
+    if not path.exists():
+        return []
+    repos = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if line.startswith("- ") and "/" in line:
+            repos.append(line[2:].strip())
+    return repos
+
+
+def fetch_tasks_md(repo: str) -> str | None:
+    """Busca TASKS.md de um repo via GitHub API. Retorna conteúdo ou None."""
+    token = os.environ.get("GITHUB_TOKEN", "")
+    url = f"https://api.github.com/repos/{repo}/contents/TASKS.md"
+    req = urllib.request.Request(url, headers={
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        **({"Authorization": f"Bearer {token}"} if token else {}),
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=8) as r:
+            data = json.loads(r.read())
+            return base64.b64decode(data["content"]).decode("utf-8")
+    except Exception as e:
+        print(f"  ⚠️  {repo}: {e}")
+        return None
+
+
+def parse_tasks(content: str) -> dict:
+    """
+    Classifica linhas de TASKS.md em 4 colunas.
+    - [x] → feito
+    - [ ] [WIP] → em_progresso
+    - [ ] [BLOQ] → bloqueado
+    - [ ] → a_fazer
+    - [-] → ignorado (descartado)
+    """
+    columns = {"a_fazer": [], "em_progresso": [], "bloqueado": [], "feito": []}
+    section = ""
+    for line in content.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("#"):
+            section = stripped.lstrip("#").strip()
+            continue
+        if re.match(r"^- \[x\]", stripped, re.IGNORECASE):
+            text = re.sub(r"^- \[x\]\s*", "", stripped, flags=re.IGNORECASE).strip()
+            columns["feito"].append({"text": text, "section": section})
+        elif re.match(r"^- \[-\]", stripped):
+            continue
+        elif re.match(r"^- \[ \]\s+\[WIP\]", stripped, re.IGNORECASE):
+            text = re.sub(r"^- \[ \]\s+\[WIP\]\s*", "", stripped, flags=re.IGNORECASE).strip()
+            columns["em_progresso"].append({"text": text, "section": section})
+        elif re.match(r"^- \[ \]\s+\[BLOQ\]", stripped, re.IGNORECASE):
+            text = re.sub(r"^- \[ \]\s+\[BLOQ\]\s*", "", stripped, flags=re.IGNORECASE).strip()
+            columns["bloqueado"].append({"text": text, "section": section})
+        elif re.match(r"^- \[ \]", stripped):
+            text = re.sub(r"^- \[ \]\s*", "", stripped).strip()
+            columns["a_fazer"].append({"text": text, "section": section})
+    return columns
+
+
+def build_kanban() -> list:
+    """Retorna lista de projetos com tasks classificadas por coluna."""
+    result = []
+    for repo in _sync_repos():
+        project = repo.split("/")[-1]
+        content = fetch_tasks_md(repo)
+        if content is None:
+            result.append({"project": project, "repo": repo, "error": "não foi possível carregar TASKS.md"})
+        else:
+            columns = parse_tasks(content)
+            result.append({"project": project, "repo": repo, "columns": columns})
+    return result
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -50,6 +131,10 @@ class Handler(BaseHTTPRequestHandler):
 
         if path == "/ping":
             self.send_json({"ok": True})
+
+        elif path == "/kanban":
+            self.send_json(build_kanban())
+
 
         elif path == "/skills":
             skills_dir = ROOT / "skills"
