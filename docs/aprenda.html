@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>co-coach — Como funciona</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .mermaid svg { max-width: 100%; height: auto; }
+    .step-card { transition: all 0.2s; }
+    .step-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .layer-card { border-left: 4px solid; }
+    .pill { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+    details summary { cursor: pointer; }
+    details[open] summary .chevron { transform: rotate(180deg); }
+    .chevron { transition: transform 0.2s; display: inline-block; }
+  </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-10">
+    <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-sm">cc</div>
+        <div>
+          <h1 class="text-base font-semibold text-slate-800">co-coach</h1>
+          <p class="text-xs text-slate-400">Como o sistema funciona</p>
+        </div>
+      </div>
+      <a href="gerenciador.html" class="text-xs bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition">
+        Abrir Gerenciador →
+      </a>
+    </div>
+  </header>
+
+  <div class="max-w-4xl mx-auto px-6 py-10 space-y-12">
+
+    <!-- Introdução -->
+    <section>
+      <div class="bg-blue-50 border border-blue-200 rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-slate-800 mb-3">O co-coach em uma frase</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">
+          É um <strong>sistema pessoal de aprendizado</strong> que transforma links e repositórios do GitHub em cards de conhecimento acessíveis pelo celular — e distribui habilidades (skills) para outros projetos automaticamente.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <span class="pill bg-orange-100 text-orange-700">📥 Você envia um link</span>
+          <span class="text-slate-400">→</span>
+          <span class="pill bg-yellow-100 text-yellow-700">🤖 IA sumariza</span>
+          <span class="text-slate-400">→</span>
+          <span class="pill bg-green-100 text-green-700">📱 Card no feed</span>
+          <span class="text-slate-400">→</span>
+          <span class="pill bg-purple-100 text-purple-700">🛠️ Skills distribuídas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- As 3 camadas -->
+    <section>
+      <h2 class="text-xl font-bold text-slate-800 mb-2">As 3 camadas do sistema</h2>
+      <p class="text-sm text-slate-500 mb-6">Cada camada tem uma função diferente. Juntas, elas formam o co-coach.</p>
+
+      <div class="space-y-4">
+        <!-- Camada 1 -->
+        <div class="step-card layer-card bg-white rounded-xl p-6 shadow-sm" style="border-left-color: #f5a623;">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0" style="background:#fff3e0;">🗂️</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-bold text-slate-800">Camada 1 — Knowledge Base</h3>
+                <span class="pill bg-orange-100 text-orange-600">kb/</span>
+              </div>
+              <p class="text-sm text-slate-600 mb-3">O "cérebro" do sistema. Armazena tudo que você aprendeu sobre Claude Code, IA e ferramentas em arquivos de texto estruturados.</p>
+              <details class="text-sm">
+                <summary class="text-blue-600 font-medium flex items-center gap-1">Como funciona na prática <span class="chevron">▾</span></summary>
+                <div class="mt-3 bg-slate-50 rounded-lg p-4 space-y-2 text-slate-600">
+                  <p>1. Você compartilha uma URL pelo iPhone (ex: um artigo ou vídeo do YouTube)</p>
+                  <p>2. O iPhone cria automaticamente uma tarefa no GitHub</p>
+                  <p>3. O GitHub avisa o sistema para processar o link</p>
+                  <p>4. O Claude (modelo Haiku, mais rápido e barato) lê o conteúdo e extrai: título, tema, 3-5 pontos principais e uma nota de importância</p>
+                  <p>5. Tudo é salvo em um arquivo <code class="bg-white px-1 rounded border text-xs">kb/2026-06-25-nome-do-artigo.md</code></p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+
+        <!-- Camada 2 -->
+        <div class="step-card layer-card bg-white rounded-xl p-6 shadow-sm" style="border-left-color: #4caf50;">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0" style="background:#e8f5e9;">📱</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-bold text-slate-800">Camada 2 — Feed Mobile</h3>
+                <span class="pill bg-green-100 text-green-600">docs/index.html</span>
+              </div>
+              <p class="text-sm text-slate-600 mb-3">A "vitrine" do sistema. Um site que você acessa pelo celular com todos os cards de conhecimento, filtráveis por tema.</p>
+              <details class="text-sm">
+                <summary class="text-blue-600 font-medium flex items-center gap-1">Como funciona na prática <span class="chevron">▾</span></summary>
+                <div class="mt-3 bg-slate-50 rounded-lg p-4 space-y-2 text-slate-600">
+                  <p>1. Um script Python (<code class="bg-white px-1 rounded border text-xs">build-site.py</code>) lê todos os arquivos da Knowledge Base</p>
+                  <p>2. Gera um site HTML estático com todos os cards</p>
+                  <p>3. O GitHub publica esse site automaticamente em <strong>victorauad.github.io/co-coach</strong></p>
+                  <p>4. Sempre que você adiciona novo conteúdo, o site é reconstruído em ~2 minutos</p>
+                  <p>5. Uma vez por semana (toda segunda às 8h) o site é reconstruído mesmo sem novos conteúdos</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+
+        <!-- Camada 3 -->
+        <div class="step-card layer-card bg-white rounded-xl p-6 shadow-sm" style="border-left-color: #9c27b0;">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0" style="background:#f3e5f5;">🛠️</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-bold text-slate-800">Camada 3 — Hub de Skills</h3>
+                <span class="pill bg-purple-100 text-purple-600">skills/</span>
+              </div>
+              <p class="text-sm text-slate-600 mb-3">O "distribuidor" do sistema. Cria habilidades especializadas para o Claude e as distribui automaticamente para todos os seus projetos.</p>
+              <details class="text-sm">
+                <summary class="text-blue-600 font-medium flex items-center gap-1">Como funciona na prática <span class="chevron">▾</span></summary>
+                <div class="mt-3 bg-slate-50 rounded-lg p-4 space-y-2 text-slate-600">
+                  <p>1. Uma skill é um arquivo de texto (<code class="bg-white px-1 rounded border text-xs">SKILL.md</code>) que ensina o Claude a fazer algo específico</p>
+                  <p>2. Ex: <strong>co-coach-bigquery</strong> ensina o Claude a escrever queries otimizadas para o BigQuery</p>
+                  <p>3. Quando você cria ou atualiza uma skill no co-coach, o GitHub distribui automaticamente para: <strong>iracing_analysis</strong> e <strong>alamtoco</strong></p>
+                  <p>4. Em qualquer desses projetos, você digita <code class="bg-white px-1 rounded border text-xs">/co-coach-bigquery</code> e o Claude já sabe o que fazer</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diagrama visual principal -->
+    <section>
+      <h2 class="text-xl font-bold text-slate-800 mb-2">Diagrama completo do sistema</h2>
+      <p class="text-sm text-slate-500 mb-6">Como todas as peças se conectam — da entrada de um link até o card aparecer no seu celular.</p>
+
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm overflow-x-auto">
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#eff6ff', 'primaryTextColor': '#1e293b', 'primaryBorderColor': '#93c5fd', 'lineColor': '#64748b', 'secondaryColor': '#f0fdf4', 'tertiaryColor': '#faf5ff'}}}%%
+graph TD
+    subgraph VOCE["👤 Você"]
+        A1["📱 iPhone\nCompartilha uma URL"]
+        A2["⭐ GitHub Stars\nRepositórios favoritos"]
+    end
+
+    subgraph AUTOMACAO["⚙️ Automação (GitHub Actions)"]
+        B1["📋 Cria tarefa no GitHub\nlabel: add-link"]
+        B2["🤖 Claude Haiku lê o conteúdo\ne extrai os pontos principais"]
+        B3["📝 Salva arquivo em kb/\ncom título, tema e bullets"]
+        B4["🔨 Reconstrói o site\nbuild-site.py"]
+    end
+
+    subgraph RESULTADO["✅ O que você vê"]
+        C1["📱 Feed mobile\nvictorauad.github.io/co-coach"]
+        C2["🛠️ Skills disponíveis\nem todos os seus projetos"]
+    end
+
+    subgraph SKILLS["🔄 Distribuição de Skills"]
+        D1["✏️ Você cria/edita\numa skill em skills/"]
+        D2["🚀 GitHub envia automaticamente\npara iracing_analysis e alamtoco"]
+    end
+
+    A1 -->|"cria Issue automática"| B1
+    A2 -->|"toda segunda-feira"| B2
+    B1 --> B2
+    B2 --> B3
+    B3 --> B4
+    B4 --> C1
+    D1 --> D2
+    D2 --> C2
+
+    style VOCE fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+    style AUTOMACAO fill:#fef3c7,stroke:#f59e0b,color:#78350f
+    style RESULTADO fill:#dcfce7,stroke:#22c55e,color:#14532d
+    style SKILLS fill:#f3e8ff,stroke:#a855f7,color:#581c87
+        </div>
+      </div>
+    </section>
+
+    <!-- Fluxo passo a passo -->
+    <section>
+      <h2 class="text-xl font-bold text-slate-800 mb-2">Do link ao card: passo a passo</h2>
+      <p class="text-sm text-slate-500 mb-6">O que acontece nos bastidores quando você compartilha uma URL pelo iPhone.</p>
+
+      <div class="relative">
+        <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-slate-200"></div>
+        <div class="space-y-4">
+
+          <div class="flex gap-4 relative">
+            <div class="w-12 h-12 rounded-full bg-blue-100 border-2 border-blue-300 flex items-center justify-center text-xl shrink-0 z-10">📱</div>
+            <div class="bg-white rounded-xl border border-slate-200 p-4 flex-1 shadow-sm">
+              <div class="flex items-center gap-2 mb-1">
+                <strong class="text-slate-800">Passo 1</strong>
+                <span class="pill bg-slate-100 text-slate-500">0 segundos</span>
+              </div>
+              <p class="text-sm text-slate-600">Você vê um artigo interessante no iPhone e usa o botão "Compartilhar → co-coach" (iOS Shortcut configurado).</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 relative">
+            <div class="w-12 h-12 rounded-full bg-slate-100 border-2 border-slate-300 flex items-center justify-center text-xl shrink-0 z-10">📋</div>
+            <div class="bg-white rounded-xl border border-slate-200 p-4 flex-1 shadow-sm">
+              <div class="flex items-center gap-2 mb-1">
+                <strong class="text-slate-800">Passo 2</strong>
+                <span class="pill bg-slate-100 text-slate-500">~2 segundos</span>
+              </div>
+              <p class="text-sm text-slate-600">O iPhone cria automaticamente uma tarefa (Issue) no GitHub com a URL e uma etiqueta <code class="bg-slate-50 px-1 rounded text-xs border">add-link</code>.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 relative">
+            <div class="w-12 h-12 rounded-full bg-yellow-100 border-2 border-yellow-300 flex items-center justify-center text-xl shrink-0 z-10">⚙️</div>
+            <div class="bg-white rounded-xl border border-slate-200 p-4 flex-1 shadow-sm">
+              <div class="flex items-center gap-2 mb-1">
+                <strong class="text-slate-800">Passo 3</strong>
+                <span class="pill bg-yellow-100 text-yellow-600">~10 segundos</span>
+              </div>
+              <p class="text-sm text-slate-600">O GitHub detecta a etiqueta e aciona um robô (GitHub Actions) que baixa o conteúdo da URL.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 relative">
+            <div class="w-12 h-12 rounded-full bg-orange-100 border-2 border-orange-300 flex items-center justify-center text-xl shrink-0 z-10">🤖</div>
+            <div class="bg-white rounded-xl border border-slate-200 p-4 flex-1 shadow-sm">
+              <div class="flex items-center gap-2 mb-1">
+                <strong class="text-slate-800">Passo 4</strong>
+                <span class="pill bg-orange-100 text-orange-600">~15 segundos</span>
+              </div>
+              <p class="text-sm text-slate-600">O Claude Haiku (modelo de IA mais rápido e econômico) lê o conteúdo e extrai automaticamente: título, categoria, 3–5 pontos-chave e nota de relevância (1–5).</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 relative">
+            <div class="w-12 h-12 rounded-full bg-green-100 border-2 border-green-300 flex items-center justify-center text-xl shrink-0 z-10">✅</div>
+            <div class="bg-white rounded-xl border border-slate-200 p-4 flex-1 shadow-sm">
+              <div class="flex items-center gap-2 mb-1">
+                <strong class="text-slate-800">Passo 5</strong>
+                <span class="pill bg-green-100 text-green-600">~2 minutos</span>
+              </div>
+              <p class="text-sm text-slate-600">O site é reconstruído e o card aparece em victorauad.github.io/co-coach. A tarefa no GitHub é fechada automaticamente com um ✅.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Glossário -->
+    <section>
+      <h2 class="text-xl font-bold text-slate-800 mb-2">Glossário — termos técnicos explicados</h2>
+      <p class="text-sm text-slate-500 mb-6">Todos os termos que aparecem neste sistema, em linguagem simples.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <div class="font-semibold text-slate-800 mb-1 flex items-center gap-2"><span class="pill bg-slate-100 text-slate-600">GitHub</span></div>
+          <p class="text-sm text-slate-600">Site onde o código e os arquivos do co-coach ficam armazenados na nuvem. Funciona como um "Google Drive para código".</p>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <div class="font-semibold text-slate-800 mb-1 flex items-center gap-2"><span class="pill bg-slate-100 text-slate-600">GitHub Actions</span></div>
+          <p class="text-sm text-slate-600">Robôs automáticos que o GitHub executa quando algo acontece (ex: um arquivo é salvo). São as automações do co-coach.</p>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <div class="font-semibold text-slate-800 mb-1 flex items-center gap-2"><span class="pill bg-slate-100 text-slate-600">GitHub Pages</span></div>
+          <p class="text-sm text-slate-600">Serviço gratuito do GitHub que publica o feed mobile (victorauad.github.io/co-coach) sem precisar de servidor próprio.</p>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <div class="font-semibold text-slate-800 mb-1 flex items-center gap-2"><span class="pill bg-slate-100 text-slate-600">Claude Haiku</span></div>
+          <p class="text-sm text-slate-600">Versão mais rápida e econômica do Claude, usada para sumarizar conteúdo em lote. O Claude maior (Sonnet) fica para conversas.</p>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <div class="font-semibold text-slate-800 mb-1 flex items-center gap-2"><span class="pill bg-slate-100 text-slate-600">Skill</span></div>
+          <p class="text-sm text-slate-600">Um arquivo de instruções que ensina o Claude a fazer algo específico. Como um "manual de procedimento" que o Claude lê antes de responder.</p>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <div class="font-semibold text-slate-800 mb-1 flex items-center gap-2"><span class="pill bg-slate-100 text-slate-600">Frontmatter YAML</span></div>
+          <p class="text-sm text-slate-600">Cabeçalho estruturado no início de cada arquivo da KB com campos como "titulo:", "tema:", "importancia:". É o que permite filtrar os cards.</p>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <div class="font-semibold text-slate-800 mb-1 flex items-center gap-2"><span class="pill bg-slate-100 text-slate-600">iOS Shortcut</span></div>
+          <p class="text-sm text-slate-600">Automação no iPhone (app Atalhos) que, ao receber uma URL compartilhada, cria a tarefa no GitHub. É a "boca de entrada" do sistema.</p>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <div class="font-semibold text-slate-800 mb-1 flex items-center gap-2"><span class="pill bg-slate-100 text-slate-600">MCP</span></div>
+          <p class="text-sm text-slate-600">Protocolo que permite ao Claude se conectar a ferramentas externas (como Figma, Google Drive, Gmail) durante uma conversa. É como "plugins para o Claude".</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 pt-6 pb-10 text-center">
+      <p class="text-xs text-slate-400">co-coach · <a href="https://github.com/victorauad/co-coach" class="hover:text-blue-500 transition">victorauad/co-coach</a> · <a href="gerenciador.html" class="hover:text-blue-500 transition">Abrir Gerenciador</a></p>
+    </footer>
+
+  </div>
+
+  <script>
+    mermaid.initialize({ startOnLoad: true, theme: 'base' });
+
+    document.querySelectorAll('details').forEach(el => {
+      el.addEventListener('toggle', () => {
+        const chevron = el.querySelector('.chevron');
+        if (chevron) chevron.style.transform = el.open ? 'rotate(180deg)' : '';
+      });
+    });
+  </script>
+</body>
+</html>

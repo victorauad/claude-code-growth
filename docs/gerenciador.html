@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>co-coach — Gerenciador</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .nav-link { transition: all 0.15s; }
+    .nav-link:hover { background: #f1f5f9; }
+    .nav-link.active { background: #eff6ff; color: #2563eb; font-weight: 600; border-right: 3px solid #2563eb; }
+    .section { display: none; }
+    .section.active { display: block; }
+    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .card { transition: box-shadow 0.2s; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+    .badge-agentes { background:#dbeafe; color:#1d4ed8; }
+    .badge-ferramentas { background:#dcfce7; color:#15803d; }
+    .badge-mcp { background:#f3e8ff; color:#7e22ce; }
+    .badge-metodologia { background:#fef3c7; color:#92400e; }
+    .badge-setup { background:#fee2e2; color:#991b1b; }
+    .badge-workflow { background:#e0f2fe; color:#0369a1; }
+    .badge-prompts { background:#fce7f3; color:#9d174d; }
+    .badge-outros { background:#f1f5f9; color:#475569; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+    .status-ok { background: #22c55e; }
+    .status-warn { background: #f59e0b; }
+    textarea { font-family: 'Courier New', monospace; font-size: 12px; }
+    .skill-active { border-left: 4px solid #2563eb; }
+    .toast { position: fixed; bottom: 24px; right: 24px; z-index: 100; transition: all 0.3s; transform: translateY(80px); opacity: 0; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+  </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+  <!-- Modal PAT setup -->
+  <div id="pat-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8">
+      <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-lg mb-4">cc</div>
+      <h2 class="text-lg font-bold text-slate-800 mb-1">Configurar acesso ao GitHub</h2>
+      <p class="text-sm text-slate-500 mb-5">O gerenciador usa a GitHub API para ler e salvar arquivos diretamente no repositório. Configure uma vez — fica salvo no browser.</p>
+      <div class="space-y-4">
+        <div>
+          <label class="text-xs font-semibold text-slate-600 block mb-1">Personal Access Token (PAT)</label>
+          <input id="pat-input" type="password" placeholder="ghp_..." class="w-full text-sm border border-slate-200 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-300 font-mono">
+          <p class="text-xs text-slate-400 mt-1.5">Crie em <strong>GitHub → Settings → Developer settings → Personal access tokens → Fine-grained</strong>. Permissões necessárias: <code class="bg-slate-100 px-1 rounded">Contents: Read & Write</code> nos repos co-coach, iracing_analysis, alamtoco e SMPL.</p>
+        </div>
+        <button onclick="savePAT()" class="w-full bg-blue-600 text-white text-sm font-medium py-2.5 rounded-lg hover:bg-blue-700 transition">Salvar e continuar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast bg-slate-800 text-white text-sm px-4 py-3 rounded-xl shadow-xl max-w-xs">
+    <span id="toast-msg"></span>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-sm">cc</div>
+        <div>
+          <h1 class="text-base font-semibold text-slate-800">co-coach</h1>
+          <p class="text-xs text-slate-400">Gerenciador do sistema</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div id="server-status" class="flex items-center gap-2 text-xs text-slate-500">
+          <span class="status-dot status-warn" id="status-dot"></span>
+          <span id="status-label">Verificando servidor...</span>
+        </div>
+        <a href="aprenda.html" class="text-xs text-slate-500 hover:text-blue-600 transition">📖 Como funciona</a>
+        <a href="https://github.com/victorauad/co-coach" target="_blank" class="text-xs text-slate-500 hover:text-blue-600 transition">GitHub ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto flex">
+
+    <!-- Sidebar -->
+    <nav class="w-56 shrink-0 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto border-r border-slate-200 bg-white">
+      <div class="py-4">
+        <p class="px-4 mb-2 text-xs font-semibold text-slate-400 uppercase tracking-wider">Sistema</p>
+        <ul>
+          <li>
+            <button onclick="showSection('dashboard')" class="nav-link active w-full text-left px-4 py-2.5 text-sm text-slate-700 flex items-center gap-2.5" id="nav-dashboard">
+              <span>📊</span> Dashboard
+            </button>
+          </li>
+        </ul>
+        <p class="px-4 mt-4 mb-2 text-xs font-semibold text-slate-400 uppercase tracking-wider">Gerenciar</p>
+        <ul>
+          <li>
+            <button onclick="showSection('skills')" class="nav-link w-full text-left px-4 py-2.5 text-sm text-slate-700 flex items-center gap-2.5" id="nav-skills">
+              <span>🛠️</span> Skills
+            </button>
+          </li>
+          <li>
+            <button onclick="showSection('kb')" class="nav-link w-full text-left px-4 py-2.5 text-sm text-slate-700 flex items-center gap-2.5" id="nav-kb">
+              <span>🗂️</span> Knowledge Base
+            </button>
+          </li>
+          <li>
+            <button onclick="showSection('sync')" class="nav-link w-full text-left px-4 py-2.5 text-sm text-slate-700 flex items-center gap-2.5" id="nav-sync">
+              <span>🔄</span> Sync de Repos
+            </button>
+          </li>
+          <li>
+            <button onclick="showSection('config')" class="nav-link w-full text-left px-4 py-2.5 text-sm text-slate-700 flex items-center gap-2.5" id="nav-config">
+              <span>⚙️</span> Configurações
+            </button>
+          </li>
+          <li>
+            <button onclick="showSection('kanban'); loadKanban()" class="nav-link w-full text-left px-4 py-2.5 text-sm text-slate-700 flex items-center gap-2.5" id="nav-kanban">
+              <span>🗂️</span> Kanban
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="flex-1 p-8 min-w-0">
+
+      <!-- ===== DASHBOARD ===== -->
+      <div id="section-dashboard" class="section active">
+        <div class="mb-6">
+          <h2 class="text-xl font-bold text-slate-800">Dashboard</h2>
+          <p class="text-sm text-slate-500 mt-1">Visão geral do sistema co-coach em tempo real.</p>
+        </div>
+
+        <!-- Status cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white rounded-xl border border-slate-200 p-5 card">
+            <p class="text-xs text-slate-400 font-medium uppercase tracking-wider mb-1">Skills ativas</p>
+            <p class="text-3xl font-bold text-slate-800" id="stat-skills">—</p>
+            <p class="text-xs text-slate-500 mt-1">em ~/.claude/skills/</p>
+          </div>
+          <div class="bg-white rounded-xl border border-slate-200 p-5 card">
+            <p class="text-xs text-slate-400 font-medium uppercase tracking-wider mb-1">Cards na KB</p>
+            <p class="text-3xl font-bold text-slate-800" id="stat-kb">—</p>
+            <p class="text-xs text-slate-500 mt-1">artigos indexados</p>
+          </div>
+          <div class="bg-white rounded-xl border border-slate-200 p-5 card">
+            <p class="text-xs text-slate-400 font-medium uppercase tracking-wider mb-1">Repos sincronizados</p>
+            <p class="text-3xl font-bold text-slate-800" id="stat-repos">—</p>
+            <p class="text-xs text-slate-500 mt-1">recebem skills</p>
+          </div>
+          <div class="bg-white rounded-xl border border-slate-200 p-5 card">
+            <p class="text-xs text-slate-400 font-medium uppercase tracking-wider mb-1">Temas na KB</p>
+            <p class="text-3xl font-bold text-slate-800" id="stat-temas">—</p>
+            <p class="text-xs text-slate-500 mt-1">categorias únicas</p>
+          </div>
+        </div>
+
+        <!-- PAT alert -->
+        <div id="server-alert" class="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-6 hidden">
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">⚠️</span>
+            <div>
+              <h3 class="font-semibold text-amber-800">Token GitHub não configurado</h3>
+              <p class="text-sm text-amber-700 mt-1">Configure seu Personal Access Token para usar o gerenciador sem servidor local.</p>
+              <button onclick="document.getElementById('pat-modal').classList.remove('hidden')" class="mt-2 text-sm bg-amber-600 text-white px-4 py-1.5 rounded-lg hover:bg-amber-700 transition">Configurar agora</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- KB por tema -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 card">
+          <h3 class="font-semibold text-slate-800 mb-4">Knowledge Base por tema</h3>
+          <div id="kb-by-tema" class="space-y-2">
+            <div class="text-sm text-slate-400">Carregando...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SKILLS ===== -->
+      <div id="section-skills" class="section">
+        <div class="mb-6 flex items-center justify-between">
+          <div>
+            <h2 class="text-xl font-bold text-slate-800">Skills</h2>
+            <p class="text-sm text-slate-500 mt-1">Visualize e edite as skills instaladas no co-coach.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-slate-400">via GitHub API</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <!-- Lista de skills -->
+          <div class="md:col-span-1">
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+              <div class="px-4 py-3 border-b border-slate-100 bg-slate-50">
+                <p class="text-xs font-semibold text-slate-500">Skills instaladas</p>
+              </div>
+              <div id="skills-list" class="divide-y divide-slate-100 max-h-[60vh] overflow-y-auto">
+                <div class="p-4 text-sm text-slate-400">Carregando...</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Editor de skill -->
+          <div class="md:col-span-2">
+            <div class="bg-white rounded-xl border border-slate-200" id="skill-editor-panel">
+              <div class="px-4 py-3 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
+                <p class="text-xs font-semibold text-slate-500" id="skill-editor-title">Selecione uma skill</p>
+                <button onclick="saveSkill()" id="btn-save-skill" class="hidden text-xs bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition">Salvar</button>
+              </div>
+              <div class="p-4">
+                <div id="skill-editor-placeholder" class="text-center py-16 text-slate-300">
+                  <div class="text-4xl mb-3">🛠️</div>
+                  <p class="text-sm">Clique numa skill para ver e editar seu conteúdo</p>
+                  <p class="text-xs mt-1">Requer servidor local rodando</p>
+                </div>
+                <textarea id="skill-editor-content" class="hidden w-full h-96 border border-slate-200 rounded-lg p-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Conteúdo do SKILL.md"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== KNOWLEDGE BASE ===== -->
+      <div id="section-kb" class="section">
+        <div class="mb-6 flex items-center justify-between flex-wrap gap-3">
+          <div>
+            <h2 class="text-xl font-bold text-slate-800">Knowledge Base</h2>
+            <p class="text-sm text-slate-500 mt-1">Todos os cards indexados, filtráveis por tema.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="text" id="kb-search" placeholder="Buscar..." class="text-sm border border-slate-200 rounded-lg px-3 py-2 w-48 focus:outline-none focus:ring-2 focus:ring-blue-300" oninput="filterKB()">
+            <select id="kb-tema-filter" class="text-sm border border-slate-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" onchange="filterKB()">
+              <option value="">Todos os temas</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="kb-cards" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+          <div class="text-sm text-slate-400 col-span-3 py-8 text-center">Carregando knowledge base...</div>
+        </div>
+
+        <!-- Adicionar novo -->
+        <div class="mt-8 bg-white rounded-xl border border-slate-200 p-6">
+          <h3 class="font-semibold text-slate-800 mb-3">Adicionar novo conteúdo</h3>
+          <p class="text-xs text-slate-500 mb-4">Cole uma URL e o sistema criará uma Issue no GitHub para processar automaticamente.</p>
+          <div class="flex gap-2">
+            <input type="url" id="new-url" placeholder="https://..." class="flex-1 text-sm border border-slate-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300">
+            <button onclick="addLink()" class="text-sm bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Adicionar</button>
+          </div>
+          <p class="text-xs text-slate-400 mt-2">Cria uma Issue com label <code class="bg-slate-100 px-1 rounded">add-link</code> → GitHub Actions processa em ~2 min</p>
+        </div>
+      </div>
+
+      <!-- ===== SYNC ===== -->
+      <div id="section-sync" class="section">
+        <div class="mb-6">
+          <h2 class="text-xl font-bold text-slate-800">Sync de Repos</h2>
+          <p class="text-sm text-slate-500 mt-1">Quais repositórios recebem as skills automaticamente.</p>
+        </div>
+
+        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden mb-6 card">
+          <div class="px-6 py-4 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
+            <p class="text-sm font-semibold text-slate-700">config/sync-targets.yml</p>
+            <button onclick="saveSyncTargets()" class="text-xs bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition">Salvar (requer servidor)</button>
+          </div>
+          <div class="p-6">
+            <textarea id="sync-targets-content" class="w-full h-64 border border-slate-200 rounded-lg p-3 resize-none focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Carregando..."></textarea>
+            <p class="text-xs text-slate-400 mt-2">Formato YAML: uma lista de <code class="bg-slate-100 px-1 rounded">owner/repo</code> por linha. O sync-skills.yml distribui para todos os repos listados.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl border border-slate-200 p-6 card">
+          <h3 class="font-semibold text-slate-800 mb-3">Como funciona o sync</h3>
+          <div class="space-y-3 text-sm text-slate-600">
+            <div class="flex gap-3">
+              <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold shrink-0">1</div>
+              <p>Você cria ou edita uma skill em <code class="bg-slate-100 px-1 rounded">skills/co-coach-*/SKILL.md</code></p>
+            </div>
+            <div class="flex gap-3">
+              <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold shrink-0">2</div>
+              <p>O git push dispara automaticamente o workflow <code class="bg-slate-100 px-1 rounded">sync-skills.yml</code></p>
+            </div>
+            <div class="flex gap-3">
+              <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold shrink-0">3</div>
+            <p>O workflow lê <code class="bg-slate-100 px-1 rounded">config/sync-targets.yml</code> e envia a skill para cada repo listado via GitHub API</p>
+            </div>
+            <div class="flex gap-3">
+              <div class="w-6 h-6 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold shrink-0">✓</div>
+              <p>A skill fica disponível em <code class="bg-slate-100 px-1 rounded">.claude/skills/</code> de cada repo — sem precisar copiar manualmente</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== CONFIG ===== -->
+      <div id="section-config" class="section">
+        <div class="mb-6">
+          <h2 class="text-xl font-bold text-slate-800">Configurações de Ingestão</h2>
+          <p class="text-sm text-slate-500 mt-1">Parâmetros do pipeline de sumarização de conteúdo.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <div class="bg-white rounded-xl border border-slate-200 p-6 card">
+            <h3 class="font-semibold text-slate-800 mb-4">Modelo de sumarização</h3>
+            <div class="space-y-3">
+              <div>
+                <label class="text-xs text-slate-500 font-medium block mb-1">Modelo Claude usado pelo ingest.py</label>
+                <select id="cfg-model" class="w-full text-sm border border-slate-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                  <option value="claude-haiku-4-5-20251001">claude-haiku-4-5 (padrão — mais rápido)</option>
+                  <option value="claude-sonnet-4-6">claude-sonnet-4-6 (mais detalhado)</option>
+                </select>
+                <p class="text-xs text-slate-400 mt-1">Haiku é ~10x mais barato que Sonnet. Use Sonnet só para conteúdo muito técnico.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 p-6 card">
+            <h3 class="font-semibold text-slate-800 mb-4">Filtros de qualidade</h3>
+            <div class="space-y-4">
+              <div>
+                <label class="text-xs text-slate-500 font-medium block mb-1">Importância mínima para indexar (1–5)</label>
+                <div class="flex items-center gap-3">
+                  <input type="range" id="cfg-importancia" min="1" max="5" value="3" class="flex-1" oninput="document.getElementById('cfg-imp-val').textContent = this.value">
+                  <span class="text-sm font-bold text-slate-800 w-4" id="cfg-imp-val">3</span>
+                </div>
+                <p class="text-xs text-slate-400 mt-1">Conteúdo abaixo desse score não entra na KB. Valor atual: <strong id="cfg-imp-display">3</strong>/5</p>
+              </div>
+              <div>
+                <label class="text-xs text-slate-500 font-medium block mb-1">Máximo de bullets por card</label>
+                <input type="number" id="cfg-bullets" min="2" max="8" value="5" class="w-full text-sm border border-slate-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300">
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 p-6 card md:col-span-2">
+            <h3 class="font-semibold text-slate-800 mb-4">Temas disponíveis na KB</h3>
+            <p class="text-xs text-slate-500 mb-3">Estes são os temas que o Claude deve usar ao categorizar novos conteúdos.</p>
+            <div class="flex flex-wrap gap-2" id="temas-list">
+              <span class="tag badge-agentes">agentes</span>
+              <span class="tag badge-ferramentas">ferramentas</span>
+              <span class="tag badge-mcp">mcp</span>
+              <span class="tag badge-metodologia">metodologia</span>
+              <span class="tag badge-setup">setup</span>
+              <span class="tag badge-workflow">workflow</span>
+              <span class="tag badge-prompts">prompts</span>
+              <span class="tag badge-outros">outros</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-3">Para adicionar um tema novo, edite o prompt em <code class="bg-slate-100 px-1 rounded">scripts/ingest.py</code> via editor de skills.</p>
+          </div>
+
+        </div>
+
+        <div class="mt-4 flex justify-end">
+          <button onclick="saveConfig()" class="text-sm bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Salvar configurações (requer servidor)</button>
+        </div>
+      </div>
+
+      <!-- ===== KANBAN ===== -->
+      <div id="section-kanban" class="section">
+        <div class="mb-6 flex items-center justify-between">
+          <div>
+            <h2 class="text-xl font-bold text-slate-800">Kanban de Projetos</h2>
+            <p class="text-sm text-slate-500 mt-1">Tasks de todos os projetos ativos, lidas do GitHub em tempo real.</p>
+          </div>
+          <button onclick="loadKanban()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-1.5 rounded-lg transition">↺ Recarregar</button>
+        </div>
+
+        <!-- Filtro por projeto -->
+        <div id="kanban-project-filter" class="flex gap-2 flex-wrap mb-6 hidden">
+          <button onclick="filterKanban('')" class="kanban-proj-btn text-xs px-3 py-1.5 rounded-lg bg-blue-600 text-white font-medium" data-proj="">Todos</button>
+        </div>
+
+        <!-- Colunas -->
+        <div id="kanban-board" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class="text-sm text-slate-400 col-span-4 py-8 text-center">Clique em "Kanban" para carregar os projetos.</div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    const REPO   = 'victorauad/co-coach';
+    const KB_URL = 'https://victorauad.github.io/co-coach/knowledge-base.json';
+
+    let kbData = [];
+    let currentSkill = null;
+    let currentSkillSha = null;
+
+    // ── Navegação ──────────────────────────────────────
+    function showSection(name) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      document.getElementById('section-' + name).classList.add('active');
+      document.getElementById('nav-' + name).classList.add('active');
+    }
+
+    // ── Toast ─────────────────────────────────────────
+    function toast(msg, duration = 3000) {
+      const el = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), duration);
+    }
+
+    // ── PAT setup ────────────────────────────────────
+    function getPAT() { return localStorage.getItem('gh_pat') || ''; }
+
+    function savePAT() {
+      const pat = document.getElementById('pat-input').value.trim();
+      if (!pat) { alert('Cole o token antes de salvar.'); return; }
+      localStorage.setItem('gh_pat', pat);
+      document.getElementById('pat-modal').classList.add('hidden');
+      init();
+    }
+
+    function ghHeaders() {
+      return {
+        'Authorization': 'Bearer ' + getPAT(),
+        'Accept': 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+      };
+    }
+
+    async function ghGet(repo, path) {
+      const r = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, { headers: ghHeaders() });
+      if (!r.ok) throw new Error(`GitHub API ${r.status}: ${repo}/${path}`);
+      return r.json();
+    }
+
+    async function ghPut(repo, path, content, sha, message) {
+      const r = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+        method: 'PUT',
+        headers: { ...ghHeaders(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message, content: btoa(unescape(encodeURIComponent(content))), sha }),
+      });
+      if (!r.ok) { const e = await r.json(); throw new Error(e.message || r.status); }
+      return r.json();
+    }
+
+    // ── Status PAT ────────────────────────────────────
+    function checkPAT() {
+      const pat = getPAT();
+      if (!pat) {
+        document.getElementById('status-dot').className = 'status-dot status-warn';
+        document.getElementById('status-label').textContent = 'Token não configurado';
+        document.getElementById('pat-modal').classList.remove('hidden');
+        return false;
+      }
+      document.getElementById('status-dot').className = 'status-dot status-ok';
+      document.getElementById('status-label').textContent = 'GitHub API ativa';
+      document.getElementById('server-alert').classList.add('hidden');
+      return true;
+    }
+
+    // ── Carregar KB (GitHub Pages) ────────────────────
+    async function loadKB() {
+      try {
+        const r = await fetch(KB_URL);
+        kbData = await r.json();
+        renderStats();
+        renderKBByTema();
+        renderKBCards(kbData);
+        populateKBFilter();
+      } catch (e) {
+        document.getElementById('kb-cards').innerHTML = '<div class="col-span-3 text-center py-8 text-sm text-red-400">Erro ao carregar KB. Verifique a conexão.</div>';
+      }
+    }
+
+    function renderStats() {
+      document.getElementById('stat-kb').textContent = kbData.length;
+      const temas = [...new Set(kbData.map(i => i.tema).filter(Boolean))];
+      document.getElementById('stat-temas').textContent = temas.length;
+    }
+
+    function renderKBByTema() {
+      const counts = {};
+      kbData.forEach(i => { counts[i.tema] = (counts[i.tema] || 0) + 1; });
+      const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      const max = sorted[0]?.[1] || 1;
+      const html = sorted.map(([tema, count]) => `
+        <div class="flex items-center gap-3">
+          <span class="tag badge-${tema} w-24 text-center shrink-0">${tema}</span>
+          <div class="flex-1 bg-slate-100 rounded-full h-2 overflow-hidden">
+            <div class="bg-blue-400 h-2 rounded-full" style="width:${(count/max*100).toFixed(0)}%"></div>
+          </div>
+          <span class="text-xs text-slate-400 w-6 text-right">${count}</span>
+        </div>
+      `).join('');
+      document.getElementById('kb-by-tema').innerHTML = html || '<p class="text-sm text-slate-400">Nenhum dado</p>';
+    }
+
+    function populateKBFilter() {
+      const temas = [...new Set(kbData.map(i => i.tema).filter(Boolean))].sort();
+      const sel = document.getElementById('kb-tema-filter');
+      temas.forEach(t => {
+        const o = document.createElement('option');
+        o.value = t; o.textContent = t;
+        sel.appendChild(o);
+      });
+    }
+
+    function renderKBCards(items) {
+      if (!items.length) {
+        document.getElementById('kb-cards').innerHTML = '<div class="col-span-3 text-center py-8 text-sm text-slate-400">Nenhum resultado</div>';
+        return;
+      }
+      document.getElementById('kb-cards').innerHTML = items.map(item => `
+        <div class="bg-white rounded-xl border border-slate-200 p-5 card flex flex-col gap-3">
+          <div class="flex items-start justify-between gap-2">
+            <h4 class="text-sm font-semibold text-slate-800 leading-snug">${item.titulo || 'Sem título'}</h4>
+            <span class="tag badge-${item.tema || 'outros'} shrink-0">${item.tema || 'outros'}</span>
+          </div>
+          ${item.bullets ? `<ul class="space-y-1">${item.bullets.slice(0,3).map(b => `<li class="text-xs text-slate-600 flex gap-2"><span class="text-slate-300 shrink-0">▸</span><span>${b}</span></li>`).join('')}</ul>` : ''}
+          <div class="flex items-center justify-between mt-auto pt-2 border-t border-slate-100">
+            <div class="flex items-center gap-1">
+              ${[1,2,3,4,5].map(n => `<span class="text-xs ${n <= (item.importancia||3) ? 'text-amber-400' : 'text-slate-200'}">★</span>`).join('')}
+            </div>
+            ${item.url ? `<a href="${item.url}" target="_blank" class="text-xs text-blue-500 hover:text-blue-700 transition">Ver fonte ↗</a>` : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterKB() {
+      const q = document.getElementById('kb-search').value.toLowerCase();
+      const tema = document.getElementById('kb-tema-filter').value;
+      const filtered = kbData.filter(i => {
+        const matchTema = !tema || i.tema === tema;
+        const matchQ = !q || (i.titulo||'').toLowerCase().includes(q) || (i.bullets||[]).some(b => b.toLowerCase().includes(q));
+        return matchTema && matchQ;
+      });
+      renderKBCards(filtered);
+    }
+
+    // ── Skills via GitHub API ─────────────────────────
+    async function loadLocalData() {
+      try {
+        const items = await ghGet(REPO, 'skills');
+        const skills = items.filter(i => i.type === 'dir').map(i => i.name).sort();
+        document.getElementById('stat-skills').textContent = skills.length;
+        document.getElementById('skills-list').innerHTML = skills.map(s => `
+          <div class="px-4 py-3 cursor-pointer hover:bg-slate-50 text-sm text-slate-700 flex items-center gap-2" onclick="loadSkill('${s}')">
+            <span class="text-base">🛠️</span>
+            <span class="truncate">${s}</span>
+          </div>
+        `).join('') || '<div class="p-4 text-sm text-slate-400">Nenhuma skill encontrada</div>';
+      } catch (e) { console.warn('skills:', e); }
+
+      try {
+        const file = await ghGet(REPO, 'config/sync-targets.yml');
+        const content = decodeURIComponent(escape(atob(file.content)));
+        document.getElementById('sync-targets-content').value = content;
+        const repos = content.split('\n').filter(l => l.trim().startsWith('- '));
+        document.getElementById('stat-repos').textContent = repos.length;
+      } catch (e) { console.warn('sync-targets:', e); }
+    }
+
+    async function loadSkill(name) {
+      currentSkill = name;
+      currentSkillSha = null;
+      document.getElementById('skill-editor-title').textContent = name + '/SKILL.md';
+      document.getElementById('btn-save-skill').classList.remove('hidden');
+      document.getElementById('skill-editor-placeholder').classList.add('hidden');
+      document.getElementById('skill-editor-content').classList.remove('hidden');
+      document.getElementById('skill-editor-content').value = 'Carregando...';
+      try {
+        const file = await ghGet(REPO, `skills/${name}/SKILL.md`);
+        currentSkillSha = file.sha;
+        document.getElementById('skill-editor-content').value = decodeURIComponent(escape(atob(file.content)));
+      } catch (e) {
+        document.getElementById('skill-editor-content').value = '# Erro ao carregar skill\n\n' + e.message;
+      }
+    }
+
+    async function saveSkill() {
+      if (!currentSkill || !currentSkillSha) { toast('⚠️ Carregue uma skill primeiro'); return; }
+      const content = document.getElementById('skill-editor-content').value;
+      try {
+        const res = await ghPut(REPO, `skills/${currentSkill}/SKILL.md`, content, currentSkillSha, `feat: atualizar skill ${currentSkill} via gerenciador`);
+        currentSkillSha = res.content.sha;
+        toast('✅ Skill salva e commitada no GitHub');
+      } catch (e) { toast('❌ Erro ao salvar: ' + e.message); }
+    }
+
+    async function saveSyncTargets() {
+      const content = document.getElementById('sync-targets-content').value;
+      try {
+        const file = await ghGet(REPO, 'config/sync-targets.yml');
+        await ghPut(REPO, 'config/sync-targets.yml', content, file.sha, 'chore: atualizar sync-targets via gerenciador');
+        toast('✅ sync-targets.yml salvo no GitHub');
+      } catch (e) { toast('❌ Erro ao salvar: ' + e.message); }
+    }
+
+    function saveConfig() {
+      toast('💡 Edite scripts/ingest.py via aba Skills — procure por "ingest"');
+    }
+
+    function addLink() {
+      const url = document.getElementById('new-url').value.trim();
+      if (!url) return;
+      const ghUrl = `https://github.com/victorauad/co-coach/issues/new?title=add-link&body=${encodeURIComponent(url)}&labels=add-link`;
+      window.open(ghUrl, '_blank');
+      document.getElementById('new-url').value = '';
+      toast('↗ Abrindo GitHub para criar Issue');
+    }
+
+    document.getElementById('cfg-importancia').addEventListener('input', function() {
+      document.getElementById('cfg-imp-display').textContent = this.value;
+    });
+
+    // ── Kanban ───────────────────────────────────
+    let kanbanData = [];
+
+    const COLS = [
+      { key: "a_fazer",      label: "A fazer",       color: "bg-slate-100 text-slate-600",   dot: "bg-slate-400" },
+      { key: "em_progresso", label: "Em progresso",  color: "bg-blue-100 text-blue-700",     dot: "bg-blue-500" },
+      { key: "bloqueado",    label: "Bloqueado",      color: "bg-red-100 text-red-700",       dot: "bg-red-500" },
+      { key: "feito",        label: "Feito",          color: "bg-green-100 text-green-700",   dot: "bg-green-500" },
+    ];
+
+    const PROJ_COLORS = [
+      "bg-violet-100 text-violet-700", "bg-amber-100 text-amber-700",
+      "bg-cyan-100 text-cyan-700", "bg-pink-100 text-pink-700",
+    ];
+
+    function parseSyncRepos(yml) {
+      return yml.split('\n')
+        .map(l => l.trim())
+        .filter(l => l.startsWith('- '))
+        .map(l => l.slice(2).trim());
+    }
+
+    function parseTasksMd(content) {
+      const cols = { a_fazer: [], em_progresso: [], bloqueado: [], feito: [] };
+      let section = '';
+      for (const line of content.split('\n')) {
+        const s = line.trim();
+        if (s.startsWith('#')) { section = s.replace(/^#+\s*/, ''); continue; }
+        if (/^- \[x\]/i.test(s)) {
+          cols.feito.push({ text: s.replace(/^- \[x\]\s*/i, ''), section });
+        } else if (/^- \[-\]/.test(s)) {
+          continue;
+        } else if (/^- \[ \]\s+\[WIP\]/i.test(s)) {
+          cols.em_progresso.push({ text: s.replace(/^- \[ \]\s+\[WIP\]\s*/i, ''), section });
+        } else if (/^- \[ \]\s+\[BLOQ\]/i.test(s)) {
+          cols.bloqueado.push({ text: s.replace(/^- \[ \]\s+\[BLOQ\]\s*/i, ''), section });
+        } else if (/^- \[ \]/.test(s)) {
+          cols.a_fazer.push({ text: s.replace(/^- \[ \]\s*/, ''), section });
+        }
+      }
+      return cols;
+    }
+
+    async function loadKanban() {
+      document.getElementById('kanban-board').innerHTML =
+        '<div class="text-sm text-slate-400 col-span-4 py-8 text-center">Carregando tasks do GitHub...</div>';
+      document.getElementById('kanban-project-filter').classList.add('hidden');
+      try {
+        const syncFile = await ghGet(REPO, 'config/sync-targets.yml');
+        const syncYml = decodeURIComponent(escape(atob(syncFile.content)));
+        const repos = parseSyncRepos(syncYml);
+
+        kanbanData = await Promise.all(repos.map(async repo => {
+          const project = repo.split('/').pop();
+          try {
+            const file = await ghGet(repo, 'TASKS.md');
+            const content = decodeURIComponent(escape(atob(file.content)));
+            return { project, repo, columns: parseTasksMd(content) };
+          } catch (e) {
+            return { project, repo, error: e.message };
+          }
+        }));
+
+        renderKanban(kanbanData);
+        renderKanbanFilter(kanbanData);
+      } catch (e) {
+        document.getElementById('kanban-board').innerHTML =
+          '<div class="col-span-4 text-sm text-red-400 text-center py-8">Erro ao carregar kanban: ' + e.message + '</div>';
+      }
+    }
+
+    function renderKanban(data, projFilter = '') {
+      const filtered = projFilter ? data.filter(p => p.project === projFilter) : data;
+      const colTasks = { a_fazer: [], em_progresso: [], bloqueado: [], feito: [] };
+      filtered.forEach((proj, idx) => {
+        if (proj.error) return;
+        const colorClass = PROJ_COLORS[idx % PROJ_COLORS.length];
+        Object.keys(colTasks).forEach(col => {
+          (proj.columns[col] || []).forEach(task => {
+            colTasks[col].push({ ...task, project: proj.project, colorClass });
+          });
+        });
+      });
+
+      document.getElementById('kanban-board').innerHTML = COLS.map(col => `
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="w-2 h-2 rounded-full ${col.dot} shrink-0"></span>
+            <span class="text-xs font-semibold text-slate-600 uppercase tracking-wider">${col.label}</span>
+            <span class="ml-auto text-xs text-slate-400">${colTasks[col.key].length}</span>
+          </div>
+          ${colTasks[col.key].length === 0
+            ? '<div class="text-xs text-slate-300 text-center py-4 border border-dashed border-slate-200 rounded-xl">vazio</div>'
+            : colTasks[col.key].map(task => `
+              <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm hover:shadow-md transition-shadow">
+                <p class="text-xs text-slate-700 leading-snug mb-2">${escHtml(task.text)}</p>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="tag ${task.colorClass}">${escHtml(task.project)}</span>
+                  ${task.section ? '<span class="text-xs text-slate-400 truncate max-w-[120px]" title="' + escHtml(task.section) + '">' + escHtml(task.section) + '</span>' : ''}
+                </div>
+              </div>
+            `).join('')}
+        </div>
+      `).join('');
+    }
+
+    function renderKanbanFilter(data) {
+      const filter = document.getElementById('kanban-project-filter');
+      filter.classList.remove('hidden');
+      const existing = [...filter.querySelectorAll('[data-proj]')].map(b => b.dataset.proj);
+      data.forEach((proj, idx) => {
+        if (existing.includes(proj.project)) return;
+        const colorClass = PROJ_COLORS[idx % PROJ_COLORS.length];
+        const btn = document.createElement('button');
+        btn.className = 'kanban-proj-btn text-xs px-3 py-1.5 rounded-lg ' + colorClass + ' font-medium';
+        btn.dataset.proj = proj.project;
+        btn.textContent = proj.project;
+        btn.onclick = () => filterKanban(proj.project);
+        filter.appendChild(btn);
+      });
+    }
+
+    function filterKanban(proj) {
+      document.querySelectorAll('.kanban-proj-btn').forEach(b => {
+        const active = b.dataset.proj === proj;
+        b.classList.toggle('ring-2', active);
+        b.classList.toggle('ring-offset-1', active);
+        b.classList.toggle('ring-slate-400', active);
+      });
+      renderKanban(kanbanData, proj);
+    }
+
+    function escHtml(str) {
+      return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // ── Init ──────────────────────────────────────────
+    function init() {
+      if (!checkPAT()) return;
+      loadLocalData();
+      loadKB();
+    }
+
+    // Link "Configurar token" no header
+    document.getElementById('status-label').style.cursor = 'pointer';
+    document.getElementById('status-label').onclick = () => document.getElementById('pat-modal').classList.remove('hidden');
+
+    init();
+  </script>
+</body>
+</html>

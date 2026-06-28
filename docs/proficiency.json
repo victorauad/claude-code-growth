@@ -1,0 +1,70 @@
+{
+  "ultima_atualizacao": "2026-06-25",
+  "temas": {
+    "agentes": {
+      "score": 0,
+      "exposicao": 0,
+      "quiz_acertos": 0,
+      "quiz_total": 0,
+      "ultima_revisao": null,
+      "cards_vistos": []
+    },
+    "ferramentas": {
+      "score": 0,
+      "exposicao": 0,
+      "quiz_acertos": 0,
+      "quiz_total": 0,
+      "ultima_revisao": null,
+      "cards_vistos": []
+    },
+    "mcp": {
+      "score": 0,
+      "exposicao": 0,
+      "quiz_acertos": 0,
+      "quiz_total": 0,
+      "ultima_revisao": null,
+      "cards_vistos": []
+    },
+    "metodologia": {
+      "score": 0,
+      "exposicao": 0,
+      "quiz_acertos": 0,
+      "quiz_total": 0,
+      "ultima_revisao": null,
+      "cards_vistos": []
+    },
+    "workflow": {
+      "score": 0,
+      "exposicao": 0,
+      "quiz_acertos": 0,
+      "quiz_total": 0,
+      "ultima_revisao": null,
+      "cards_vistos": []
+    },
+    "prompts": {
+      "score": 0,
+      "exposicao": 0,
+      "quiz_acertos": 0,
+      "quiz_total": 0,
+      "ultima_revisao": null,
+      "cards_vistos": []
+    },
+    "setup": {
+      "score": 0,
+      "exposicao": 0,
+      "quiz_acertos": 0,
+      "quiz_total": 0,
+      "ultima_revisao": null,
+      "cards_vistos": []
+    },
+    "outros": {
+      "score": 0,
+      "exposicao": 0,
+      "quiz_acertos": 0,
+      "quiz_total": 0,
+      "ultima_revisao": null,
+      "cards_vistos": []
+    }
+  },
+  "cards": {}
+}

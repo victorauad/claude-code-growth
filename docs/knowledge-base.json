@@ -1,0 +1,1733 @@
+[
+  {
+    "titulo": "\"VS Code: Tips & Tricks de Produtividade\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/getstarted/tips-and-tricks",
+    "data": "2026-06-22",
+    "bullets": [
+      "Funcionalidades escondidas e atalhos que fazem diferença no dia a dia."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"VS Code: Temas e Personalização Visual\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/getstarted/themes",
+    "data": "2026-06-22",
+    "bullets": [
+      "Como personalizar a aparência do VS Code — cores, ícones e fontes."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"VS Code: Terminal Integrado\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/terminal/basics",
+    "data": "2026-06-22",
+    "bullets": [
+      "Como usar e personalizar o terminal embutido no VS Code — sem precisar alternar janelas."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"VS Code: Configurações (Settings)\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/getstarted/settings",
+    "data": "2026-06-22",
+    "bullets": [
+      "Como abrir, entender e personalizar as configurações do VS Code."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"VS Code: Tutorial Completo de Python\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/python/python-tutorial",
+    "data": "2026-06-22",
+    "bullets": [
+      "Guia completo para configurar e usar Python no VS Code, incluindo execução de scripts e debugging."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"VS Code: Ambientes Python (venv, conda, pyenv)\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/python/environments",
+    "data": "2026-06-22",
+    "bullets": [
+      "Como gerenciar ambientes virtuais Python no VS Code — criação, seleção e gerenciamento de pacotes."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"VS Code: Profiles (Perfis de Configuração)\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/editor/profiles",
+    "data": "2026-06-22",
+    "bullets": [
+      "Profiles permitem criar conjuntos de configurações e alternar entre eles rapidamente — ou compartilhá-los com outras pessoas."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"VS Code: Atalhos de Teclado e Personalização\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/getstarted/keybindings",
+    "data": "2026-06-22",
+    "bullets": [
+      "Guia completo de atalhos e como personalizar o teclado no VS Code."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"VS Code: Jupyter Notebooks — Guia Completo\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/datascience/jupyter-notebooks",
+    "data": "2026-06-22",
+    "bullets": [
+      "Guia completo para criar, editar e executar notebooks Jupyter diretamente no VS Code — sem precisar do browser tradicional."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"VS Code: Interface e Navegação\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/getstarted/userinterface",
+    "data": "2026-06-22",
+    "bullets": [
+      "Guia completo dos componentes da interface do VS Code e como navegar com eficiência."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"VS Code: Git e Controle de Versão\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/sourcecontrol/overview",
+    "data": "2026-06-22",
+    "bullets": [
+      "Como usar Git diretamente no VS Code sem precisar do terminal para operações comuns."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"VS Code: Extensões — Instalar, Gerenciar e Recomendar\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/editor/extension-marketplace",
+    "data": "2026-06-22",
+    "bullets": [
+      "Como encontrar, instalar, configurar e recomendar extensões no VS Code."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"VS Code: Tutorial de Data Science (Titanic + ML)\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/datascience/data-science-tutorial",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tutorial completo da Anthropic cobrindo análise de dados reais, visualização e modelo de machine learning dentro do VS Code com Jupyter Notebooks."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"VS Code: GitHub Copilot e Recursos de IA\"",
+    "tema": "ferramentas",
+    "url": "https://code.visualstudio.com/docs/copilot/ai-powered-suggestions",
+    "data": "2026-06-22",
+    "bullets": [
+      "Recursos de inteligência artificial disponíveis no VS Code para aumentar produtividade."
+    ],
+    "importancia": "",
+    "fonte": "vscode-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Repomix — comprime o projeto inteiro para o Claude ler de uma vez",
+    "tema": "ferramentas",
+    "url": "https://github.com/yamadashy/repomix",
+    "data": "2026-06-22",
+    "bullets": [
+      "Transforma todos os arquivos do projeto em um único texto otimizado para IA, eliminando a necessidade de copiar arquivos um por um",
+      "Reduz tokens mantendo o contexto relevante — ideal para pedidos de refatoração, revisão de arquitetura e onboarding",
+      "Uso imediato sem instalação: `npx repomix` na raiz do projeto gera `repomix-output.txt`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": "20900"
+  },
+  {
+    "titulo": "Onyx — chat com IA privado e auto-hospedado para documentos sensíveis",
+    "tema": "ferramentas",
+    "url": "https://github.com/onyx-dot-app/onyx",
+    "data": "2026-06-22",
+    "bullets": [
+      "Plataforma de chat com IA auto-hospedada que conecta com 40+ fontes (Google Drive, Slack, Notion, Confluence, GitHub)",
+      "Tudo fica dentro da sua infraestrutura — indicado para empresas com dados sensíveis",
+      "Instalação via Docker: `git clone` + `docker compose up` na pasta `onyx/deployment/docker_compose`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": "17300"
+  },
+  {
+    "titulo": "Obsidian Skills — integração entre o vault do Obsidian e o Claude Code",
+    "tema": "ferramentas",
+    "url": "https://github.com/kepano/obsidian-skills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Skills que conectam o Claude Code com o Obsidian — o Claude entende estrutura do vault (pastas, links entre notas, tags, templates)",
+      "Permite que o Claude navegue e manipule seu sistema de conhecimento pessoal como um assistente que conhece suas notas",
+      "Instalação: `git clone` + copiar skills para `.claude/skills/`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "NotebookLM Skill — transforma coleções de fontes em resumos, flashcards e mapas mentais",
+    "tema": "ferramentas",
+    "url": "https://github.com/PleasePrompto/notebooklm-skill",
+    "data": "2026-06-22",
+    "bullets": [
+      "Skill que replica o estilo do NotebookLM (Google): processa coleções de fontes e gera resumos comparativos, flashcards e mapas mentais",
+      "Ideal para absorver grandes volumes de informação rapidamente sem ler cada fonte manualmente",
+      "Instalação: `git clone https://github.com/PleasePrompto/notebooklm-skill.git` + copiar a skill para `.claude/skills/`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Marketing Skills — 23 fluxos prontos para SEO, copywriting, email e anúncios",
+    "tema": "ferramentas",
+    "url": "https://github.com/coreyhaines31/marketingskills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Suite com 23 skills de marketing para Claude Code: SEO, copywriting, Google Ads, Meta Ads, email marketing, redes sociais e análise de concorrentes",
+      "Cada skill é calibrada para uma tarefa específica, entregando resultados no formato certo sem reescrever prompts",
+      "Instalação: `git clone` + copiar os arquivos SKILL.md para `.claude/skills/`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Flowise — construtor visual de agentes de IA para prototipagem rápida",
+    "tema": "ferramentas",
+    "url": "https://github.com/FlowiseAI/Flowise",
+    "data": "2026-06-22",
+    "bullets": [
+      "Construtor visual de agentes e chatbots com arrastar e soltar — mais simples que o Dify, focado em prototipagem rápida",
+      "Conecta modelos de linguagem (Claude, GPT) com bases de conhecimento e APIs de forma visual",
+      "Instalação: `npm install -g flowise` + `npx flowise start`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": "30000"
+  },
+  {
+    "titulo": "Everything Claude Code — 136 skills, 30 agentes e 60 slash commands prontos",
+    "tema": "ferramentas",
+    "url": "https://github.com/affaan-m/everything-claude-code",
+    "data": "2026-06-22",
+    "bullets": [
+      "Coleção com 30 agentes especializados, 136 skills e 60 slash commands para uso profissional no Claude Code",
+      "Cobre áreas como segurança, testes automatizados, documentação, code review e muito mais",
+      "Instalação: clonar o repo e copiar os arquivos de regras para a linguagem que você usa"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": "128000"
+  },
+  {
+    "titulo": "Dify — plataforma visual para criar aplicações de IA sem código",
+    "tema": "ferramentas",
+    "url": "https://github.com/langgenius/dify",
+    "data": "2026-06-22",
+    "bullets": [
+      "Plataforma visual para construir fluxos de IA arrastando blocos — sem escrever código",
+      "Conecta com fontes de dados (PDFs, bancos, APIs) e publica como aplicação pronta",
+      "Instalação via Docker: `git clone` + `docker compose up` na pasta `dify/docker`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": "130000"
+  },
+  {
+    "titulo": "Claude Skills Oficial — templates da Anthropic para PDFs, Excel e PowerPoint",
+    "tema": "ferramentas",
+    "url": "https://github.com/anthropics/skills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Repositório oficial da Anthropic com templates de skills para processar PDFs, planilhas Excel, apresentações PowerPoint e documentos Word",
+      "É a forma \"correta\" e testada pela Anthropic de instruir o Claude a lidar com esses formatos",
+      "Instalação: `git clone https://github.com/anthropics/skills.git` + copiar as skills desejadas para `.claude/skills/`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Claude Code Headless: Modo -p, Billing e Economia de Tokens\"",
+    "tema": "setup",
+    "url": "https://code.claude.com/docs/en/costs",
+    "data": "2026-06-25",
+    "bullets": [
+      "O flag claude -p (ou --print) executa o Claude Code em modo não-interativo: recebe um prompt, processa e retorna a resposta sem abrir a interface de chat. É o modo usado em:"
+    ],
+    "importancia": "",
+    "fonte": "pesquisa-web",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Awesome Claude Skills — marketplace comunitário com skills para SEO, segurança e design",
+    "tema": "ferramentas",
+    "url": "https://github.com/travisvn/awesome-claude-skills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Marketplace comunitário com centenas de skills para Claude Code em áreas como SEO, marketing, segurança, design, finanças e jurídico",
+      "Em vez de escrever prompts longos toda vez, uma skill encapsula o conhecimento especializado",
+      "Instalação: `git clone` + copiar os arquivos SKILL.md desejados para `.claude/skills/`"
+    ],
+    "importancia": "",
+    "fonte": "editorial",
+    "github_repo": "",
+    "github_stars": "22000"
+  },
+  {
+    "titulo": "\"O que são Skills no Claude\"",
+    "tema": "skills",
+    "url": "https://support.claude.com/en/articles/12512176-what-are-skills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Skills são pastas com instruções, scripts e recursos que o Claude carrega dinamicamente para melhorar o desempenho em tarefas específicas. Funcionam por \"progressive disclosure\" — o Claude identifica "
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Tool Use com Claude — Visão Geral\"",
+    "tema": "agentes",
+    "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use/overview",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tool use permite que o Claude chame funções que você define ou que a Anthropic fornece. O Claude decide quando chamar uma ferramenta com base no pedido do usuário e na descrição da ferramenta."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Curso: Model Context Protocol — Advanced Topics (Skilljar)\"",
+    "tema": "mcp",
+    "url": "https://anthropic.skilljar.com/model-context-protocol-advanced-topics",
+    "data": "2026-06-22",
+    "bullets": [
+      "Curso avançado sobre recursos sofisticados e padrões de implementação para desenvolvimento de MCP em produção."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Curso: Introduction to Subagents (Skilljar)\"",
+    "tema": "agentes",
+    "url": "https://anthropic.skilljar.com/introduction-to-subagents",
+    "data": "2026-06-22",
+    "bullets": [
+      "Curso gratuito sobre como usar e criar sub-agentes no Claude Code para gerenciar contexto, delegar tarefas e construir workflows especializados."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Curso: Introduction to Model Context Protocol (Skilljar)\"",
+    "tema": "mcp",
+    "url": "https://anthropic.skilljar.com/introduction-to-model-context-protocol",
+    "data": "2026-06-22",
+    "bullets": [
+      "Curso prático sobre construção de servidores e clientes MCP usando Python SDK, focando nos três primitivos principais: ferramentas, recursos e prompts."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Curso: Introduction to Agent Skills (Skilljar)\"",
+    "tema": "skills",
+    "url": "https://anthropic.skilljar.com/introduction-to-agent-skills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Curso gratuito da Anthropic no Skilljar sobre como construir, configurar e compartilhar Skills no Claude Code."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Curso: Claude Code in Action (Skilljar)\"",
+    "tema": "setup",
+    "url": "https://anthropic.skilljar.com/claude-code-in-action",
+    "data": "2026-06-22",
+    "bullets": [
+      "Treinamento abrangente sobre integrar o Claude Code no fluxo de trabalho de desenvolvimento de software."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"MCP Servers Remotos — Anthropic\"",
+    "tema": "mcp",
+    "url": "https://docs.anthropic.com/en/docs/agents-and-tools/remote-mcp-servers",
+    "data": "2026-06-22",
+    "bullets": [
+      "Servidores MCP remotos permitem que desenvolvedores se conectem via Anthropic MCP connector API a serviços externos sem precisar rodar servidores localmente."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Prompt Engineering — Visão Geral (Anthropic)\"",
+    "tema": "prompts",
+    "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+    "data": "2026-06-22",
+    "bullets": [
+      "Guia oficial da Anthropic para engenharia de prompts com Claude."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Roadmap do Model Context Protocol (MCP)\"",
+    "tema": "mcp",
+    "url": "https://modelcontextprotocol.io/development/roadmap",
+    "data": "2026-06-22",
+    "bullets": [
+      "Prioridades estratégicas do MCP para o ecossistema (atualizado março/2026)."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Introdução ao Model Context Protocol (MCP)\"",
+    "tema": "mcp",
+    "url": "https://modelcontextprotocol.io/introduction",
+    "data": "2026-06-22",
+    "bullets": [
+      "MCP é um padrão aberto para conectar aplicações de IA a sistemas externos. É como um \"USB-C para IA\" — fornece uma forma padronizada de conectar aplicações de IA a fontes de dados, ferramentas e workf"
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Integrações de IDE do Claude Code (VS Code e outros)\"",
+    "tema": "setup",
+    "url": "https://docs.anthropic.com/en/docs/claude-code/ide-integrations",
+    "data": "2026-06-22",
+    "bullets": [
+      "A extensão do VS Code é a forma recomendada de usar Claude Code no editor. Oferece painel gráfico nativo, diff side-by-side, @-mentions com número de linha, histórico de conversas e múltiplas abas."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Como Criar Custom Skills no Claude\"",
+    "tema": "skills",
+    "url": "https://support.claude.com/en/articles/12512198-creating-custom-skills",
+    "data": "2026-06-22",
+    "bullets": [
+      "Custom skills permitem adicionar conhecimento especializado e workflows específicos da organização ao Claude. Disponíveis nos planos Free, Pro, Max, Team e Enterprise (requer execução de código ativad"
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Common Workflows — Claude Code Docs\"",
+    "tema": "workflow",
+    "url": "https://code.claude.com/docs/en/common-workflows",
+    "data": "2026-06-23",
+    "bullets": [
+      "Visão geral rápida:"
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Extend Claude with Skills — Claude Code Docs\"",
+    "tema": "skills",
+    "url": "https://code.claude.com/docs/en/skills",
+    "data": "2026-06-23",
+    "bullets": [
+      "Skills estendem o que o Claude consegue fazer. Crie um arquivo SKILL.md com instruções, e o Claude adiciona ao seu toolkit. O Claude usa skills quando relevante, ou você pode invocar diretamente com /"
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Common Workflows — Claude Code Docs\"",
+    "tema": "workflow",
+    "url": "https://code.claude.com/docs/en/common-workflows",
+    "data": "2026-06-23",
+    "bullets": [
+      "Receitas para tarefas cotidianas de desenvolvimento: explorar codebases, corrigir bugs, refatorar, testar, criar PRs e mais."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Boas Práticas de Prompt para Claude 4 (e modelos atuais)\"",
+    "tema": "prompts",
+    "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices",
+    "data": "2026-06-22",
+    "bullets": [
+      "Guia oficial da Anthropic para Claude Fable 5, Opus 4.8, Opus 4.6, Sonnet 4.6 e Haiku 4.5."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Agent Skills — Visão Geral (Anthropic Docs)\"",
+    "tema": "skills",
+    "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+    "data": "2026-06-23",
+    "bullets": [
+      "Agent Skills são capacidades modulares que estendem a funcionalidade do Claude. Cada Skill empacota instruções, metadados e recursos opcionais (scripts, templates) que o Claude usa automaticamente qua"
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Skill Authoring Best Practices — Anthropic Docs\"",
+    "tema": "skills",
+    "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices",
+    "data": "2026-06-23",
+    "bullets": [
+      "O contexto é um bem compartilhado. Sua Skill divide a janela de contexto com o system prompt, histórico da conversa, metadata de outras Skills e a requisição atual."
+    ],
+    "importancia": "",
+    "fonte": "anthropic-docs",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Your Attention Is the Bottleneck, Not Your Agents — Zack Proser, WorkOS\"",
+    "tema": "agentes",
+    "url": "https://www.youtube.com/watch?v=so9l_MwS2yg",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: agentes"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Why More Context Makes Your Agent Dumber and What to Do About It — Nupur Sharma, Qodo\"",
+    "tema": "agentes",
+    "url": "https://www.youtube.com/watch?v=EcqMYoIV57A",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: agentes"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"The AI Skill I Rely On Daily — Priscila Andre de Oliveira, Sentry\"",
+    "tema": "skills",
+    "url": "https://www.youtube.com/watch?v=li0SaBt9RDM",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: skills"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Stop babysitting your agents — Brandon Waselnuk, Unblocked\"",
+    "tema": "agentes",
+    "url": "https://www.youtube.com/watch?v=BiG2ssibKGc",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: agentes"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Skill issue: Lessons from skilling up coding agents to use Langfuse — Marc Klingen, Clickhouse\"",
+    "tema": "skills",
+    "url": "https://www.youtube.com/watch?v=vNCY9kXXyDQ",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: skills"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"How I deleted 95% of my agent skills and got better results — Nick Nisi, WorkOS\"",
+    "tema": "skills",
+    "url": "https://www.youtube.com/watch?v=vy7o1g2iHY8",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: skills"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Full Walkthrough: Writing & Using Skills — Nick Nisi e Zack Proser, WorkOS\"",
+    "tema": "skills",
+    "url": "https://www.youtube.com/watch?v=pFsfax19yOM",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: skills"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"From MCP to Scale: Pipelines That Build Themselves — Rafael Levi, Bright Data\"",
+    "tema": "mcp",
+    "url": "https://www.youtube.com/watch?v=zTZ0qunQXnM",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: mcp"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Combine Skills and MCP to Close the Context Gap — Pedro Rodrigues, Supabase\"",
+    "tema": "skills",
+    "url": "https://www.youtube.com/watch?v=JT3OzDKrucU",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: skills"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Building Interactive UIs in VS Code with MCP Apps — Marlene Mhangami & Liam Hampton, GitHub\"",
+    "tema": "mcp",
+    "url": "https://www.youtube.com/watch?v=_xIwFcnHqp4",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: mcp"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "\"Benchmarking semantic code retrieval on Claude Code — Kuba Rogut, Turbopuffer\"",
+    "tema": "ferramentas",
+    "url": "https://www.youtube.com/watch?v=zKk7sDMGDEQ",
+    "data": "2026-06-22",
+    "bullets": [
+      "Tema: ferramentas"
+    ],
+    "importancia": "",
+    "fonte": "ai-engineer-summit",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Como SDD melhora a qualidade do código gerado por IA — Red Hat",
+    "tema": "metodologia",
+    "url": "https://developers.redhat.com/articles/2025/10/22/how-spec-driven-development-improves-ai-coding-quality",
+    "data": "2026-06-25",
+    "bullets": [
+      "Embora LLMs não gerem código determinístico, specs claras reduzem significativamente alucinações e aumentam a robustez do output",
+      "Prompts de entrada estruturados melhoram o desempenho de raciocínio do modelo — é um efeito mensurável, não apenas intuição",
+      "O fluxo recomendado: revisar a spec antes da geração → revisar o código com foco na aderência à spec → validar cobertura de testes → fazer revisão de segurança",
+      "Specs OpenAPI são o padrão preferido para APIs — definem contrato de interface antes de qualquer linha de código",
+      "Red Hat aplica SDD internamente em projetos de infraestrutura onde consistência é crítica"
+    ],
+    "importancia": "Red Hat é referência em desenvolvimento open-source e infraestrutura em produção. O artigo traz evidência prática de que specs estruturadas melhoram a qualidade do código de IA em contextos de produção real — não apenas em tutoriais.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "SDD — Ferramentas Kiro, spec-kit e Tessl explicadas por Martin Fowler",
+    "tema": "metodologia",
+    "url": "https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html",
+    "data": "2026-06-25",
+    "bullets": [
+      "Martin Fowler compara as três principais ferramentas de SDD: Kiro (AWS), spec-kit e Tessl, cada uma com abordagem diferente para specs",
+      "Kiro gera automaticamente três documentos: requirements.md (histórias de usuário em EARS notation), design.md (arquitetura técnica) e tasks.md (passos de implementação)",
+      "spec-kit é a abordagem mais leve: funciona sobre qualquer editor com um arquivo de spec em markdown estruturado",
+      "Tessl vai além e trata o spec como código-fonte — o código é o artefato derivado, não o spec",
+      "A escolha da ferramenta depende do tamanho do time e do nível de formalidade desejado"
+    ],
+    "importancia": "Fowler é uma das referências mais respeitadas em engenharia de software. Sua análise comparativa das ferramentas SDD é o melhor ponto de partida para quem quer adotar a prática com consciência de trade-offs — especialmente relevante ao usar Claude Code, que suporta os três modelos.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Spec-Driven Development — Unpacking uma das práticas de 2025",
+    "tema": "metodologia",
+    "url": "https://www.thoughtworks.com/en-us/insights/blog/agile-engineering-practices/spec-driven-development-unpacking-2025-new-engineering-practices",
+    "data": "2026-06-25",
+    "bullets": [
+      "SDD pode não ter a visibilidade do \"vibe coding\", mas é uma das práticas mais importantes surgidas em 2025 para desenvolvimento com IA",
+      "O humano define o \"o quê\" (objetivos funcionais) e o \"como\" (regras, arquitetura, padrões); a IA executa a geração de código",
+      "A especificação funciona como fonte única de verdade — tudo, da lógica à infraestrutura, deriva dela",
+      "Erros capturados na fase de design custam muito menos do que os descobertos após o código estar escrito",
+      "Specs servem como documentação viva: novos membros entendem o contexto lendo o spec, não o código"
+    ],
+    "importancia": "Para um Head de Growth que usa Claude Code como ferramenta, SDD é o que transforma sessões de \"vibing\" em entregas previsíveis. Ter uma spec antes de pedir código ao Claude reduz drasticamente retrabalho e alucinações.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Como usar abordagem spec-driven para codificar com IA — JetBrains",
+    "tema": "metodologia",
+    "url": "https://blog.jetbrains.com/junie/2025/10/how-to-use-a-spec-driven-approach-for-coding-with-ai/",
+    "data": "2026-06-25",
+    "bullets": [
+      "JetBrains (criadores do IntelliJ, PyCharm) adotaram SDD como metodologia principal para seu agente Junie",
+      "Specs devem focar em comportamento, gerenciamento de estado e interfaces — não em implementação detalhada",
+      "O ciclo prático: escrever spec em markdown → deixar o agente propor um plano → aprovar o plano → agente executa → validar contra a spec original",
+      "Specs ruins são vagas demais (\"faça um sistema de login\") ou específicas demais (ditando como o código deve ser escrito linha a linha)",
+      "O ponto de equilíbrio: spec define o \"o quê\" e as restrições; o agente decide o \"como\""
+    ],
+    "importancia": "JetBrains tem décadas de experiência em ferramentas para desenvolvedores e integrou SDD diretamente no Junie. O artigo é prático, com exemplos reais de specs bem e mal escritas — útil para aprender o ponto certo de abstração antes de usar Claude Code.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Spec-Driven Development — O Guia Definitivo 2026",
+    "tema": "metodologia",
+    "url": "https://thebcms.com/blog/spec-driven-development",
+    "data": "2026-06-25",
+    "bullets": [
+      "Guia abrangente que cobre SDD desde os fundamentos até implementação — bom ponto de entrada para quem está começando",
+      "Define os 4 tipos de spec: Functional Spec (o quê o sistema faz), Technical Spec (como é construído), API Spec (contratos de interface) e Test Spec (critérios de aceitação)",
+      "Explica como SDD se diferencia de BDD (Behavior-Driven Development) e TDD (Test-Driven Development) — são complementares, não excludentes",
+      "Apresenta o padrão EARS (Easy Approach to Requirements Syntax) para escrever histórias de usuário que agentes conseguem interpretar corretamente",
+      "Inclui checklist de qualidade de spec: toda spec deve ser testável, não ambígua, completa, consistente e rastreável"
+    ],
+    "importancia": "O guia consolida o vocabulário e os conceitos de SDD em um único lugar, com exemplos para cada tipo de spec. Útil como referência rápida ao estruturar specs para Claude Code — especialmente o checklist de qualidade e o padrão EARS.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Tutorial — Spec-Driven Development com Claude Code (DataCamp)",
+    "tema": "metodologia",
+    "url": "https://www.datacamp.com/tutorial/spec-driven-development-with-claude-code",
+    "data": "2026-06-25",
+    "bullets": [
+      "Tutorial prático do DataCamp especificamente sobre SDD com Claude Code — cobre todo o fluxo do zero",
+      "O CLAUDE.md funciona como memória persistente de specs entre sessões: escrita uma vez, aplicada automaticamente em toda conversa",
+      "Mostra como usar subagentes do Claude Code para execução paralela de tasks derivadas da spec",
+      "Demonstra o uso de hooks para validar automaticamente que o código gerado cumpre a spec antes de commitar",
+      "Inclui template de spec reutilizável: seções de contexto, requisitos funcionais, restrições técnicas e critérios de aceitação"
+    ],
+    "importancia": "DataCamp é uma plataforma de ensino técnico respeitada, e este tutorial é o mais direto para aplicar SDD com Claude Code especificamente — não requer background de desenvolvedor. Altamente aplicável ao contexto de usar Claude Code como ferramenta de trabalho.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Spec-Driven Development com Claude Code na prática — alexop.dev",
+    "tema": "metodologia",
+    "url": "https://alexop.dev/posts/spec-driven-development-claude-code-in-action/",
+    "data": "2026-06-25",
+    "bullets": [
+      "Relato de caso real de aplicação de SDD com Claude Code em um projeto de produção",
+      "O autor mostra como estruturar o CLAUDE.md como spec persistente e como quebrar projetos maiores em specs menores por feature",
+      "Demonstra que sessions longas sem spec acumulam \"deriva\" — o modelo vai afastando-se do objetivo original a cada turno",
+      "A spec funciona como âncora: em cada nova sessão, o Claude relê o CLAUDE.md e retoma exatamente de onde parou sem perder contexto",
+      "Inclui template real de spec usado em produção com seções: Objetivo, Contexto, Requisitos, Restrições, Critérios de Aceitação"
+    ],
+    "importancia": "Um caso real, não um tutorial idealizado. A observação sobre \"deriva de sessão\" é especialmente relevante para quem usa Claude Code em projetos longos — uma spec no CLAUDE.md resolve o problema estruturalmente.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Spec-Driven Development — Do Código ao Contrato na Era dos AI Coding Assistants",
+    "tema": "metodologia",
+    "url": "https://arxiv.org/html/2602.00180v1",
+    "data": "2026-06-25",
+    "bullets": [
+      "Paper acadêmico (arxiv) que formaliza SDD como paradigma de engenharia de software para a era de assistentes de código IA",
+      "Define formalmente que em SDD a especificação é o artefato primário e o código é o output gerado — inversão do modelo tradicional",
+      "Analisa como specs reduzem o espaço de busca do modelo de linguagem, resultando em código mais consistente e auditável",
+      "Propõe métricas para medir aderência entre spec e código gerado — o que falta em ferramentas atuais",
+      "Identifica como principal limitação atual a ausência de validação automática de specs antes da geração"
+    ],
+    "importancia": "Ter um paper no arxiv sobre SDD sinaliza que a prática está sendo formalizada academicamente — não é apenas hype de produto. As métricas propostas ajudam a entender quando uma spec é boa o suficiente para um agente executar autonomamente.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Kiro — IDE da AWS construída para Spec-Driven Development",
+    "tema": "ferramentas",
+    "url": "https://kiro.dev/docs/specs/",
+    "data": "2026-06-25",
+    "bullets": [
+      "Kiro é uma IDE lançada pela AWS em julho de 2025 construída nativamente para SDD, substituta do Amazon Q Developer",
+      "Gera automaticamente 3 documentos ao iniciar um projeto: requirements.md (histórias de usuário em EARS notation), design.md (arquitetura técnica) e tasks.md (passos atômicos de implementação)",
+      "Inclui Spec Editor com suporte a OpenAPI, JSON Schema e formatos customizados — o spec vira a fonte de verdade do projeto",
+      "Monitora arquivos de rotas de API e atualiza automaticamente a especificação OpenAPI quando o código muda",
+      "Automated hooks verificam se o código gerado está aderente à spec antes de cada commit"
+    ],
+    "importancia": "Kiro é evidência de que grandes players (AWS) estão apostando em SDD como o modelo padrão de desenvolvimento com IA. Mesmo usando Claude Code em vez do Kiro, a estrutura de 3 documentos (requirements + design + tasks) é um padrão diretamente adaptável.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Curso — Spec-Driven Development com Coding Agents (DeepLearning.AI)",
+    "tema": "metodologia",
+    "url": "https://www.deeplearning.ai/courses/spec-driven-development-with-coding-agents",
+    "data": "2026-06-25",
+    "bullets": [
+      "Curso oficial da DeepLearning.AI (Andrew Ng) sobre SDD com agentes de código — gratuito e certificado",
+      "Cobre o ciclo completo Specify → Plan → Implement → Validate usando agentes de IA como executor",
+      "Ensina a estruturar specs em markdown que agentes conseguem seguir de forma autônoma por múltiplas sessões",
+      "Inclui módulos sobre como decompor um problema em tasks atômicas para o agente executar passo a passo",
+      "Aborda como o CLAUDE.md funciona como memória persistente de specs entre sessões — relevante diretamente para Claude Code"
+    ],
+    "importancia": "DeepLearning.AI é a principal plataforma de educação em IA do mundo (fundada por Andrew Ng). Um curso específico sobre SDD com agentes valida que a metodologia é o caminho padrão para trabalhar com coding agents — não uma preferência pessoal.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Como escrever uma boa spec para agentes de IA — Addy Osmani",
+    "tema": "prompts",
+    "url": "https://addyosmani.com/blog/good-spec/",
+    "data": "2026-06-25",
+    "bullets": [
+      "Uma spec para agente de IA precisa responder 6 perguntas obrigatórias — deixar qualquer uma em aberto faz o agente responder por conta própria, geralmente de forma indesejada",
+      "As 6 perguntas: O que o sistema faz? Quem usa? Quais são os limites (in-scope / out-of-scope)? Quais são as restrições técnicas? Como o sucesso é medido? O que pode dar errado?",
+      "Specs focadas em comportamento e interfaces de estado produzem código mais robusto do que specs focadas em layout ou aparência visual",
+      "O nível de detalhe deve ser proporcional à irreversibilidade da decisão — decisões de arquitetura exigem mais detalhe",
+      "Specs iterativas são melhores que specs completas: comece pequeno, refine com o feedback do agente"
+    ],
+    "importancia": "Addy Osmani é Engineering Manager no Google Chrome. Seu framework de 6 perguntas é direto ao ponto e aplicável imediatamente ao Claude Code — qualquer task complexa fica melhor com essas perguntas respondidas antes de começar.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Headroom: Camada de Compressão de Contexto para Agentes IA",
+    "tema": "ferramentas",
+    "url": "https://github.com/headroomlabs-ai/headroom",
+    "data": "2026-06-22",
+    "bullets": [
+      "Reduz 60-95% de tokens consumidos em prompts, logs, RAG chunks e histórico de conversas antes de chegar ao LLM",
+      "Funciona como library Python/TypeScript, proxy transparente, wrapper de agentes ou servidor MCP - sem mudanças de código",
+      "Usa 6 algoritmos especializados (SmartCrusher, CodeCompressor, Kompress-base) com compressão reversível (CCR) e cache KV otimizado"
+    ],
+    "importancia": "Para Heads de Growth em Martech, reduzir tokens em 60-95% impacta direto no custo por API call e na viabilidade financeira de automações com Claude Code. A compatibilidade com múltiplos agentes e o modo proxy zero-code facilitam implementação rápida sem reescrever fluxos existentes.",
+    "fonte": "github-stars",
+    "github_repo": "headroomlabs-ai/headroom",
+    "github_stars": "46410"
+  },
+  {
+    "titulo": "yt-dlp: Downloader de Áudio/Vídeo Open Source com 172k Estrelas",
+    "tema": "ferramentas",
+    "url": "https://github.com/yt-dlp/yt-dlp",
+    "data": "2026-06-20",
+    "bullets": [
+      "Ferramenta CLI para download de áudio/vídeo de milhares de sites com suporte multiplataforma",
+      "Arquitetura modular com sistema de plugins, permitindo extensões customizadas e automação",
+      "Integração via API Python para embed em workflows e automação de coleta de conteúdo"
+    ],
+    "importancia": "Para Heads de Growth em Martech, yt-dlp é um ativo crítico para automação de coleta, processamento e análise de conteúdo em larga escala. Pode ser integrado via Claude Code para criar workflows de extração de dados de vídeo, análise de metadata e geração de insights de conteúdo concorrente, acelerando pesquisa de mercado e validação de estratégias.",
+    "fonte": "github-stars",
+    "github_repo": "yt-dlp/yt-dlp",
+    "github_stars": "172034"
+  },
+  {
+    "titulo": "Catálogo de 5300+ Skills OpenClaw para Automação e Integração",
+    "tema": "ferramentas",
+    "url": "https://github.com/VoltAgent/awesome-openclaw-skills",
+    "data": "2026-06-20",
+    "bullets": [
+      "Repositório centralizado com 5.300+ skills comunitárias organizadas por categoria para estender funcionalidades do OpenClaw",
+      "Instalação simplificada via CLI (openclaw skills install) ou manual em ~/.openclaw/skills/ com prioridade de workspace",
+      "Curado com filtros de segurança: spam, duplicatas, qualidade baixa, malware - excluindo 7.215 skills inadequadas"
+    ],
+    "importancia": "Para Heads de Growth em Martech, é essencial ter acesso a um ecossistema robusto de integrações prontas (GitHub, Slack, Gmail, etc.) que economizam tempo de desenvolvimento e permitem automatizar workflows críticos de Growth - desde lead capture até análise de dados - usando Claude Code como orquestrador central.",
+    "fonte": "github-stars",
+    "github_repo": "VoltAgent/awesome-openclaw-skills",
+    "github_stars": "50432"
+  },
+  {
+    "titulo": "Claude-Mem: Sistema de Memória Persistente para Claude Code",
+    "tema": "ferramentas",
+    "url": "https://github.com/thedotmack/claude-mem",
+    "data": "2026-06-20",
+    "bullets": [
+      "Sistema de compressão de memória que preserva contexto entre sessões automaticamente",
+      "Captura observações de ferramentas, gera resumos semânticos e disponibiliza para futuras sessões",
+      "Instalação simples via NPX com suporte para Claude Code, Gemini CLI e OpenCode",
+      "Mantém continuidade de conhecimento sobre projetos mesmo após encerramento de sessões"
+    ],
+    "importancia": "Para um Head de Growth em Martech, Claude-Mem elimina a necessidade de recontextualizar o IA a cada sessão, permitindo workflows mais produtivos em Claude Code. Isso acelera ciclos de desenvolvimento de features, automações e análises, reduzindo overhead cognitivo e aumentando o ROI de tempo dedicado à IA engineering.",
+    "fonte": "github-stars",
+    "github_repo": "thedotmack/claude-mem",
+    "github_stars": "83371"
+  },
+  {
+    "titulo": "Setup ideal de Claude Code para codebases grandes",
+    "tema": "setup",
+    "url": "https://www.youtube.com/watch?v=lGalJmyI78w",
+    "data": "2026-06-20",
+    "bullets": [
+      "Estruturação correta do arquivo CLAUDE.md como base do projeto",
+      "Diferenciação entre modo de planejamento e execução direta conforme contexto",
+      "Organização eficiente de skills para reutilização em projetos",
+      "Configurações críticas de settings.json para dados e automação"
+    ],
+    "importancia": "Para Heads de Growth em Martech, um setup otimizado de Claude Code reduz ciclos de desenvolvimento, escalabiliza automações de dados e permite aproveitar melhor a IA para workflows complexos, direto na ferramenta de trabalho diário.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Career-Ops: Sistema Multi-Agente IA para Busca Estratégica de Emprego",
+    "tema": "agentes",
+    "url": "https://github.com/santifer/career-ops",
+    "data": "2026-06-20",
+    "bullets": [
+      "Sistema de avaliação automatizada de ofertas com scoring A-F em 10 dimensões ponderadas",
+      "Geração de CVs personalizados otimizados para ATS por descrição de vaga usando IA",
+      "Raspagem automática de portais (Greenhouse, Ashby, Lever) e sites de empresas com Playwright",
+      "Processamento em lote com sub-agentes paralelos para avaliar 10+ ofertas simultaneamente",
+      "Rastreamento centralizado com verificações de integridade e source of truth único"
+    ],
+    "importancia": "Demonstra como arquitetar um sistema multi-agente em produção para automação de workflows complexos, usando Claude Code para orquestração inteligente. É um case real de aplicar IA em pipeline de dados, análise comparativa e geração de artefatos personalizados - habilidades essenciais para Growth/Martech.",
+    "fonte": "github-stars",
+    "github_repo": "santifer/career-ops",
+    "github_stars": "54894"
+  },
+  {
+    "titulo": "Open Design: alternativa open-source para design com IA",
+    "tema": "ferramentas",
+    "url": "https://github.com/nexu-io/open-design",
+    "data": "2026-06-20",
+    "bullets": [
+      "Workspace agentic all-in-one que integra descoberta de referências, edição interativa, feedback paralelo e handoff para agentes de código",
+      "150 design systems prontos, 261 plugins e 21 coding agents; suporta Claude, GPT, Gemini, DeepSeek via Agentic Model Router",
+      "Gera protótipos web/desktop/mobile, dashboards ao vivo, decks e vídeos em HTML/PDF/PPTX/MP4 nativamente, sem pixel pushing"
+    ],
+    "importancia": "Para Heads de Growth em Martech, Open Design elimina silos entre design e desenvolvimento ao transformar sistemas de design em executáveis de IA, acelerando go-to-market de produtos e interfaces. Integra nativamente com Claude Code e outros agentes, permitindo automação end-to-end de workflows de design e reduzindo time-to-delivery.",
+    "fonte": "github-stars",
+    "github_repo": "nexu-io/open-design",
+    "github_stars": "68207"
+  },
+  {
+    "titulo": "Material UI: Biblioteca React com Design System do Google",
+    "tema": "ferramentas",
+    "url": "https://github.com/mui/material-ui",
+    "data": "2026-06-20",
+    "bullets": [
+      "Biblioteca completa de componentes React baseada no Material Design do Google, com mais de 98k estrelas no GitHub",
+      "Testada em produção por décadas e milhares de contribuidores open-source, confiável para produtos de grandes empresas",
+      "Extensível via MUI X para casos avançados; suporta múltiplas versões com migração documentada (v0 até v6)"
+    ],
+    "importancia": "Para um Head de Growth em Martech, Material UI reduz tempo de desenvolvimento de interfaces, permite prototipagem rápida com Claude Code e assegura consistência visual em produtos—crítico para velocidade de iteração e validação de features com usuários.",
+    "fonte": "github-stars",
+    "github_repo": "mui/material-ui",
+    "github_stars": "98437"
+  },
+  {
+    "titulo": "Melhores práticas para Claude Code: Gestão de contexto e verificação",
+    "tema": "metodologia",
+    "url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+    "data": "2026-06-20",
+    "bullets": [
+      "Gerenciar a janela de contexto é o recurso mais crítico - performance degrada conforme ela se enche com mensagens, leitura de arquivos e outputs de comandos",
+      "Fornecer verificação automática (testes, builds, screenshots) permite que Claude itere independentemente até o sucesso, sem precisar de sua supervisão constante",
+      "Separar exploração e planejamento da implementação evita resolver o problema errado - use plan mode para entender a codebase antes de codificar"
+    ],
+    "importancia": "Para um Head de Growth em Martech, entender essas práticas é fundamental para usar Claude Code eficientemente em projetos de automação e integração. A gestão correta de contexto e verificação automática acelera prototipagem e deployment, liberando tempo para estratégia ao invés de revisão constante de código.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Checklist de Segurança Digital Pessoal e Corporativa",
+    "tema": "ferramentas",
+    "url": "https://github.com/lissy93/personal-security-checklist",
+    "data": "2026-06-20",
+    "bullets": [
+      "Repositório com 21.7K stars oferecendo checklist completa para segurança digital em formato interativo (website, API e markdown)",
+      "Dados estruturados em YAML reutilizáveis via API REST documentada em OpenAPI/Swagger para automação e integração",
+      "Stack moderno (Qwik + TypeScript + DaisyUI) com filtros por threat model, progresso visual e deploy facilitado em CDN/Vercel"
+    ],
+    "importancia": "Para um Head de Growth em Martech, representa um padrão de product-led growth: transformar conteúdo em ferramenta (website + API), permitir integração em terceiros e criar feedback loops visuais. Usando Claude Code, você pode integrar essa API para automatizar auditorias de segurança em clientes, gerar relatórios personalizados ou construir workflows que garantam compliance antes de onboarding.",
+    "fonte": "github-stars",
+    "github_repo": "lissy93/personal-security-checklist",
+    "github_stars": "21711"
+  },
+  {
+    "titulo": "Awesome Mac: Curadoria de Ferramentas e Apps para macOS",
+    "tema": "ferramentas",
+    "url": "https://github.com/jaywcjlove/awesome-mac",
+    "data": "2026-06-20",
+    "bullets": [
+      "Repositório com 106k+ estrelas listando aplicações, ferramentas e recursos para macOS",
+      "Cobre produtividade, desenvolvimento, design, utilitários e aplicações especializadas",
+      "Recurso comunitário para descoberta e recomendação de software para ecossistema Apple"
+    ],
+    "importancia": "Para um Head de Growth em Martech usando Claude Code, esse repositório é essencial como referência de ferramentas que otimizam fluxo de trabalho em macOS, desde automação até análise de dados, acelerando prototipagem e implementação de soluções de growth.",
+    "fonte": "github-stars",
+    "github_repo": "jaywcjlove/awesome-mac",
+    "github_stars": "106040"
+  },
+  {
+    "titulo": "Awesome Claude Code - Recursos para Agentes e Desenvolvimento",
+    "tema": "agentes",
+    "url": "https://github.com/hesreallyhim/awesome-claude-code",
+    "data": "2026-06-20",
+    "bullets": [
+      "Coleção curada de recursos de alta qualidade para Claude Code, agente da Anthropic",
+      "Inclui skills, agentes, hooks, orquestradores e ferramentas de desenvolvimento",
+      "Focado em qualidade de código, segurança e originalidade para iniciantes e experientes",
+      "Em reorganização com novo sistema de classificação, refletindo evolução da plataforma"
+    ],
+    "importancia": "Para Heads de Growth em Martech, este repositório é essencial como fonte centralizada de padrões, automações e agentes prontos que aceleram a implementação de Claude Code em workflows. Reduz curva de aprendizado e oferece blueprints testados para aumentar produtividade e qualidade técnica na execução de projetos.",
+    "fonte": "github-stars",
+    "github_repo": "hesreallyhim/awesome-claude-code",
+    "github_stars": "46910"
+  },
+  {
+    "titulo": "TimesFM: Modelo de Foundation para Previsão de Séries Temporais",
+    "tema": "ferramentas",
+    "url": "https://github.com/google-research/timesfm",
+    "data": "2026-06-20",
+    "bullets": [
+      "Foundation Model de 200M parâmetros do Google Research para forecasting de séries temporais com suporte a contexto de até 16k tokens",
+      "Integrado nativamente em produtos Google (BigQuery ML, Sheets, Vertex AI) com endpoints dockerizados para chamadas agentic",
+      "Suporta fine-tuning via LoRA, quantile forecasting contínuo até 1k horizonte e covariáveis via XReg, instalável via PyPI com backends Torch ou Flax"
+    ],
+    "importancia": "Para Heads de Growth em Martech, TimesFM é crítico para automatizar previsões de receita, churn e demanda com modelos enterprise-grade. Como ferramenta Claude Code-compatível, permite criar agentes que acessem BigQuery/Sheets para análises preditivas em tempo real, acelerando decisões data-driven e escalando operações de Growth sem overhead de Data Science customizado.",
+    "fonte": "github-stars",
+    "github_repo": "google-research/timesfm",
+    "github_stars": "24425"
+  },
+  {
+    "titulo": "Awesome Design Tools: Catálogo de 40+ ferramentas de design",
+    "tema": "ferramentas",
+    "url": "https://github.com/goabstract/Awesome-Design-Tools",
+    "data": "2026-06-20",
+    "bullets": [
+      "Repositório colaborativo com 40.307 estrelas listando ferramentas de design, prototipagem, acessibilidade e handoff",
+      "Inclui plugins, conferências, UI kits e comunidade ativa de contribuições via GitHub",
+      "Agora integrado à Abstract, plataforma de entrega de design com foco em visibilidade e previsibilidade"
+    ],
+    "importancia": "Para um Head de Growth em Martech, este repositório é essencial para mapear e integrar ferramentas de design que aceleram prototipagem, handoff e colaboração entre times, impactando diretamente na velocidade de iteração de produtos e na escalabilidade de processos com Claude Code.",
+    "fonte": "github-stars",
+    "github_repo": "goabstract/Awesome-Design-Tools",
+    "github_stars": "40307"
+  },
+  {
+    "titulo": "Firecrawl: API para web scraping e interação com agentes IA",
+    "tema": "ferramentas",
+    "url": "https://github.com/firecrawl/firecrawl",
+    "data": "2026-06-20",
+    "bullets": [
+      "API completa para search, scrape e interact com a web em escala, cobrindo 96% dos sites incluindo páginas JS-heavy",
+      "Saídas otimizadas para LLMs (markdown limpo, JSON estruturado, screenshots) que reduzem tokens e melhoram aplicações de IA",
+      "Pronto para agentes: integração direta com clientes MCP, com ações de automação (click, scroll, write) e orquestração transparente"
+    ],
+    "importancia": "Para Heads de Growth em Martech, Firecrawl é essencial para automatizar coleta de dados web em larga escala com saídas nativas para Claude Code e agentes IA, eliminando complexidade de proxies e rate limits. Isso acelera pipelines de enriquecimento de dados, pesquisa competitiva e geração de conteúdo baseado em contexto web real.",
+    "fonte": "github-stars",
+    "github_repo": "firecrawl/firecrawl",
+    "github_stars": "135714"
+  },
+  {
+    "titulo": "Claude Code best practices — Cal Rueb (Anthropic)",
+    "tema": "metodologia",
+    "url": "https://www.youtube.com/watch?v=gv0WHhKelSE",
+    "data": "2026-06-20",
+    "bullets": [
+      "Use CLAUDE.md para dar contexto persistente ao Claude sem repetir instruções a cada sessão.",
+      "Divida tarefas grandes em subtarefas menores usando o modo de planejamento antes de executar.",
+      "Skills permitem ensinar o Claude uma vez e reutilizar o comportamento em múltiplos projetos."
+    ],
+    "importancia": "Para um Head de Growth sem background técnico, essas práticas são o que separa \"conseguir fazer uma coisa\" de \"fazer de forma consistente e escalável\" — o Claude se comporta de forma previsível quando o contexto está bem definido.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Codebase-Memory MCP: Motor de Inteligência de Código para Agentes IA",
+    "tema": "mcp",
+    "url": "https://github.com/DeusData/codebase-memory-mcp",
+    "data": "2026-06-20",
+    "bullets": [
+      "Indexa repositórios em milissegundos (kernel Linux com 28M LOC em 3 minutos) através de AST analysis com tree-sitter em 158 linguagens",
+      "Reduz tokens em 120x (3.400 vs 412.000) e tool calls em 2.1x vs exploração arquivo-por-arquivo, com análise semântica Hybrid LSP",
+      "Funciona como binário estático único, sem dependências, plug-and-play em 11 agentes (Claude Code, Gemini CLI, Zed, Aider, VS Code, etc)",
+      "Oferece 14 ferramentas MCP: busca, rastreamento de chamadas, análise de impacto, queries Cypher, detecção de código morto e linking HTTP cross-service"
+    ],
+    "importancia": "Para Heads de Growth em Martech usando Claude Code, isso multiplica a velocidade de desenvolvimento IA e reduz custos de tokens drasticamente, permitindo análises complexas de codebase com minimal overhead. O plugin resolve o gargalo crítico de exploração de código em pipelines de AI Engineering, liberando recursos para escalar automações de growth.",
+    "fonte": "github-stars",
+    "github_repo": "DeusData/codebase-memory-mcp",
+    "github_stars": "9128"
+  },
+  {
+    "titulo": "Data Engineering Handbook: Guia Completo para Engenheiros de Dados",
+    "tema": "metodologia",
+    "url": "https://github.com/DataExpert-io/data-engineer-handbook",
+    "data": "2026-06-20",
+    "bullets": [
+      "Repositório com 41.733 estrelas oferecendo roadmap, bootcamps gratuitos e recursos estruturados para aprender data engineering do zero até nível intermediário",
+      "Curadoria de 25+ livros essenciais, comunidades ativas e lista abrangente de tecnologias modernas (orquestração, data lakes, warehouses, qualidade de dados, integração)",
+      "Projetos práticos, preparação para entrevistas e conexão com comunidades especializadas (DataExpert.io, Data Talks Club, AdalFlow) para aplicação do conhecimento"
+    ],
+    "importancia": "Para um Head de Growth em Martech, este handbook oferece estrutura sistemática para entender pipelines de dados, qualidade e integração—competências críticas ao usar Claude Code para automatizar workflows de dados que alimentam decisões de growth. Conhecer o ecossistema (dbt, Airbyte, DuckDB) acelera implementação de soluções data-driven com IA.",
+    "fonte": "github-stars",
+    "github_repo": "DataExpert-io/data-engineer-handbook",
+    "github_stars": "41733"
+  },
+  {
+    "titulo": "Guia Completo de Prompt Engineering para LLMs",
+    "tema": "prompts",
+    "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+    "data": "2026-06-20",
+    "bullets": [
+      "Repositório com 75k+ estrelas que consolida técnicas, papers e ferramentas de prompt engineering para modelos de linguagem",
+      "Cobre desde fundamentos (zero-shot, few-shot) até técnicas avançadas (Chain-of-Thought, RAG, ReAct, Tree of Thoughts)",
+      "Oferece cursos práticos, guias estruturados e 3+ milhões de aprendizes, com suporte em 13 idiomas"
+    ],
+    "importancia": "Para um Head de Growth em Martech, este guia é essencial para dominar a otimização de prompts no Claude Code, aumentando a produtividade na criação de automações, análise de dados e desenvolvimento de features alimentadas por IA. Conhecer técnicas como RAG e prompt chaining permite construir workflows mais sofisticados que diferenciam produtos e aceleramo crescimento.",
+    "fonte": "github-stars",
+    "github_repo": "dair-ai/Prompt-Engineering-Guide",
+    "github_stars": "75783"
+  },
+  {
+    "titulo": "Como Funcionários da Anthropic Usam Claude Code na Prática",
+    "tema": "workflow",
+    "url": "https://www.youtube.com/watch?v=pRfIWmddRsE",
+    "data": "2026-06-20",
+    "bullets": [
+      "Profissionais não-técnicos utilizam Claude Code para análise de dados sem necessidade de expertise em engenharia",
+      "Automação de tarefas repetitivas aumenta produtividade de equipes não-desenvolvedoras",
+      "Geração de relatórios profissionais e estruturados através de prompts bem direcionados"
+    ],
+    "importancia": "Demonstra que Claude Code não é exclusivo para engenheiros, permitindo que Heads de Growth automatizem análises de dados, gerem insights e criem relatórios de forma independente. Isso reduz dependência de recursos técnicos e acelera ciclos de decisão em crescimento e produto.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Como Engenheiros da Anthropic Fazem Prompts para Claude Code",
+    "tema": "prompts",
+    "url": "https://www.youtube.com/watch?v=qOvc9IUKEIc",
+    "data": "2026-06-20",
+    "bullets": [
+      "Estruturação de tarefas seguindo padrões específicos utilizados pelos engenheiros da Anthropic",
+      "Uso estratégico do arquivo CLAUDE.md para instruções contextualizadas e estruturadas",
+      "Aproveitamento do modo de planejamento para decomposição eficaz de problemas complexos",
+      "Padrões de prompt comprovados que geram resultados superiores em codebases grandes"
+    ],
+    "importancia": "Aprender como os próprios criadores do Claude Code estruturam prompts permite otimizar significativamente a produtividade em projetos de Growth/Martech. Esses padrões testados garantem instruções mais claras, respostas mais precisas e automação mais eficiente de tarefas de desenvolvimento, economizando tempo crítico na execução de estratégias de crescimento.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Claude Code para Iniciantes - Do Zero ao Workflow Produtivo",
+    "tema": "setup",
+    "url": "https://www.youtube.com/watch?v=gh2_PhgZGsM",
+    "data": "2026-06-20",
+    "bullets": [
+      "Instalação e configuração inicial do Claude Code",
+      "Estrutura de projetos e criação eficiente de CLAUDE.md",
+      "Primeiros prompts e exemplos práticos de análise de dados",
+      "Automação de tarefas e workflow produtivo completo"
+    ],
+    "importancia": "Fornece fundação sólida para implementar Claude Code como ferramenta de automação em estratégias de Growth, permitindo estruturar projetos de forma escalável e reproduzível. Essential para Heads de Growth que buscam otimizar análise de dados e workflows repetitivos usando IA como vantagem competitiva.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Claude Code: melhores práticas para projetos reais",
+    "tema": "setup",
+    "url": "https://www.youtube.com/watch?v=gv0WHhKelSE",
+    "data": "2026-06-20",
+    "bullets": [
+      "Usar CLAUDE.md para manter contexto persistente e reutilizável em projetos",
+      "Aplicar modo de planejamento antes de executar tarefas de grande complexidade",
+      "Criar skills reutilizáveis para aumentar eficiência e consistência do trabalho",
+      "Estruturar prompts adequadamente para garantir resultados consistentes",
+      "Conhecer como a própria Anthropic usa Claude Code internamente no dia a dia"
+    ],
+    "importancia": "Essas práticas permitem que Heads de Growth em Martech automatizem fluxos de trabalho complexos de forma mais eficiente, reutilizem soluções testadas e mantenham consistência em análises e implementações usando Claude Code. Aprender como a Anthropic usa a ferramenta internamente oferece insights valiosos para otimizar produtividade e escalabilidade.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Claude Code Live - Webinar Anthropic",
+    "tema": "outros",
+    "url": "https://www.anthropic.com/webinars/claude-code-live",
+    "data": "2026-06-20",
+    "bullets": [
+      "Conteúdo não disponível - erro 403 de acesso",
+      "URL retornou resposta de acesso proibido",
+      "Impossível extrair informações do webinar"
+    ],
+    "importancia": "Sem acesso ao conteúdo original, não é possível extrair insights relevantes sobre Claude Code para aplicações em Growth/Martech. Recomenda-se tentar acessar o recurso posteriormente ou buscar conteúdo alternativo da Anthropic.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Headroom: Compressão de Contexto para Agentes IA",
+    "tema": "ferramentas",
+    "url": "https://github.com/chopratejas/headroom",
+    "data": "2026-06-20",
+    "bullets": [
+      "Reduz tokens em 60-95% comprimindo prompts, logs, RAG chunks e histórico de conversas antes de chegar ao LLM",
+      "Funciona como library Python/TypeScript, proxy zero-code, wrapper de agentes (Claude, Cursor, Codex) e servidor MCP",
+      "6 algoritmos reversíveis (SmartCrusher, CodeCompressor, Kompress-base) com armazenamento local e recuperação sob demanda"
+    ],
+    "importancia": "Para Heads de Growth em Martech, reduzir custos de tokens em 60-95% impacta diretamente na margem de operações com IA e permite escalar agentes mais complexos. Como ferramenta que se integra nativamente com Claude Code e qualquer framework, permite otimizar workflows de automação sem reengenharia.",
+    "fonte": "github-stars",
+    "github_repo": "chopratejas/headroom",
+    "github_stars": "41350"
+  },
+  {
+    "titulo": "OpenMontage: Sistema Agentic Open-Source para Produção de Vídeo",
+    "tema": "agentes",
+    "url": "https://github.com/calesthio/OpenMontage",
+    "data": "2026-06-20",
+    "bullets": [
+      "Plataforma open-source que transforma assistentes de IA em estúdio completo de produção de vídeo com pesquisa, roteirização, geração de assets e edição automatizados",
+      "Cria vídeos reais com clipes de motion de repositórios abertos e stock footage, não apenas animações estáticas, com custos entre $0.15 e $1.33 por produção",
+      "Aceita vídeos de referência (YouTube, TikTok, Reels) e analisa automaticamente transcrição, pacing, cenas e estilo para gerar múltiplos conceitos diferenciados"
+    ],
+    "importancia": "Para um Head de Growth em Martech, OpenMontage reduz drasticamente o custo e tempo de produção de conteúdo em vídeo, permitindo escalabilidade através de agentes IA. Como ferramenta de Claude Code, viabiliza automação end-to-end de workflows criativos complexos, transformando prompts em ativos prontos para distribuição em canais digitais.",
+    "fonte": "github-stars",
+    "github_repo": "calesthio/OpenMontage",
+    "github_stars": "6895"
+  },
+  {
+    "titulo": "System Prompts Leaks: Documentação de Instruções de IA",
+    "tema": "prompts",
+    "url": "https://github.com/asgeirtj/system_prompts_leaks",
+    "data": "2026-06-20",
+    "bullets": [
+      "Repositório com 43.843 estrelas documentando system prompts de todos os chatbots IA (Claude, ChatGPT, Gemini, etc.)",
+      "Inclui prompts de Claude Code, integrations (Cowork, Design, Excel, Word), e ferramentas específicas (Glob, Grep)",
+      "Atualiza regularmente com versões mais recentes (Claude Opus 4.8, Fable 5, GPT-5.5) e oferece diffs de mudanças entre versões"
+    ],
+    "importancia": "Como Head de Growth em Martech usando Claude Code, ter acesso aos system prompts reais permite entender exatamente como a IA funciona, otimizar prompts para automação de workflows, e manter-se atualizado com mudanças de comportamento entre versões - informação crítica para manter pipelines de Growth consistentes e previsíveis.",
+    "fonte": "github-stars",
+    "github_repo": "asgeirtj/system_prompts_leaks",
+    "github_stars": "43843"
+  },
+  {
+    "titulo": "Claude Code: Agente de Codificação com IA para Terminal",
+    "tema": "agentes",
+    "url": "https://github.com/anthropics/claude-code",
+    "data": "2026-06-20",
+    "bullets": [
+      "Ferramenta agentic que funciona no terminal, entendendo seu codebase e executando tarefas rotineiras via comandos em linguagem natural",
+      "Capaz de explicar código complexo, gerenciar workflows git e aceitar tags @claude no GitHub",
+      "Disponível em múltiplas plataformas (MacOS, Linux, Windows) com instalação simplificada via curl, Homebrew ou WinGet"
+    ],
+    "importancia": "Para um Head de Growth em Martech, Claude Code reduz tempo em tarefas técnicas repetitivas e acelera prototipagem de soluções, permitindo foco em estratégia de crescimento. Como ferramenta agentic nativa que entende contexto de código, integra-se perfeitamente em workflows de AI Engineering para otimizar produtividade de desenvolvimento.",
+    "fonte": "github-stars",
+    "github_repo": "anthropics/claude-code",
+    "github_stars": "133460"
+  },
+  {
+    "titulo": "ECC: Sistema operacional para agentes IA multi-plataforma",
+    "tema": "agentes",
+    "url": "https://github.com/affaan-m/ECC",
+    "data": "2026-06-20",
+    "bullets": [
+      "Sistema completo nativo para workflows de agentes com skills, memória otimizada e segurança integrada",
+      "Compatível com múltiplas plataformas: Claude Code, Cursor, GitHub Copilot, Gemini, Zed e outras",
+      "Produção-ready com 211.9K+ stars, 230+ contributors e suporte a 12+ ecossistemas de linguagem"
+    ],
+    "importancia": "Para Heads de Growth em Martech, ECC oferece uma base sólida e agnóstica para orquestrar agentes IA em produção, eliminando silos entre ferramentas diferentes e acelerando a implementação de workflows complexos com Claude Code e outras plataformas sem reimplementação de skills.",
+    "fonte": "github-stars",
+    "github_repo": "affaan-m/ECC",
+    "github_stars": "218743"
+  },
+  {
+    "titulo": "Marketing Skills",
+    "tema": "ferramentas",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Analisar um artigo e gerar versao otimizada para SEO",
+      "Criar variacoes de copy para anuncios no Google e Meta",
+      "Escrever sequencia de emails de nurturing para um produto"
+    ],
+    "importancia": "Repositorio: github.com/coreyhaines31/marketingskills",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "NotebookLM Integration",
+    "tema": "ferramentas",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Processar 10 artigos academicos e gerar um resumo comparativo",
+      "Criar flashcards automaticos de um capitulo de livro",
+      "Gerar um mapa mental de um tema a partir de multiplas fontes"
+    ],
+    "importancia": "Repositorio: github.com/PleasePrompto/notebooklm-skill",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Obsidian Skills",
+    "tema": "ferramentas",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "\"Crie uma nota de reuniao seguindo meu template padrao\"",
+      "\"Resuma todas as notas com a tag #projeto-x\"",
+      "\"Quais notas estao relacionadas com esse topico?\" (usando os links do Obsidian)"
+    ],
+    "importancia": "Repositorio: github.com/kepano/obsidian-skills",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Awesome Claude Skills",
+    "tema": "ferramentas",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Skill de SEO: analisa um texto e sugere otimizacoes automaticamente",
+      "Skill de seguranca: audita codigo buscando vulnerabilidades especificas",
+      "Skill de design: avalia interfaces seguindo principios de UX"
+    ],
+    "importancia": "Repositorio: github.com/travisvn/awesome-claude-skills",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Claude Skills (Oficial Anthropic)",
+    "tema": "ferramentas",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Extrair tabelas de um PDF e transformar em dados estruturados",
+      "Ler uma planilha Excel e gerar analises automaticas",
+      "Processar apresentacoes e extrair os pontos principais"
+    ],
+    "importancia": "Repositorio: github.com/anthropics/skills",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Onyx",
+    "tema": "ferramentas",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "\"Qual e nossa politica de ferias?\" — o Onyx busca no Notion e responde",
+      "\"Qual foi a decisao sobre o projeto X?\" — ele busca no Slack e no Confluence",
+      "Onboarding de novos funcionarios: eles perguntam e o Onyx explica"
+    ],
+    "importancia": "Repositorio: github.com/onyx-dot-app/onyx",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Flowise",
+    "tema": "ferramentas",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Chatbot que le PDFs e responde perguntas sobre eles",
+      "Agente que pesquisa na internet e resume os resultados",
+      "Sistema de suporte ao cliente com base de conhecimento customizada"
+    ],
+    "importancia": "Repositorio: github.com/FlowiseAI/Flowise",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Dify",
+    "tema": "ferramentas",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Criar um chatbot que responde perguntas sobre o manual da empresa",
+      "Montar um fluxo que recebe um PDF e gera um resumo automatico",
+      "Construir um agente que pesquisa na web e consolida relatorios"
+    ],
+    "importancia": "Repositorio: github.com/langgenius/dify",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Everything Claude Code",
+    "tema": "ferramentas",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Rodar um agente de seguranca que escaneia vulnerabilidades no seu codigo",
+      "Gerar testes automaticamente com um slash command",
+      "Automatizar a criacao de documentacao tecnica"
+    ],
+    "importancia": "Repositorio: github.com/affaan-m/everything-claude-code",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Repomix",
+    "tema": "ferramentas",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Pedir ao Claude para revisar toda a arquitetura do projeto",
+      "Gerar documentacao automatica do codebase",
+      "Fazer refatoracoes que impactam multiplos arquivos"
+    ],
+    "importancia": "Repositorio: github.com/yamadashy/repomix",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Workflows",
+    "tema": "metodologia",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "CLAUDE.md** — <cite index=\"13-1\">está sempre carregado, sempre consumindo espaço da janela de contexto, então mantenha focado.</cite> É a memória permanente do projeto.",
+      "Comandos (`/slash`)** — <cite index=\"10-1\">use comandos slash para todo workflow de \"inner loop\" que você faz muitas vezes por dia; eles vivem em `.claude/commands/` e são versionados no git.</cite>",
+      "Skills** — playbooks reutilizáveis (ver `skills.md`)."
+    ],
+    "importancia": "Onde tudo se junta: prompts + CLAUDE.md + skills + subagentes encadeados num processo que você repete.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Skills",
+    "tema": "metodologia",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "`relatorio-ttv`** — seu fluxo de Time-to-Value com flags e desvio de cronograma.",
+      "`analise-pipeline`** — análise de pipeline do HubSpot no seu formato de abas.",
+      "`mockup-uncover`** — você já tem um design system (fundo escuro, verde-limão, serifa editorial). Uma skill que conhece esses tokens entrega mockups no padrão sem você re-explicar. (Aliás, isso já existe parcialmente nos seus skills internos da Uncover.)"
+    ],
+    "importancia": "A ideia central de skills, na frase da própria Anthropic: parar de se repetir e ensinar o Claude uma vez.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Prompts",
+    "tema": "metodologia",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "A habilidade de base. Tudo o mais (skills, agentes) é prompt organizado. Se você melhora só isto, já melhora tudo."
+    ],
+    "importancia": "A habilidade de base. Tudo o mais (skills, agentes) é prompt organizado. Se você melhora só isto, já melhora tudo.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Pontos cegos do seu raciocínio",
+    "tema": "metodologia",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Você me pediu, explicitamente, pra cobrir os erros teóricos de abordagem do seu raciocínio — possibilidades e caminhos que você não está vendo. Este arquivo é desconfortável de propósito. Leia quando "
+    ],
+    "importancia": "Você me pediu, explicitamente, pra cobrir os erros teóricos de abordagem do seu raciocínio — possibilidades e caminhos que você não está vendo. Este arquivo é desconfortável de propósito. Leia quando ",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Agentes e subagentes",
+    "tema": "metodologia",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "`explorador-de-repo`** (user-level) — pra entender repos novos da internet sem poluir seu contexto. Resolveria exatamente o problema do \"segui o tutorial e não entendi\". Pede pra ele explorar e te devolver só o resumo da arquitetura.",
+      "`revisor-de-numeros`** (project-level) — um subagente cujo único trabalho é validar os números de uma análise/planilha contra a fonte. Pega seus erros de \"rodou mas tá errado\"."
+    ],
+    "importancia": "A melhor definição curta, da Anthropic, dada no AI Engineer Summit: <cite index=\"18-1\">\"agentes são modelos usando ferramentas num loop.\"</cite> Ou seja: o modelo pensa, usa uma ferramenta, vê o resul",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "GUIA DE ESTUDO: A TESE \"SERVICE-AS-A-SOFTWARE\" E A ECONOMIA DOS AGENTES",
+    "tema": "metodologia",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Inteligência:** É o trabalho complexo baseado em regras e focado em procedimentos [6-8]. Exemplos incluem traduzir requisitos em código de software, analisar contratos padrão (NDAs), processar folha de pagamento ou converter notas clínicas em códigos de faturamento médico [6-11].",
+      "Julgamento:** É o domínio puramente humano da experiência, intuição, bom gosto e tomada de decisão de alto risco [6-8]. Exemplos incluem decidir qual funcionalidade de um produto construir, assumir dívidas técnicas de programação ou avaliar o \"fit\" cultural de um candidato durante uma entrevista de emprego [6-8, 11, 12].",
+      "Copilotos:** Vendem ferramentas de produtividade e atuam como assistentes [14-17]. O cliente continua sendo o profissional humano, que usa a ferramenta para ser mais eficiente, retendo a posse do trabalho e assumindo a responsabilidade pelo resultado final [14-16]."
+    ],
+    "importancia": "Nos últimos 20 anos, a transição para a nuvem criou o modelo de Software-as-a-Service (SaaS), uma oportunidade de US$ 350 bilhões onde as empresas de software se tornaram provedoras de serviços em nuv",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "SERVICE-AS-A-SOFTWARE PARA AGÊNCIAS DE CREATORS",
+    "tema": "metodologia",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Antes: analista passa 3h coletando dados e montando deck",
+      "Depois: dados entram via API/planilha → Claude gera narrativa → humano revisa e envia",
+      "Proponha a 1 cliente atual: pagar por resultado (ex: R$ X por creator entregue dentro do KPI)"
+    ],
+    "importancia": "---",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Fluxo: POCs rápidas de AI-coding",
+    "tema": "workflow",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Você já fez uma POC real (iRacing → BigQuery → MCP → Slides). O objetivo deste fluxo é você conseguir repetir esse tipo de coisa com intenção, entendendo cada parte — não só seguindo um tutorial."
+    ],
+    "importancia": "Você já fez uma POC real (iRacing → BigQuery → MCP → Slides). O objetivo deste fluxo é você conseguir repetir esse tipo de coisa com intenção, entendendo cada parte — não só seguindo um tutorial.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Fluxo: planilhas estruturadas",
+    "tema": "workflow",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Ler um CSV/XLSX e **reestruturar** (limpar linhas malformadas, separar abas, criar colunas calculadas).",
+      "Gerar **múltiplas abas** com fórmulas, formatação condicional e flags de qualidade.",
+      "Aplicar **regras de negócio** (\"marque vermelho se o desvio de cronograma > 15 dias\")."
+    ],
+    "importancia": "Você já trabalha muito com isso (XLSX multi-aba, flags de qualidade, métricas de desvio). O Claude Code é muito bom em gerar planilhas de verdade — não só descrever, mas criar o arquivo .xlsx.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Fluxo: configurar SaaS via MCP (HubSpot e outros)",
+    "tema": "workflow",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Autenticação você faz, não o Claude.** OAuth/login: você autoriza no navegador. Nunca cole senha, token ou número de cartão no terminal ou em arquivo.",
+      "Leitura antes de escrita.** Valide que ele lê certo antes de deixar ele alterar qualquer coisa.",
+      "Operações destrutivas (deletar, mudar permissões, enviar e-mail/mensagem) exigem sua confirmação explícita** — e algumas é melhor você fazer à mão."
+    ],
+    "importancia": "MCP é a peça que conecta o Claude às suas ferramentas (HubSpot, Notion, Slack, BigQuery, Google Drive). Você já usou MCP no projeto do iRacing — aqui está o conceito explicado e o passo a passo.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Fluxo: banco de dados (BigQuery)",
+    "tema": "workflow",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Descreva o schema.** O Claude acerta muito mais SQL se você colar a estrutura da tabela (nomes e tipos de coluna). Sem isso, ele adivinha.",
+      "Peça a query em Plan Mode primeiro.** Você lê a lógica antes de gastar processamento (BigQuery cobra por dados escaneados).",
+      "Comece com `LIMIT` e custo baixo.** Peça pra ele incluir `LIMIT 100` e usar partições/filtros de data pra não escanear a tabela inteira numa query de teste."
+    ],
+    "importancia": "Você já fez isso de forma parecida no projeto do iRacing (API → BigQuery → MCP → Slides). Aqui está o fluxo destilado e reutilizável.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Configurar o Claude Code no terminal do VS Code (Mac)",
+    "tema": "setup",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Você precisa de três coisas antes de instalar:"
+    ],
+    "importancia": "Você precisa de três coisas antes de instalar:",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Checklist do primeiro dia",
+    "tema": "setup",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Quatro exercícios curtos pra sair do \"instalei\" e chegar no \"sei usar\". Cada um leva poucos minutos. Faça na ordem."
+    ],
+    "importancia": "Quatro exercícios curtos pra sair do \"instalei\" e chegar no \"sei usar\". Cada um leva poucos minutos. Faça na ordem.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Subagente — exemplo comentado",
+    "tema": "setup",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "NÃO edite nenhum arquivo. Só leitura.",
+      "Explique como se a pessoa não soubesse programar. Defina termos técnicos em uma linha.",
+      "Entregue um resumo de no máximo 1 página. O objetivo é entendimento, não exaustão."
+    ],
+    "importancia": "---",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  },
+  {
+    "titulo": "Memória Global — Victor",
+    "tema": "setup",
+    "url": "#",
+    "data": "",
+    "bullets": [
+      "Sem jargão de programação. Se usar um termo técnico, explique em uma linha.",
+      "Responda sempre em português (Brasil).",
+      "Antes de tarefas não triviais, mostre um plano em 3 bullets e espere eu aprovar."
+    ],
+    "importancia": "Victor, Head de Growth em startup de Martech (MMM / media measurement). Não sou desenvolvedor — uso Claude Code como ferramenta de trabalho para dados, análises, automações e POCs.",
+    "fonte": "",
+    "github_repo": "",
+    "github_stars": ""
+  }
+]
