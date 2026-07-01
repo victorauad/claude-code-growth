@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>co-coach — Gerenciador</title>
+  <script src="config.local.js" onerror="void 0"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -407,7 +408,7 @@
     }
 
     // ── PAT setup ────────────────────────────────────
-    function getPAT() { return localStorage.getItem('gh_pat') || ''; }
+    function getPAT() { return (window.GH_PAT && window.GH_PAT !== 'COLE_SEU_TOKEN_AQUI' ? window.GH_PAT : null) || localStorage.getItem('gh_pat') || ''; }
 
     function savePAT() {
       const pat = document.getElementById('pat-input').value.trim();
