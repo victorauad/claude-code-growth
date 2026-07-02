@@ -124,6 +124,11 @@
               <span>📈</span> Progresso
             </button>
           </li>
+          <li>
+            <button onclick="showSection('decisoes'); loadDecisoes()" class="nav-link w-full text-left px-4 py-2.5 text-sm text-slate-700 flex items-center gap-2.5" id="nav-decisoes">
+              <span>🧠</span> Decisões
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
@@ -365,6 +370,25 @@
       </div>
 
       <!-- ===== KANBAN ===== -->
+      <!-- ===== DECISÕES ===== -->
+      <div id="section-decisoes" class="section">
+        <div class="mb-6 flex items-center justify-between">
+          <div>
+            <h2 class="text-xl font-bold text-slate-800">Diário de Decisões</h2>
+            <p class="text-sm text-slate-500 mt-1">Decisões documentadas em todos os projetos ativos.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <select id="decisoes-filter" class="text-sm border border-slate-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" onchange="renderDecisoes()">
+              <option value="">Todos os projetos</option>
+            </select>
+            <button onclick="loadDecisoes()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-1.5 rounded-lg transition">↺ Recarregar</button>
+          </div>
+        </div>
+        <div id="decisoes-list" class="space-y-4">
+          <p class="text-sm text-slate-400">Carregando...</p>
+        </div>
+      </div>
+
       <!-- ===== PROGRESSO ===== -->
       <div id="section-progresso" class="section">
         <div class="mb-6 flex items-center justify-between">
@@ -783,6 +807,89 @@
 
     function escHtml(str) {
       return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // ── Decisões ──────────────────────────────────────
+    let decisoesData = [];
+
+    async function loadDecisoes() {
+      const el = document.getElementById('decisoes-list');
+      el.innerHTML = '<p class="text-sm text-slate-400">Carregando decisões de todos os projetos...</p>';
+      decisoesData = [];
+
+      // Lê repos do sync-targets.yml via GitHub API
+      let repos = [];
+      try {
+        const yml = await ghGet('victorauad/co-coach', 'config/sync-targets.yml');
+        const text = b64decode(yml.content);
+        repos = [...text.matchAll(/- (victorauad\/\S+)/g)].map(m => m[1]);
+        // Inclui o próprio co-coach
+        if (!repos.includes('victorauad/co-coach')) repos.unshift('victorauad/co-coach');
+      } catch(e) {
+        el.innerHTML = '<p class="text-sm text-red-500">Erro ao ler sync-targets.yml: ' + e.message + '</p>';
+        return;
+      }
+
+      // Popula o filtro de projetos
+      const sel = document.getElementById('decisoes-filter');
+      sel.innerHTML = '<option value="">Todos os projetos</option>' +
+        repos.map(r => `<option value="${r}">${r.split('/')[1]}</option>`).join('');
+
+      // Busca decisoes em cada repo
+      await Promise.all(repos.map(async repo => {
+        try {
+          const files = await ghGet(repo, 'kb/decisoes');
+          const mds = files.filter(f => f.name.endsWith('.md') && !f.name.startsWith('_'));
+          await Promise.all(mds.map(async f => {
+            try {
+              const file = await ghGet(repo, 'kb/decisoes/' + f.name);
+              const text = b64decode(file.content);
+              const titulo = (text.match(/^titulo:\s*"?(.+?)"?\s*$/m) || [])[1] || f.name;
+              const data = (text.match(/^data:\s*(.+)$/m) || [])[1] || '';
+              const tema = (text.match(/^tema:\s*(.+)$/m) || [])[1] || '';
+              const projeto = repo.split('/')[1];
+              // Extrai a seção "Decisão"
+              const decisaoMatch = text.match(/## Decisão\n+([\s\S]*?)(?=\n## |$)/);
+              const resumo = decisaoMatch ? decisaoMatch[1].trim().slice(0, 200) : '';
+              decisoesData.push({ titulo, data, tema, projeto, repo, resumo, arquivo: f.name });
+            } catch(_) {}
+          }));
+        } catch(_) {} // repo sem kb/decisoes — ok
+      }));
+
+      // Ordena por data decrescente
+      decisoesData.sort((a, b) => (b.data || '').localeCompare(a.data || ''));
+      renderDecisoes();
+    }
+
+    function renderDecisoes() {
+      const el = document.getElementById('decisoes-list');
+      const filtro = document.getElementById('decisoes-filter').value;
+      const items = filtro ? decisoesData.filter(d => d.repo === filtro) : decisoesData;
+
+      if (items.length === 0) {
+        el.innerHTML = '<div class="text-center py-12 text-slate-400"><p class="text-2xl mb-2">🧠</p><p class="text-sm">Nenhuma decisão encontrada.</p><p class="text-xs mt-1">Crie um arquivo em <code>kb/decisoes/</code> de qualquer projeto.</p></div>';
+        return;
+      }
+
+      const CORES = { alamtoco: 'blue', SMPL: 'purple', 'iracing_analysis': 'green', 'co-coach': 'slate' };
+      el.innerHTML = items.map(d => {
+        const cor = CORES[d.projeto] || 'slate';
+        return `
+          <div class="bg-white rounded-xl border border-slate-200 p-5">
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                  <span class="text-xs font-semibold bg-${cor}-50 text-${cor}-700 border border-${cor}-200 px-2 py-0.5 rounded-full">${d.projeto}</span>
+                  ${d.tema ? `<span class="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">${d.tema}</span>` : ''}
+                </div>
+                <p class="text-sm font-semibold text-slate-800 mb-1">${d.titulo}</p>
+                ${d.resumo ? `<p class="text-xs text-slate-500 line-clamp-2">${d.resumo}${d.resumo.length >= 200 ? '…' : ''}</p>` : ''}
+              </div>
+              <span class="text-xs text-slate-400 shrink-0">${d.data}</span>
+            </div>
+          </div>`;
+      }).join('');
     }
 
     // ── Progresso ─────────────────────────────────────
